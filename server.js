@@ -26,8 +26,8 @@ const io = new Server(httpServer, {
 // Serve static files from dist folder
 app.use(express.static(join(__dirname, 'dist')));
 
-// Catch-all route to serve index.html for client-side routing
-app.get('*', (req, res) => {
+// Catch-all middleware to serve index.html for client-side routing
+app.use((req, res) => {
   res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
