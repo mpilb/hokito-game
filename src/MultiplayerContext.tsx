@@ -74,6 +74,20 @@ export function MultiplayerProvider({
     newSocket.on('connect', () => {
       console.log('Connected to server');
       setIsConnected(true);
+
+      // Auto-reconnect if we have saved game data
+      const savedRoomCode = localStorage.getItem('hokito_room_code');
+      const savedPlayerName = localStorage.getItem('hokito_player_name');
+      const savedPlayerColor = localStorage.getItem('hokito_player_color');
+
+      if (savedRoomCode && savedPlayerName && savedPlayerColor) {
+        console.log('Attempting auto-reconnect to room:', savedRoomCode);
+        // Try to rejoin the existing room
+        newSocket.emit('join-room', {
+          roomCode: savedRoomCode,
+          playerName: savedPlayerName
+        });
+      }
     });
 
     newSocket.on('disconnect', () => {
@@ -131,6 +145,15 @@ export function MultiplayerProvider({
     });
 
     newSocket.on('join-error', (error) => {
+      // If auto-reconnect failed, clear saved data
+      const wasAutoReconnecting = localStorage.getItem('hokito_room_code');
+      if (wasAutoReconnecting && error === 'Room not found') {
+        console.log('Auto-reconnect failed: room no longer exists');
+        localStorage.removeItem('hokito_room_code');
+        localStorage.removeItem('hokito_player_color');
+        setRoomCode(null);
+        setPlayerColor(null);
+      }
       onJoinError?.(error);
     });
 

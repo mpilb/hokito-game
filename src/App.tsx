@@ -28,7 +28,11 @@ function GameContent() {
     roomCode
   } = useMultiplayer();
 
-  const [showLobby, setShowLobby] = useState(true);
+  const [showLobby, setShowLobby] = useState(() => {
+    // Don't show lobby if we have saved game data (auto-reconnecting)
+    const savedRoomCode = localStorage.getItem('hokito_room_code');
+    return !savedRoomCode;
+  });
   const [gameState, setGameState] = useState<GameState>(() => ({
     board: initializeBoard(),
     currentPlayer: 'black',
@@ -71,6 +75,13 @@ function GameContent() {
       }
     }
   }, [gameState.board, gameState.currentPlayer, gameState.gameOver, isGameStarted]);
+
+  // Auto-hide lobby when reconnecting to a game
+  useEffect(() => {
+    if (roomCode && playerColor) {
+      setShowLobby(false);
+    }
+  }, [roomCode, playerColor]);
 
   const handleCellClick = (position: Position) => {
     if (gameState.gameOver) return;
@@ -145,6 +156,23 @@ function GameContent() {
   // Afficher le lobby si pas encore en jeu
   if (showLobby && !isGameStarted) {
     return <Lobby onStartGame={() => setShowLobby(false)} />;
+  }
+
+  // Show loading while reconnecting
+  if (!showLobby && !isGameStarted && roomCode) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 text-blanc-creme mb-4">
+            <div className="animate-pulse w-3 h-3 bg-accent rounded-full"></div>
+            <div className="animate-pulse w-3 h-3 bg-accent rounded-full delay-75"></div>
+            <div className="animate-pulse w-3 h-3 bg-accent rounded-full delay-150"></div>
+          </div>
+          <p className="text-blanc-creme text-lg">Reconnexion en cours...</p>
+          <p className="text-gris text-sm mt-2">Code: {roomCode}</p>
+        </div>
+      </div>
+    );
   }
 
   const isMyTurn = gameState.currentPlayer === playerColor;
