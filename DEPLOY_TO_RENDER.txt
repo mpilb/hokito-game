@@ -1,0 +1,143 @@
+=================================================================
+   DEPLOY YOUR HOKITO GAME TO THE INTERNET (FREE!)
+=================================================================
+
+Your code is already on GitHub at:
+https://github.com/mpilb/hokito-game
+
+Now follow these steps to deploy it:
+
+=================================================================
+STEP 1: Create Render Account
+=================================================================
+
+1. Go to: https://render.com
+
+2. Click "Get Started for Free"
+
+3. Sign up with GitHub (RECOMMENDED)
+   - Click "Sign up with GitHub"
+   - Authorize Render to access your repositories
+   - This makes deployment much easier!
+
+=================================================================
+STEP 2: Deploy Your Game
+=================================================================
+
+1. Once logged in, click "New +" (top right corner)
+
+2. Select "Web Service"
+
+3. Connect your repository:
+   - You'll see a list of your GitHub repos
+   - Find "hokito-game"
+   - Click "Connect"
+
+4. Fill in these settings:
+
+   Name: hokito-game
+   (or any name you want)
+
+   Region: Choose closest to you
+
+   Branch: main
+
+   Root Directory: (leave empty)
+
+   Runtime: Node
+
+   Build Command: npm install && npm run build
+
+   Start Command: npm start
+
+   Instance Type: Free ⭐ (THIS IS IMPORTANT!)
+
+5. Scroll down and click "Create Web Service"
+
+=================================================================
+STEP 3: Wait for Deployment
+=================================================================
+
+Watch the logs! It will:
+- Clone your code (30 seconds)
+- Install dependencies (2-3 minutes)
+- Build your React app (3-5 minutes)
+- Start the server (30 seconds)
+
+TOTAL TIME: ~5-10 minutes
+
+You'll see "Live" when it's ready!
+
+=================================================================
+STEP 4: Get Your URL
+=================================================================
+
+Your game will be live at:
+https://hokito-game-xxxx.onrender.com
+
+Copy that URL and share it with anyone!
+
+=================================================================
+HOW TO PLAY
+=================================================================
+
+1. You go to the URL
+2. Friend goes to the SAME URL
+3. You create a game, get a code
+4. Friend joins with the code
+5. Play in real-time!
+
+=================================================================
+IMPORTANT NOTES
+=================================================================
+
+FREE TIER:
+- Server sleeps after 15 min of inactivity
+- Wakes up in ~30 seconds when someone visits
+- Perfect for casual play with friends
+- ZERO COST!
+
+IF YOU WANT 24/7:
+- Go to your service settings
+- Change "Instance Type" from "Free" to "Starter" ($7/month)
+- Server stays awake all the time
+
+=================================================================
+TROUBLESHOOTING
+=================================================================
+
+BUILD FAILED?
+- Check the logs in Render dashboard
+- Usually it's a missing dependency
+- You can redeploy by clicking "Manual Deploy"
+
+CAN'T CONNECT?
+- Make sure service shows "Live" (not "Deploying")
+- Wait 30 seconds if it was sleeping
+- Try refreshing the page
+
+PLAYERS CAN'T FIND EACH OTHER?
+- Both must use the SAME URL
+- Room code must match exactly
+- Try creating a new game
+
+=================================================================
+YOUR GITHUB REPO
+=================================================================
+
+https://github.com/mpilb/hokito-game
+
+To update your game later:
+1. Make changes to your code
+2. Run: git add . && git commit -m "your message" && git push
+3. Render will automatically rebuild and redeploy!
+
+=================================================================
+DONE!
+=================================================================
+
+That's it! Your game will be on the internet!
+
+Share the URL and enjoy playing Hokito online! 🎉
+
+=================================================================

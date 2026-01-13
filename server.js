@@ -44,7 +44,28 @@ io.on('connection', (socket) => {
   console.log('Player connected:', socket.id);
 
   // Create a new game room
-  socket.on('create-room', (playerName) => {
+  socket.on('create-room', ({ playerName, existingRoomCode }) => {
+    // Check if reconnecting to existing room
+    if (existingRoomCode) {
+      const room = rooms.get(existingRoomCode);
+      if (room) {
+        const existingPlayer = room.players.find(p => p.name === playerName);
+        if (existingPlayer) {
+          // Reconnect to existing room
+          existingPlayer.id = socket.id;
+          socket.join(existingRoomCode);
+          socket.emit('room-created', {
+            roomCode: existingRoomCode,
+            color: existingPlayer.color,
+            reconnected: true
+          });
+          console.log(`${playerName} reconnected as host to room ${existingRoomCode}`);
+          return;
+        }
+      }
+    }
+
+    // Create new room
     const roomCode = generateRoomCode();
     const room = {
       code: roomCode,
@@ -72,6 +93,33 @@ io.on('connection', (socket) => {
       return;
     }
 
+    // Check if player is reconnecting (same name exists in room)
+    const existingPlayer = room.players.find(p => p.name === playerName);
+
+    if (existingPlayer) {
+      // Reconnecting player
+      existingPlayer.id = socket.id;
+      socket.join(roomCode);
+      socket.emit('room-joined', {
+        roomCode,
+        color: existingPlayer.color,
+        reconnected: true
+      });
+
+      // Notify other player about reconnection
+      socket.to(roomCode).emit('opponent-reconnected');
+      console.log(`${playerName} reconnected to room ${roomCode}`);
+
+      // If game was already started, send game-start again
+      if (room.started) {
+        socket.emit('game-start', {
+          players: room.players
+        });
+      }
+      return;
+    }
+
+    // New player joining
     if (room.players.length >= 2) {
       socket.emit('join-error', 'Room is full');
       return;

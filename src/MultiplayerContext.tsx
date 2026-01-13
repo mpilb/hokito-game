@@ -50,10 +50,17 @@ export function MultiplayerProvider({
 }: MultiplayerProviderProps) {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [isConnected, setIsConnected] = useState(false);
-  const [roomCode, setRoomCode] = useState<string | null>(null);
-  const [playerColor, setPlayerColor] = useState<Player | null>(null);
+  const [roomCode, setRoomCode] = useState<string | null>(() => {
+    return localStorage.getItem('hokito_room_code');
+  });
+  const [playerColor, setPlayerColor] = useState<Player | null>(() => {
+    const saved = localStorage.getItem('hokito_player_color');
+    return saved as Player | null;
+  });
   const [opponentName, setOpponentName] = useState<string | null>(null);
-  const [playerName, setPlayerName] = useState<string | null>(null);
+  const [playerName, setPlayerName] = useState<string | null>(() => {
+    return localStorage.getItem('hokito_player_name');
+  });
   const [isGameStarted, setIsGameStarted] = useState(false);
 
   useEffect(() => {
@@ -74,14 +81,28 @@ export function MultiplayerProvider({
       setIsConnected(false);
     });
 
-    newSocket.on('room-created', ({ roomCode, color }) => {
+    newSocket.on('room-created', ({ roomCode, color, reconnected }) => {
       setRoomCode(roomCode);
       setPlayerColor(color);
+      localStorage.setItem('hokito_room_code', roomCode);
+      localStorage.setItem('hokito_player_color', color);
+      if (reconnected) {
+        console.log('Reconnected to existing room');
+      }
     });
 
-    newSocket.on('room-joined', ({ roomCode, color }) => {
+    newSocket.on('room-joined', ({ roomCode, color, reconnected }) => {
       setRoomCode(roomCode);
       setPlayerColor(color);
+      localStorage.setItem('hokito_room_code', roomCode);
+      localStorage.setItem('hokito_player_color', color);
+      if (reconnected) {
+        console.log('Reconnected to existing room');
+      }
+    });
+
+    newSocket.on('opponent-reconnected', () => {
+      console.log('Opponent has reconnected');
     });
 
     newSocket.on('game-start', ({ players }) => {
@@ -123,13 +144,19 @@ export function MultiplayerProvider({
   const createRoom = (name: string) => {
     if (socket) {
       setPlayerName(name);
-      socket.emit('create-room', name);
+      localStorage.setItem('hokito_player_name', name);
+      const savedRoomCode = localStorage.getItem('hokito_room_code');
+      socket.emit('create-room', {
+        playerName: name,
+        existingRoomCode: savedRoomCode
+      });
     }
   };
 
   const joinRoom = (code: string, name: string) => {
     if (socket) {
       setPlayerName(name);
+      localStorage.setItem('hokito_player_name', name);
       socket.emit('join-room', { roomCode: code, playerName: name });
     }
   };
@@ -157,6 +184,9 @@ export function MultiplayerProvider({
     setPlayerColor(null);
     setOpponentName(null);
     setIsGameStarted(false);
+    // Clear saved game data
+    localStorage.removeItem('hokito_room_code');
+    localStorage.removeItem('hokito_player_color');
   };
 
   return (
