@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { GameState, Position, Cell, Player } from './types';
+import type { GameState, Position } from './types';
 import {
   initializeBoard,
   getLegalMoves,
