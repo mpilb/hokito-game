@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Très futé junior — feuillet variante C</title>
+<style>
+  @page { size: A4; margin: 9mm 10mm; }
+  :root {
+    --jaune: #E0B000; --jaune-f: #FFF5C7;
+    --bleu: #1D63C4;  --bleu-f: #E2EDFB;
+    --vert: #23893A;  --vert-f: #E0F2E3;
+    --orange: #E5730A; --orange-f: #FDE8D3;
+    --violet: #7E36AD; --violet-f: #EFE2F6;
+    --encre: #1b1b1b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif;
+    color: var(--encre);
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { width: 190mm; height: 278mm; display: flex; flex-direction: column; gap: 2mm; overflow: hidden; }
+
+  /* En-tête */
+  .entete { display: flex; align-items: flex-end; justify-content: space-between; gap: 6mm; }
+  .titre { font-size: 19pt; font-weight: bold; line-height: 1; }
+  .titre small { display: block; font-size: 10pt; font-weight: normal; margin-top: 1mm; }
+  .prenom { flex: 1; font-size: 14pt; border-bottom: 0.5mm solid var(--encre); padding-bottom: 1mm; max-width: 85mm; }
+
+  .ligne-haut { display: flex; gap: 4mm; align-items: stretch; }
+  .joker { flex: 0 0 60mm; border: 0.5mm dashed #777; border-radius: 3mm; padding: 1.5mm 2.5mm;
+           display: flex; align-items: center; gap: 2.5mm; font-size: 10.5pt; line-height: 1.25; }
+  .de-blanc { flex: 0 0 11mm; height: 11mm; border: 0.6mm solid #555; border-radius: 2.2mm; background: #fff;
+              display: flex; align-items: center; justify-content: center; font-size: 16pt; font-weight: bold; color: #555; }
+  .manches { flex: 1; border: 0.5mm solid #555; border-radius: 3mm; padding: 1.5mm 2.5mm; display: flex; align-items: center; gap: 2.5mm; }
+  .manches b { font-size: 12pt; }
+  .mcol { display: flex; flex-direction: column; gap: 1mm; }
+  .manches .cases { display: flex; gap: 1.6mm; }
+  .manche { width: 10.5mm; height: 10.5mm; border: 0.5mm solid #444; border-radius: 1.5mm; font-size: 14pt;
+            display: flex; align-items: center; justify-content: center; color: #666; }
+  .legende-m { font-size: 10pt; line-height: 1.15; white-space: nowrap; }
+  .legende-m span { font-size: 14pt; font-weight: bold; }
+
+  /* Zones */
+  .zone { border: 0.6mm solid; border-left-width: 4mm; border-radius: 3mm; padding: 1.4mm 3mm 2.2mm 3mm; }
+  .zone h2 { margin: 0 0 4mm 0; font-size: 14pt; line-height: 1.15; display: flex; align-items: baseline; gap: 2.5mm; flex-wrap: wrap; }
+  .zone h2 .consigne { font-size: 10.5pt; font-weight: normal; }
+  .jaune  { border-color: var(--jaune);  background: var(--jaune-f); }
+  .bleu   { border-color: var(--bleu);   background: var(--bleu-f); }
+  .vert   { border-color: var(--vert);   background: var(--vert-f); }
+  .orange { border-color: var(--orange); background: var(--orange-f); }
+  .violet { border-color: var(--violet); background: var(--violet-f); }
+
+  .rang { display: flex; gap: 3.4mm; align-items: center; }
+  .case { position: relative; width: 13.5mm; height: 13.5mm; background: #fff; border: 0.6mm solid #333; border-radius: 2mm;
+          display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 20pt; font-weight: bold; line-height: 1; }
+  .case.large { width: 23mm; font-size: 14pt; flex-direction: row; gap: 1.2mm; }
+  .case .ou { font-size: 8.5pt; font-weight: normal; margin: 0.4mm 0; }
+  .bonus { position: absolute; top: -4.1mm; right: -3.4mm; min-width: 7.6mm; height: 6.4mm; padding: 0 0.8mm;
+           background: #fff; border: 0.45mm solid #111; font-size: 14pt; font-weight: bold; line-height: 1;
+           display: flex; align-items: center; justify-content: center; }
+  .bonus.r { border-radius: 50%; width: 7.4mm; height: 7.4mm; min-width: 0; padding: 0; top: -4.3mm; }
+  .bonus.p { border-radius: 1.6mm; font-size: 14pt; }
+  .case:has(.bonus) { padding-top: 2mm; }
+  .c14 { font-size: 14pt; font-weight: bold; }
+
+  /* Jaune + bonus côte à côte */
+  .duo { display: flex; gap: 3mm; }
+  .duo .jaune { flex: 0 0 88mm; }
+  .grille { display: flex; flex-direction: column; gap: 3.4mm; }
+  .egal { font-size: 14pt; font-weight: bold; white-space: nowrap; margin-left: 1mm; }
+  .egal small { font-size: 10pt; font-weight: normal; }
+
+  .bonus-boite { flex: 1; border: 0.6mm solid #444; border-radius: 3mm; padding: 1.6mm 2.5mm; display: flex; flex-direction: column; justify-content: space-between; gap: 1.2mm; }
+  .bonus-boite h2 { margin: 0; font-size: 14pt; }
+  .bonus-boite .aide { font-size: 9pt; line-height: 1.2; }
+  .ligne-bonus { display: flex; align-items: center; gap: 1.6mm; }
+  .ligne-bonus .nom { flex: 0 0 15mm; font-size: 8pt; font-weight: bold; display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+  .ligne-bonus .nom .sym { font-size: 16pt; }
+  .rond { width: 9.4mm; height: 9.4mm; border: 0.5mm solid #333; border-radius: 50%; background: #fff; flex: 0 0 auto;
+          display: flex; align-items: center; justify-content: center; font-size: 7pt; text-align: center; line-height: 1; }
+  .rond.depart { background: #d9d9d9; font-weight: bold; font-size: 6pt; }
+
+  /* Tableau des points */
+  .points { display: flex; gap: 0; margin-top: 2.2mm; align-items: stretch; }
+  .points .tete { flex: 0 0 26mm; font-size: 9.5pt; line-height: 1.15; display: flex; flex-direction: column; justify-content: space-around; padding-right: 1.5mm; }
+  .points table { border-collapse: collapse; background: #fff; }
+  .points td { border: 0.35mm solid #666; width: 13.5mm; height: 6.2mm; text-align: center; font-size: 14pt; padding: 0; }
+  .points tr.pts td { font-weight: bold; }
+  .sous { display: flex; gap: 3.4mm; margin-top: 1.4mm; align-items: center; }
+  .sous div { width: 13.5mm; text-align: center; font-size: 14pt; font-weight: bold; }
+  .sous .lib { width: auto; font-size: 9.5pt; font-weight: normal; }
+
+  /* Décompte */
+  .decompte { border: 0.8mm solid var(--encre); border-radius: 3mm; padding: 1.6mm 3mm 2.4mm 3mm; }
+  .decompte h2 { margin: 0 0 1.2mm 0; font-size: 14pt; }
+  .decompte h2 span { font-size: 10pt; font-weight: normal; }
+  .calc { display: flex; align-items: flex-end; gap: 1.6mm; }
+  .calc .op { font-size: 16pt; font-weight: bold; padding-bottom: 3mm; }
+  .total-case { display: flex; flex-direction: column; align-items: center; gap: 0.8mm; }
+  .total-case .lib { font-size: 11pt; font-weight: bold; }
+  .total-case .indice { font-size: 8pt; color: #333; height: 3.2mm; white-space: nowrap; }
+  .total-case .boite { width: 23mm; height: 12mm; border: 0.6mm solid #333; border-radius: 2mm; background: #fff; }
+  .total-case.j .boite { border-color: var(--jaune); border-width: 1mm; }
+  .total-case.b .boite { border-color: var(--bleu); border-width: 1mm; }
+  .total-case.v .boite { border-color: var(--vert); border-width: 1mm; }
+  .total-case.o .boite { border-color: var(--orange); border-width: 1mm; }
+  .total-case.vi .boite { border-color: var(--violet); border-width: 1mm; }
+  .total-case.t .boite { width: 27mm; border-width: 1.2mm; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="entete">
+    <div class="titre">Très futé junior<small>Variante C · six dés avec joker · feuille de score</small></div>
+    <div class="prenom">Prénom :</div>
+  </div>
+
+  <div class="ligne-haut">
+    <div class="joker">
+      <div class="de-blanc">?</div>
+      <div><b>Dé blanc = joker.</b><br>Il compte pour la couleur de ton choix.</div>
+    </div>
+    <div class="manches">
+      <div class="mcol"><b>Manches</b>
+      <div class="cases">
+        <div class="manche">1</div><div class="manche">2</div><div class="manche">3</div>
+        <div class="manche">4</div><div class="manche">5</div><div class="manche">6</div>
+      </div></div>
+      <div class="legende-m">
+        <span>2</span> joueurs → <span>6</span> manches<br>
+        <span>3</span> joueurs → <span>5</span> manches<br>
+        <span>4</span> joueurs → <span>4</span> manches
+      </div>
+    </div>
+  </div>
+
+  <div class="duo">
+    <div class="zone jaune">
+      <h2>JAUNE <span class="consigne">Coche le nombre du dé.</span></h2>
+      <div class="grille">
+        <div class="rang">
+          <div class="case">1</div><div class="case">2</div>
+          <div class="case">3<span class="bonus r">↻</span></div>
+          <div class="egal">= 10 <small>points</small></div>
+        </div>
+        <div class="rang">
+          <div class="case">4</div><div class="case">5</div><div class="case">6</div>
+          <div class="egal">= 10 <small>points</small></div>
+        </div>
+        <div class="rang">
+          <div class="case">2</div>
+          <div class="case">4<span class="bonus p">+1</span></div>
+          <div class="case">6</div>
+          <div class="egal">= 10 <small>points</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-boite">
+      <div class="aide"><b style="font-size:14pt">BONUS</b> &nbsp;Gagné : je colorie un rond.<br>Utilisé : je fais une croix dessus.</div>
+      <div class="ligne-bonus">
+        <div class="nom"><span class="sym">↻</span>Relances</div>
+        <div class="rond depart">départ</div><div class="rond"></div><div class="rond"></div>
+        <div class="rond"></div><div class="rond"></div><div class="rond"></div>
+      </div>
+      <div class="aide">↻ : le joueur actif relance les dés qu'il vient de lancer.</div>
+      <div class="ligne-bonus">
+        <div class="nom"><span class="sym">+1</span>Dé en plus</div>
+        <div class="rond"></div><div class="rond"></div><div class="rond"></div>
+        <div class="rond"></div><div class="rond"></div>
+      </div>
+      <div class="aide"><span class="c14">+1</span> : à la fin d'un tour, je prends un des six dés.<br>Ce dé-là ne fait gagner aucun bonus.</div>
+    </div>
+  </div>
+
+  <div class="zone bleu">
+    <h2>BLEU <span class="consigne">Additionne le dé bleu et le dé blanc. Coche la somme.</span></h2>
+    <div class="rang">
+      <div class="case large">2<span class="ou">ou</span>3<span class="bonus p">+1</span></div>
+      <div class="case">4</div><div class="case">5</div><div class="case">6</div><div class="case">7</div>
+      <div class="case">8</div><div class="case">9</div><div class="case">10</div>
+      <div class="case large">11<span class="ou">ou</span>12<span class="bonus r">↻</span></div>
+    </div>
+    <div class="points">
+      <div class="tete"><span>Cases cochées</span><span><b>Points</b></span></div>
+      <table>
+        <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+        <tr class="pts"><td>2</td><td>4</td><td>6</td><td>9</td><td>12</td><td>16</td><td>20</td><td>25</td><td>30</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="zone vert">
+    <h2>VERT <span class="consigne">De gauche à droite. Le dé doit être égal ou plus grand.</span></h2>
+    <div class="rang">
+      <div class="case">1<span class="ou">ou +</span></div>
+      <div class="case">2<span class="ou">ou +</span></div>
+      <div class="case">3<span class="ou">ou +</span></div>
+      <div class="case">4<span class="ou">ou +</span><span class="bonus r">↻</span></div>
+      <div class="case">2<span class="ou">ou +</span></div>
+      <div class="case">3<span class="ou">ou +</span></div>
+      <div class="case">4<span class="ou">ou +</span><span class="bonus p">+1</span></div>
+      <div class="case">5<span class="ou">ou +</span></div>
+    </div>
+    <div class="sous">
+      <div>3</div><div>6</div><div>9</div><div>12</div><div>16</div><div>20</div><div>24</div><div>28</div>
+      <div class="lib">points<br>(dernière case cochée)</div>
+    </div>
+  </div>
+
+  <div class="zone orange">
+    <h2>ORANGE <span class="consigne">De gauche à droite. Écris le nombre du dé.</span></h2>
+    <div class="rang">
+      <div class="case"></div><div class="case"></div>
+      <div class="case"><span class="bonus r">↻</span></div>
+      <div class="case"></div><div class="case"></div>
+      <div class="case"><span class="bonus p">+1</span></div>
+      <div class="case"></div><div class="case"></div>
+    </div>
+  </div>
+
+  <div class="zone violet">
+    <h2>VIOLET <span class="consigne">De gauche à droite. Toujours plus grand qu'avant. Après un <span class="c14">6</span> : tout est permis.</span></h2>
+    <div class="rang">
+      <div class="case"></div><div class="case"></div>
+      <div class="case"><span class="bonus p">+1</span></div>
+      <div class="case"></div><div class="case"></div>
+      <div class="case"><span class="bonus r">↻</span></div>
+      <div class="case"></div><div class="case"></div>
+    </div>
+  </div>
+
+  <div class="decompte">
+    <h2>DÉCOMPTE <span>(rempli par l'adulte à la fin)</span></h2>
+    <div class="calc">
+      <div class="total-case j"><span class="lib">Jaune</span><span class="indice">rangées pleines</span><div class="boite"></div></div>
+      <div class="op">+</div>
+      <div class="total-case b"><span class="lib">Bleu</span><span class="indice">lire le tableau</span><div class="boite"></div></div>
+      <div class="op">+</div>
+      <div class="total-case v"><span class="lib">Vert</span><span class="indice">dernière case</span><div class="boite"></div></div>
+      <div class="op">+</div>
+      <div class="total-case o"><span class="lib">Orange</span><span class="indice">additionner</span><div class="boite"></div></div>
+      <div class="op">+</div>
+      <div class="total-case vi"><span class="lib">Violet</span><span class="indice">additionner</span><div class="boite"></div></div>
+      <div class="op">=</div>
+      <div class="total-case t"><span class="lib">TOTAL</span><span class="indice">&nbsp;</span><div class="boite"></div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

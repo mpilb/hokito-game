@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petits futés – feuillet B</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  :root {
+    --encre: #1b1b1b;
+    --jaune: #f4c430;   --jaune-clair: #fff4c7;
+    --bleu: #2f6fd0;    --bleu-clair: #dde9fb;
+    --vert: #2e9e4f;    --vert-clair: #dcf3e2;
+    --orange: #ee7d1c;  --orange-clair: #fde5cf;
+    --violet: #8450bd;  --violet-clair: #ece0f8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; color: var(--encre);
+    font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .feuille { width: 194mm; height: 280mm; display: flex; flex-direction: column; gap: 1.8mm; overflow: hidden; }
+  .d { font-size: 14pt; font-weight: bold; }
+
+  /* ---------- en-tête */
+  .entete { display: flex; align-items: flex-end; gap: 5mm; border-bottom: 0.6mm solid var(--encre); padding-bottom: 2mm; }
+  .titre { flex: 0 0 auto; }
+  .titre h1 { margin: 0; font-size: 19pt; letter-spacing: 0.3pt; }
+  .titre p { margin: 0.5mm 0 0; font-size: 9.5pt; }
+  .prenom { flex: 1 1 auto; font-size: 12pt; font-weight: bold; }
+  .prenom .ligne { height: 10mm; border: 0.5mm solid var(--encre); border-radius: 2mm; margin-top: 1mm; }
+  .manches { flex: 0 0 auto; font-size: 12pt; font-weight: bold; }
+  .manches .cases { display: flex; gap: 1.2mm; margin-top: 1mm; }
+  .manches .c { width: 10.5mm; height: 10.5mm; border: 0.5mm solid var(--encre); border-radius: 2mm;
+    display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: bold; color: #555; }
+  .manches .note { font-size: 9pt; font-weight: normal; margin-left: 1.5mm; }
+
+  /* ---------- zones */
+  .zone { border: 0.7mm solid var(--c); border-radius: 3mm; background: var(--cc); padding: 1.4mm 2.4mm 1.6mm; }
+  .zone h2 { margin: 0 0 1.2mm; font-size: 13pt; display: flex; align-items: baseline; gap: 2.5mm; white-space: nowrap; }
+  .zone h2 .regle { white-space: normal; }
+  .zone h2 .nom { background: var(--c); color: #fff; padding: 0.4mm 2.5mm; border-radius: 1.5mm; letter-spacing: 0.6pt; }
+  .zone.jaune h2 .nom, .zone.orange h2 .nom { color: var(--encre); }
+  .zone h2 .regle { font-size: 9.5pt; font-weight: normal; line-height: 1.1; }
+  .jaune  { --c: var(--jaune);  --cc: var(--jaune-clair); }
+  .bleu   { --c: var(--bleu);   --cc: var(--bleu-clair); }
+  .vert   { --c: var(--vert);   --cc: var(--vert-clair); }
+  .orange { --c: var(--orange); --cc: var(--orange-clair); }
+  .violet { --c: var(--violet); --cc: var(--violet-clair); }
+
+  .case { width: 15mm; height: 14mm; background: #fff; border: 0.6mm solid var(--encre); border-radius: 2mm;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+  .case .n { font-size: 19pt; font-weight: bold; }
+  .case .mot { font-size: 7.5pt; margin-top: 0.8mm; }
+
+  /* bonus : étiquette sous la case */
+  .bon { height: 7mm; display: flex; align-items: center; justify-content: center; }
+  .badge { display: inline-flex; align-items: center; justify-content: center; height: 6.2mm; min-width: 9mm;
+    padding: 0 1.2mm; border-radius: 3.1mm; background: var(--encre); color: #fff; font-size: 14pt; font-weight: bold; }
+  .badge svg { width: 5.2mm; height: 5.2mm; }
+
+  /* escaliers (bleu, vert) et rangées (orange, violet) */
+  .rangee { display: flex; gap: 1.6mm; align-items: flex-start; }
+  .col { display: flex; flex-direction: column; align-items: center; }
+  .pts { width: 15mm; height: 7.5mm; border-top: 0.4mm dashed #555; display: flex; align-items: center; justify-content: center;
+    font-size: 14pt; font-weight: bold; }
+  .lib { width: 15mm; flex: 0 0 15mm; font-size: 8.5pt; line-height: 1.25; }
+  .lib .h { height: 14mm; display: flex; align-items: center; }
+  .lib .b { height: 7mm; display: flex; align-items: center; }
+  .lib .p { height: 7.5mm; display: flex; align-items: center; font-weight: bold; }
+  .signe { width: 3mm; height: 14mm; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: bold; margin: 0 -1.2mm; }
+
+  /* ---------- haut : jaune + bonus */
+  .haut { display: flex; gap: 2.4mm; }
+  .haut .jaune { flex: 0 0 auto; }
+  .jbloc { display: flex; gap: 2.4mm; }
+  .grille { display: grid; grid-template-columns: repeat(4, 15mm) 11mm; grid-template-rows: repeat(3, 13mm) 7.5mm; gap: 1.4mm; align-items: center; }
+  .grille .case { height: 13mm; }
+  .grille .lb { display: flex; align-items: center; justify-content: center; }
+  .grille .cp { height: 7.5mm; border-top: 0.4mm dashed #555; display: flex; align-items: center; justify-content: center;
+    font-size: 14pt; font-weight: bold; }
+  .legende { width: 29mm; font-size: 9pt; line-height: 1.2; }
+  .legende br + br { display: block; content: ""; margin-top: 1.2mm; }
+
+  .bonus { border: 0.7mm solid var(--encre); border-radius: 3mm; padding: 1.4mm 2.4mm 1.6mm; flex: 1 1 auto; }
+  .bonus h2 { margin: 0 0 0.6mm; font-size: 13pt; }
+  .bonus .expl { font-size: 8.8pt; margin: 0.6mm 0 1.2mm; line-height: 1.2; }
+  .bonus .t { font-size: 10pt; font-weight: bold; display: flex; align-items: center; gap: 1.5mm; }
+  .bonus .t .badge { height: 5.6mm; min-width: 8mm; }
+  .bonus .t .badge svg { width: 4.6mm; height: 4.6mm; }
+  .piste { display: flex; align-items: center; gap: 1mm; margin-top: 0.8mm; }
+  .jeton { width: 10mm; height: 10mm; border: 0.6mm solid var(--encre); border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: bold; color: #b3b3b3; }
+  .jeton svg { width: 5.6mm; height: 5.6mm; fill: #b3b3b3; }
+
+  /* ---------- décompte */
+  .decompte { border: 0.7mm solid var(--encre); border-radius: 3mm; padding: 1.4mm 2.4mm 1.6mm; }
+  .decompte h2 { margin: 0 0 1.2mm; font-size: 13pt; }
+  .decompte h2 span { font-size: 9pt; font-weight: normal; }
+  .totaux { display: grid; grid-template-columns: repeat(5, 1fr) 1.25fr; gap: 2mm; }
+  .tot .l { font-size: 11pt; font-weight: bold; margin-bottom: 0.6mm; }
+  .decompte .aide { font-size: 8.8pt; margin: 1.2mm 0 0; line-height: 1.2; }
+  .tot .v { height: 12mm; border: 0.6mm solid var(--encre); border-radius: 2mm; background: var(--cc, #fff); }
+  .tot.total .v { border-width: 1.1mm; background: #fff; }
+  .tot.total .l { font-size: 12pt; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="relance" viewBox="0 0 24 24">
+    <path d="M12 4a8 8 0 1 0 7.75 10h-2.1A6 6 0 1 1 12 6c1.6 0 3.05.63 4.12 1.65L13 10.8h7.5V3.3l-2.95 2.95A7.96 7.96 0 0 0 12 4z"/>
+  </symbol>
+</svg>
+
+<div class="feuille">
+
+  <div class="entete">
+    <div class="titre">
+      <h1>Petits futés</h1>
+      <p>Variante B · 5 dés de couleur, sans joker</p>
+    </div>
+    <div class="prenom">Prénom<div class="ligne"></div></div>
+    <div class="manches">Manches <span class="note"><span class="d">2</span> joueurs → <span class="d">6</span> · <span class="d">3</span> j. → <span class="d">5</span> · <span class="d">4</span> j. → <span class="d">4</span></span>
+      <div class="cases">
+        <div class="c">1</div><div class="c">2</div><div class="c">3</div><div class="c">4</div><div class="c">5</div><div class="c">6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAUNE + BONUS -->
+  <div class="haut">
+    <div class="zone jaune">
+      <h2><span class="nom">JAUNE</span> la grille</h2>
+      <div class="jbloc">
+        <div class="grille">
+          <div class="case"><span class="n">1</span></div><div class="case"><span class="n">2</span></div><div class="case"><span class="n">3</span></div><div class="case"><span class="n">4</span></div>
+          <div class="lb"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div>
+          <div class="case"><span class="n">5</span></div><div class="case"><span class="n">6</span></div><div class="case"><span class="n">1</span></div><div class="case"><span class="n">2</span></div>
+          <div class="lb"><span class="badge">+1</span></div>
+          <div class="case"><span class="n">3</span></div><div class="case"><span class="n">4</span></div><div class="case"><span class="n">5</span></div><div class="case"><span class="n">6</span></div>
+          <div class="lb"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div>
+          <div class="cp">+10</div><div class="cp">+10</div><div class="cp">+10</div><div class="cp">+10</div>
+          <div></div>
+        </div>
+        <div class="legende">
+          Dé jaune : coche une case qui a <b>le même nombre</b>.<br><br>
+          Ligne pleine → le bonus au bout de la ligne.<br><br>
+          Colonne pleine → <span class="d">+10</span> points.<br><br>
+          Chaque case cochée vaut aussi <span class="d">1</span> point.
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus">
+      <h2>Mes bonus</h2>
+      <p class="expl">Gagné → je colorie un rond. Utilisé → je le barre.</p>
+      <div class="t">RELANCE <span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div>
+      <div class="piste">
+        <div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div>
+      </div>
+      <p class="expl">À mon tour, après un lancer : je relance tous ces dés.</p>
+      <div class="t">PLUS UN <span class="badge">+1</span></div>
+      <div class="piste">
+        <div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div>
+      </div>
+      <p class="expl">Fin d'un tour : je prends un dé au choix et je l'utilise. Un seul par tour, sans bonus.</p>
+    </div>
+  </div>
+
+  <!-- BLEU -->
+  <div class="zone bleu">
+    <h2><span class="nom">BLEU</span> la descente <span class="regle">Dé bleu : coche la case suivante si le dé est <b>égal ou plus petit</b>.</span></h2>
+    <div class="rangee">
+      <div class="lib"><div class="h">dans<br>l'ordre →</div><div class="b">bonus</div><div class="p">points</div></div>
+      <div class="col"><div class="case"><span class="n">6</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">2</div></div>
+      <div class="col"><div class="case"><span class="n">5</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">4</div></div>
+      <div class="col"><div class="case"><span class="n">4</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">7</div></div>
+      <div class="col"><div class="case"><span class="n">3</span><span class="mot">ou moins</span></div><div class="bon"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div><div class="pts">10</div></div>
+      <div class="col"><div class="case"><span class="n">2</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">14</div></div>
+      <div class="col"><div class="case"><span class="n">5</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">18</div></div>
+      <div class="col"><div class="case"><span class="n">4</span><span class="mot">ou moins</span></div><div class="bon"><span class="badge">+1</span></div><div class="pts">23</div></div>
+      <div class="col"><div class="case"><span class="n">3</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">28</div></div>
+      <div class="col"><div class="case"><span class="n">2</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">34</div></div>
+      <div class="col"><div class="case"><span class="n">1</span><span class="mot">ou moins</span></div><div class="bon"></div><div class="pts">40</div></div>
+    </div>
+  </div>
+
+  <!-- VERT -->
+  <div class="zone vert">
+    <h2><span class="nom">VERT</span> la montée <span class="regle">Dé vert : coche la case suivante si le dé est <b>égal ou plus grand</b>.</span></h2>
+    <div class="rangee">
+      <div class="lib"><div class="h">dans<br>l'ordre →</div><div class="b">bonus</div><div class="p">points</div></div>
+      <div class="col"><div class="case"><span class="n">1</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">2</div></div>
+      <div class="col"><div class="case"><span class="n">2</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">4</div></div>
+      <div class="col"><div class="case"><span class="n">3</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">7</div></div>
+      <div class="col"><div class="case"><span class="n">4</span><span class="mot">ou plus</span></div><div class="bon"><span class="badge">+1</span></div><div class="pts">10</div></div>
+      <div class="col"><div class="case"><span class="n">5</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">14</div></div>
+      <div class="col"><div class="case"><span class="n">2</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">18</div></div>
+      <div class="col"><div class="case"><span class="n">3</span><span class="mot">ou plus</span></div><div class="bon"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div><div class="pts">23</div></div>
+      <div class="col"><div class="case"><span class="n">4</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">28</div></div>
+      <div class="col"><div class="case"><span class="n">5</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">34</div></div>
+      <div class="col"><div class="case"><span class="n">6</span><span class="mot">ou plus</span></div><div class="bon"></div><div class="pts">40</div></div>
+    </div>
+  </div>
+
+  <!-- ORANGE -->
+  <div class="zone orange">
+    <h2><span class="nom">ORANGE</span> le trésor <span class="regle">Dé orange : écris son nombre dans la case suivante, quel qu'il soit.</span></h2>
+    <div class="rangee">
+      <div class="lib"><div class="h">dans<br>l'ordre →</div><div class="b">bonus</div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="col"><div class="case"></div><div class="bon"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="col"><div class="case"></div><div class="bon"><span class="badge">+1</span></div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+    </div>
+  </div>
+
+  <!-- VIOLET -->
+  <div class="zone violet">
+    <h2><span class="nom">VIOLET</span> l'escalier <span class="regle">Dé violet : <b>plus grand</b> que la case d'avant. Après un <span class="d">6</span> : au choix.</span></h2>
+    <div class="rangee">
+      <div class="lib"><div class="h">dans<br>l'ordre →</div><div class="b">bonus</div></div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"><span class="badge">+1</span></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"><span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div></div>
+      <div class="signe">&lt;</div>
+      <div class="col"><div class="case"></div><div class="bon"></div></div>
+    </div>
+  </div>
+
+  <!-- DÉCOMPTE -->
+  <div class="decompte">
+    <h2>Décompte final <span>(rempli par l'adulte à la fin de la partie)</span></h2>
+    <div class="totaux">
+      <div class="tot jaune"><div class="l">Jaune</div><div class="v"></div></div>
+      <div class="tot bleu"><div class="l">Bleu</div><div class="v"></div></div>
+      <div class="tot vert"><div class="l">Vert</div><div class="v"></div></div>
+      <div class="tot orange"><div class="l">Orange</div><div class="v"></div></div>
+      <div class="tot violet"><div class="l">Violet</div><div class="v"></div></div>
+      <div class="tot total"><div class="l">TOTAL</div><div class="v"></div></div>
+    </div>
+    <p class="aide">Jaune : cases cochées + dix par colonne pleine · Bleu, vert : points sous la dernière case · Orange, violet : somme.</p>
+  </div>
+
+</div>
+</body>
+</html>
