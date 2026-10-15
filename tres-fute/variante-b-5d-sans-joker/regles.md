@@ -33,7 +33,7 @@ correspondance en fin de document le vérifie case par case.
    | 4       | 4       | 16                   |
 
 4. À la **fin** de chaque manche (quand tout le monde a été joueur actif une fois, après les +1 du
-   dernier tour de la manche), chaque joueur barre la case **Manches** du numéro de la manche qui vient
+   dernier tour de la manche), chaque joueur coche la case **Manches** du numéro de la manche qui vient
    de se terminer (1 à la fin de la première manche, puis 2, etc.). À 3 joueurs on n'utilise pas la case 6 ; à 4 joueurs on
    n'utilise ni la 5 ni la 6.
 
@@ -206,6 +206,7 @@ ne peut pas servir tout de suite : on la garde pour un prochain tour actif.
   utiliser **un seul** +1.
 - Il prend **n'importe lequel des 5 dés**, où qu'il soit (devant le joueur actif ou sur le plateau
   d'argent), même un dé qu'il a déjà utilisé lui-même pendant ce tour, avec la valeur qu'il montre.
+  On **lit la valeur du dé sans le déplacer** : plusieurs joueurs peuvent donc utiliser un +1 sur le même dé.
 - **Obligation de jouer** : le dé pris doit remplir une case (on ne gaspille pas un +1 pour rien) ; on peut
   aussi décider de ne pas utiliser son +1 ce tour-là et de le garder.
 - La **règle de couleur** s'applique toujours : le dé s'utilise dans la zone de sa couleur, avec les règles
@@ -270,8 +271,9 @@ Le plus grand total gagne. En cas d'égalité, les joueurs se partagent la victo
   mais les joueurs passifs en auront davantage.
 - **Rappelez l'exception** : un dé pris avec un +1 ne donne jamais de bonus, même si la case remplie
   porte une pastille, et même si une ligne jaune est complétée (on ne colorie rien dans « Mes bonus »).
+- **Proposez la relance à voix haute** : « Tu as une relance, tu veux relancer ? »
 - Rappelez l'obligation de jouer : si le dé choisi peut remplir une case, on la remplit.
-- Vérifiez à la fin de chaque manche que chaque joueur a barré la bonne case **Manches**.
+- Vérifiez à la fin de chaque manche que chaque joueur a coché la bonne case **Manches**.
 
 ## Choix de conception
 
