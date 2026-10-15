@@ -4,7 +4,7 @@ Version simplifiée de *Très futé* (*Ganz schön clever*, Wolfgang Warsch) pou
 
 Pendant la partie, les enfants n'ont qu'à **lire**, **comparer** et **écrire** la valeur d'un dé. Aucun calcul pendant le jeu : les additions se font à la fin, par l'adulte.
 
-Durée : environ 15 minutes (12 à 16 tours de jeu).
+Durée : 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans.
 
 ---
 
@@ -20,13 +20,13 @@ La feuille (une par page A4) contient :
 
 | Partie de la feuille | Où | Ce qu'on y fait |
 |---|---|---|
-| **Prénom** | en haut à droite | On écrit son prénom. Le rappel « dé blanc = joker » est écrit à côté du titre. |
+| **Prénom** | en haut à droite | On écrit son prénom. Le rappel « dé blanc = joker » est écrit sous le titre. |
 | **Zone JAUNE** : grille de 3 lignes × 4 colonnes, un symbole de bonus au bout de chaque ligne, « 10 » sous chaque colonne | en haut à gauche | On coche des nombres (section 5.1). |
 | **Manches** : 6 cases numérotées, avec « fin à 4 / 3 / 2 joueurs » sous les cases 4, 5 et 6 | en haut à droite | On coche une case à la fin de chaque manche (section 7). |
-| **Mes bonus** : 6 ronds **Relance** et 4 ronds **+1** | sous les manches | On colorie un rond quand on gagne un bonus, on le barre quand on l'utilise (section 6). |
+| **Mes bonus** : 6 ronds **Relance** et 4 ronds **+1**, avec le rappel « dé pris avec un +1 : pas de bonus » | sous les manches | On colorie un rond quand on gagne un bonus, on le barre quand on l'utilise (section 6). |
 | **Zone VERTE** : 8 cases « 1 ou + », « 2 ou + »…, des points sous chaque case | au milieu | On coche de gauche à droite (section 5.2). |
-| **Zone ORANGE** : 10 cases vides | au milieu | On écrit des nombres de gauche à droite (section 5.3). |
-| **Zone VIOLETTE** : 10 cases vides séparées par des « < » | en bas | On écrit des nombres de plus en plus grands (section 5.4). |
+| **Zone ORANGE** : 7 cases vides | au milieu | On écrit des nombres de gauche à droite (section 5.3). |
+| **Zone VIOLETTE** : 8 cases vides séparées par des « < », avec le rappel « après un 6 : on recommence » | en bas | On écrit des nombres de plus en plus grands (section 5.4). |
 | **Décompte** : 5 cases (Jaune + Vert + Orange + Violet = Total) | tout en bas | L'adulte écrit les points de chaque zone et le total (section 8). |
 
 Dans les zones verte, orange et violette, un **symbole de bonus** (flèche qui tourne = Relance, « +1 ») est dessiné **au-dessus** de certaines cases.
@@ -55,13 +55,15 @@ Le joueur actif répète au maximum 3 fois :
 2. *(S'il le veut et s'il a un bonus Relance disponible : il peut relancer, voir 6.1.)*
 3. **Il choisit un dé** parmi ceux qu'il vient de lancer et le pose devant lui, à l'écart. Il utilise sa valeur dans la zone de la **même couleur** (le dé blanc va dans la zone de son choix, voir 4.4).
 4. **Tous les dés plus petits** que le dé choisi (valeur strictement plus petite) vont **sur le plateau d'argent**. Il ne pourra plus les lancer pendant ce tour.
-5. Les dés qui restent (valeur égale ou plus grande) seront relancés au lancer suivant.
+5. Les dés qui restent (valeur égale ou plus grande) seront lancés de nouveau au lancer suivant (ce n'est pas une Relance : aucun bonus n'est utilisé).
 
 Le tour du joueur actif s'arrête quand il a choisi **3 dés**, ou plus tôt s'il ne reste **plus aucun dé** à lancer. Après son 3e dé, les dés qui n'ont pas été choisis vont eux aussi sur le plateau d'argent.
 
+Le joueur actif **ne peut pas s'arrêter volontairement** : à chaque lancer, il doit choisir un dé, et il lance de nouveau les dés qui restent tant qu'il n'a pas choisi 3 dés et qu'il lui reste des dés à lancer (même si les dés ne lui servent à rien, voir 4.4).
+
 > **Exemple.** Léa est la joueuse active. Elle lance les 5 dés : blanc 2, jaune 5, vert 4, orange 1, violet 6.
 > Elle prend le jaune 5 et coche un 5 dans sa zone jaune. Le blanc 2, le vert 4 et l'orange 1 sont plus petits que 5 : ils vont sur le plateau d'argent. Le violet 6 reste devant elle.
-> Elle relance le violet : 3. Elle le prend et écrit 3 dans sa zone violette. Il ne reste plus aucun dé à lancer : son tour s'arrête après 2 dés.
+> Elle lance de nouveau le violet : 3. Elle le prend et écrit 3 dans sa zone violette. Il ne reste plus aucun dé à lancer : son tour s'arrête après 2 dés.
 
 **Conseil à donner aux enfants** : prendre un dé qui fait un grand nombre envoie beaucoup de dés sur le plateau. C'est parfois une bonne idée, parfois non !
 
@@ -71,17 +73,19 @@ Quand le joueur actif a fini, **chaque joueur passif choisit un dé sur le plate
 
 - Plusieurs joueurs peuvent prendre **le même dé** : on ne le déplace pas, chacun l'utilise sur sa feuille.
 - Les joueurs passifs ne prennent pas les dés posés devant le joueur actif (sauf avec un bonus +1, voir 6.2).
+- Le plateau d'argent n'est **jamais vide** à ce moment : le joueur actif garde au plus 3 des 5 dés, il y a donc toujours au moins 2 dés sur le plateau.
 
 > **Exemple (suite).** Sur le plateau d'argent il y a : blanc 2, vert 4, orange 1. Tom prend le vert 4 et coche sa case verte suivante. Zoé prend aussi le vert 4. Jade prend le blanc 2 et l'utilise comme un dé jaune.
 
 ### 4.3 Fin du tour
 
-Quand tous les joueurs passifs ont joué, chaque joueur (le joueur actif aussi) peut utiliser **un seul bonus +1** (voir 6.2). Puis on reprend tous les dés et c'est au joueur suivant d'être actif.
+Quand tous les joueurs passifs ont joué, chaque joueur (le joueur actif aussi) peut utiliser **un seul bonus +1** (voir 6.2). Puis on reprend **tous les dés**, ceux du plateau d'argent compris, et c'est au joueur suivant d'être actif : il lancera de nouveau les 5 dés.
 
 ### 4.4 Le dé blanc (joker) et les autres règles communes
 
 - **Le dé blanc est un joker** : il compte comme un dé jaune, vert, orange **ou** violet. Celui qui le prend dit dans quelle zone il le met, et utilise sa valeur.
 - **On ne peut utiliser un dé que dans la zone de sa couleur** (sauf le blanc).
+- **Une zone pleine n'accepte plus de dé** : quand toutes ses cases sont remplies (ou, en jaune, quand les cases du nombre du dé sont déjà cochées), le dé ne peut plus servir dans cette zone. Un dé blanc peut encore aller dans une autre zone.
 - **On n'est jamais obligé de cocher.** Si le dé choisi ne va nulle part (ou si on ne veut pas l'utiliser), on ne coche rien. Le joueur actif doit quand même choisir un dé à chaque lancer, et les dés plus petits vont quand même sur le plateau.
 
 ## 5. Les quatre zones
@@ -95,6 +99,7 @@ Une grille de 3 lignes et 4 colonnes. Chaque case porte un nombre de 1 à 6 (cha
 - **Points de colonne** : chaque **colonne** dont les 3 cases sont cochées rapporte **10 points** (le « 10 » est écrit sous chaque colonne).
 
 > **Exemple.** Tom prend le jaune 4. Dans sa grille, il y a un 4 en ligne 1 et un 4 en ligne 3 : il en coche un, au choix. S'il coche celui de la ligne 1 et que les trois autres cases de cette ligne (1, 2, 3) sont déjà cochées, la ligne 1 est complète : il gagne une Relance.
+> Autre cas : s'il coche le 4 de la ligne 3 (2e colonne) alors que le 2 de la ligne 1 et le 6 de la ligne 2 (les deux autres cases de la 2e colonne) sont déjà cochés, la 2e colonne est complète : elle lui rapportera **10 points** à la fin.
 
 ### 5.2 Zone VERTE — « Assez grand ? »
 
@@ -108,20 +113,20 @@ Une ligne de 8 cases. Dans chaque case est écrit le plus petit dé accepté : *
 
 ### 5.3 Zone ORANGE — « Écris ton dé »
 
-Une ligne de 10 cases vides.
+Une ligne de 7 cases vides.
 
 - **Règle** : avec un dé orange (ou le blanc), on **écrit la valeur du dé** dans la première case libre en partant de la gauche. N'importe quelle valeur est acceptée.
-- **Bonus** : la 3e case donne une **Relance**, la 6e un **+1**, la 9e une **Relance** (symboles dessinés au-dessus de ces cases).
+- **Bonus** : la 3e case donne une **Relance**, la 5e un **+1**, la 7e une **Relance** (symboles dessinés au-dessus de ces cases).
 - **Points** : à la fin, on **additionne tous les nombres** écrits en orange.
 
 > **Exemple.** Jade prend l'orange 5 : elle écrit 5 dans sa première case orange libre. C'est sa 3e case orange : elle gagne une Relance.
 
 ### 5.4 Zone VIOLETTE — « De plus en plus grand »
 
-Une ligne de 10 cases vides, séparées par le signe « < » (« plus petit que »).
+Une ligne de 8 cases vides, séparées par le signe « < » (« plus petit que »).
 
 - **Règle** : avec un dé violet (ou le blanc), on **écrit la valeur du dé** dans la première case libre en partant de la gauche. Le nombre doit être **plus grand** que celui de la case juste avant (pas égal).
-- **Après un 6**, on recommence : la case suivante accepte n'importe quel nombre. La 1re case accepte aussi n'importe quel nombre.
+- **Après un 6**, on recommence : la case suivante accepte n'importe quel nombre (c'est rappelé sur la feuille : « après un 6 : on recommence »). La 1re case accepte aussi n'importe quel nombre.
 - **Bonus** : la 4e case donne un **+1**, la 7e une **Relance** (symboles dessinés au-dessus de ces cases).
 - **Points** : à la fin, on **additionne tous les nombres** écrits en violet.
 
@@ -129,23 +134,26 @@ Une ligne de 10 cases vides, séparées par le signe « < » (« plus petit que 
 
 ## 6. Les bonus
 
-On gagne un bonus quand on remplit une case qui a un symbole de bonus dessiné juste au-dessus d'elle (zones verte, orange et violette), ou quand on complète une ligne jaune (symbole au bout de la ligne). On colorie alors **tout de suite le premier rond libre** de ce bonus dans le cadre « Mes bonus » (en haut à droite de la feuille). Un bonus gagné peut servir dès qu'on en a besoin, même dans le même tour. Un bonus non utilisé à la fin de la partie ne rapporte rien.
+On gagne un bonus quand on remplit une case qui a un symbole de bonus dessiné juste au-dessus d'elle (zones verte, orange et violette), ou quand on complète une ligne jaune (symbole au bout de la ligne). On colorie alors **tout de suite le premier rond libre** de ce bonus dans le cadre « Mes bonus » (en haut à droite de la feuille). Un bonus gagné peut servir **dès le même tour** : une Relance gagnée avec le 1er dé peut servir au lancer suivant ; un +1 gagné pendant le tour peut servir à la fin de ce même tour. Un bonus non utilisé à la fin de la partie ne rapporte rien.
 
 ### 6.1 Relance (6 ronds, symbole : flèche qui tourne)
 
 - **Seulement quand on est le joueur actif**, juste après un lancer et **avant** de choisir un dé.
 - On barre un rond Relance colorié et on **relance tous les dés qu'on vient de lancer** (pas ceux du plateau d'argent, pas ceux déjà choisis).
-- On peut utiliser plusieurs Relances l'une après l'autre.
+- On peut utiliser plusieurs Relances l'une après l'autre sur un même lancer (relancer, puis relancer encore).
 
 > **Exemple.** Léa lance 3 dés et obtient trois 1. Elle barre une Relance et relance ces 3 dés.
 
 ### 6.2 +1 — un dé en plus (4 ronds)
 
-- **À la fin de chaque tour** (le sien ou celui d'un autre joueur), quand tout le monde a joué : on barre un rond +1 colorié et on **utilise un des 5 dés posés sur la table**, n'importe lequel (ceux choisis par le joueur actif ou ceux du plateau d'argent), avec sa valeur actuelle.
+- **À la fin de chaque tour** (le sien ou celui d'un autre joueur), quand tout le monde a joué : on barre un rond +1 colorié et on **utilise un des 5 dés posés sur la table**, n'importe lequel (ceux choisis par le joueur actif ou ceux du plateau d'argent), avec sa valeur actuelle. On peut même reprendre **un dé qu'on a déjà utilisé soi-même pendant ce tour** (le joueur actif peut reprendre un de ses dés, un joueur passif le dé du plateau qu'il a pris).
+- **La règle de couleur s'applique** : le dé va dans la zone de sa couleur, et le dé blanc reste un joker (il va dans la zone de son choix).
 - **Un seul +1 par joueur et par tour.**
 - **Une case remplie grâce à un +1 ne donne pas de bonus** : si elle a un symbole de bonus (ou si elle complète une ligne jaune), on barre ce symbole sur la feuille, sans colorier de rond. Ainsi un bonus ne déclenche jamais un autre bonus. Les **points** (par exemple les 10 points d'une colonne jaune) comptent normalement.
 
-> **Exemple.** Fin du tour de Léa. Tom a un +1 colorié. Léa a choisi le dé orange pendant son tour, il montre 6 : Tom barre son +1 et écrit 6 dans sa zone orange. C'est sa 6e case orange, qui a un symbole +1 : comme il l'a remplie grâce à un +1, il barre le symbole et ne gagne rien.
+> **Exemple (suite de 4.1 et 4.2).** Fin du tour de Léa. Sur la table : jaune 5 et violet 3 devant Léa ; blanc 2, vert 4 et orange 1 sur le plateau d'argent.
+> Tom a un +1 colorié. En violet, il a déjà écrit 6, 1, 2. Il barre son +1 et prend le violet 3 choisi par Léa : 3 est plus grand que 2, il l'écrit dans sa 4e case violette. Cette case a un symbole +1 : comme il l'a remplie grâce à un +1, il barre le symbole et ne gagne rien.
+> Léa a aussi un +1 colorié : elle reprend le jaune 5 qu'elle a déjà utilisé pendant son tour et coche l'autre 5 de sa grille jaune (il y en a un en ligne 2 et un en ligne 3). Elle ne pourrait pas mettre ce jaune 5 en orange : seul le dé blanc change de zone.
 
 ## 7. Fin de la partie
 
@@ -172,8 +180,8 @@ Le joueur qui a le plus grand total gagne. En cas d'égalité, les joueurs à é
 ## Choix de conception
 
 - **4 zones gardées : jaune, vert, orange, violet. Zone bleue retirée.** Le bleu est la seule zone qui demande d'additionner deux dés (bleu + blanc) et un barème « points selon le nombre de cases » à lire dans un tableau ; c'est aussi elle qui donne au dé blanc un double rôle (joker *et* partie de la somme bleue), ce qui brouille l'idée simple « blanc = n'importe quelle couleur ». Les quatre zones restantes correspondent chacune à un geste différent, facile à nommer pour un enfant : **trouver** (jaune), **comparer** (vert), **écrire** (orange), **monter** (violet).
-- **Zones raccourcies** : grille jaune 3×4 au lieu de 4×4 sans case pré-cochée, 8 cases vertes et 10 cases orange et violettes, pour qu'un enfant voie ses zones bien se remplir (environ la moitié à deux tiers des cases en simulation).
+- **Zones raccourcies** : grille jaune 3×4 au lieu de 4×4 sans case pré-cochée, 8 cases vertes, 7 cases orange et 8 cases violettes, pour qu'un enfant voie ses zones bien se remplir. L'orange (7 cases) et le violet (8 cases) ont été raccourcis après une simulation où l'on joue au hasard parmi les coups possibles : avec 10 cases chacun, l'orange, qui accepte tous les dés, faisait plus de 40 % du score, et le violet n'était rempli qu'à 30 %.
 - **Supprimés** : renards, cases ×2/×3 en orange, bonus qui cochent une case ailleurs et chaînes de bonus, diagonale jaune, bonus de manche. Seuls restent les deux bonus les plus parlants (Relance et +1), avec une règle qui empêche tout enchaînement (une case remplie grâce à un +1 ne donne pas de bonus) et au plus un +1 par tour pour garder le rythme.
 - **Points simples** : 10 points fixes par colonne jaune, une échelle écrite sous la zone verte, des sommes en orange et violet. L'adulte fait les additions à la fin.
 - **Cœur du jeu inchangé** : 3 choix au maximum, dés plus petits sur le plateau d'argent, joueurs passifs qui piochent sur le plateau, même nombre de manches que l'original (6, 5 ou 4).
-- **Équilibre vérifié par `simulation.py`** : chaque zone rapporte entre environ 19 % et 31 % du score moyen (aucune au-dessus de 40 %), et chaque zone est remplie à 45 % au moins ; voir `resultats-simulation.md`.
+- **Équilibre vérifié par `simulation.py`** avec deux façons de jouer, à 2, 3 et 4 joueurs : un joueur « malin » (stratégie gloutonne) et un joueur « enfant » qui n'utilise jamais de Relance et prend au hasard un dé et une case possibles. Avec le joueur malin, chaque zone rapporte entre 19 % et 31 % du score moyen (environ 70 points) et est remplie à 50 % au moins ; avec le joueur enfant, entre 10 % (jaune) et 38 % (orange) du score moyen (environ 50 points), chaque zone remplie à 38 % au moins. Aucune zone ne dépasse 40 % du score ; voir `resultats-simulation.md`.

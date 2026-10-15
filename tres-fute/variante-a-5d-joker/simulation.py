@@ -8,9 +8,18 @@ Implémente exactement les règles de regles.md :
   y vont aussi. Chaque autre joueur prend ensuite un dé du plateau.
 - Fin de tour : chaque joueur peut barrer au plus un « +1 » pour utiliser un des
   5 dés posés sur la table ; une case cochée grâce à un +1 ne donne pas de bonus.
+  Les 5 dés sont autorisés, y compris celui qu'on a déjà utilisé soi-même ce tour ;
+  la règle de couleur s'applique (le blanc reste un joker).
 - Relance : seulement le joueur actif, avant de choisir un dé, relance tous les dés
-  qu'il vient de lancer.
+  qu'il vient de lancer ; plusieurs Relances de suite sont permises.
+- Un bonus gagné pendant un tour sert dès ce tour ; une zone pleine n'accepte plus de dé.
 - Manches : 2 joueurs = 6, 3 joueurs = 5, 4 joueurs = 4.
+
+Deux stratégies sont simulées :
+- « gloutonne » : le choix qui rapporte le plus de points immédiats ou de progrès ;
+- « enfant » : jamais de Relance ; à chaque choix, un dé utilisable tiré au hasard
+  (sinon un dé au hasard sans rien cocher), une case possible au hasard ; un +1 utilisé
+  dès qu'un coup est possible, sur un coup tiré au hasard.
 
 Python 3 sans dépendance externe, graine fixe. Écrit resultats-simulation.md.
 """
@@ -25,7 +34,7 @@ COULEURS = ["blanc", "jaune", "vert", "orange", "violet"]
 ZONES = ["jaune", "vert", "orange", "violet"]
 
 # ---------------------------------------------------------------- feuillet
-# Jaune : grille 3 x 3. On coche une case qui porte exactement la valeur du dé.
+# Jaune : grille 3 x 4 (3 lignes, 4 colonnes). On coche une case qui porte exactement la valeur du dé.
 JAUNE_GRILLE = [
     [1, 2, 3, 4],
     [5, 6, 1, 2],
@@ -40,11 +49,11 @@ VERT_POINTS = [2, 4, 7, 11, 16, 22, 29, 37]  # points = nombre sous la dernière
 VERT_BONUS = {2: "relance", 5: "plus1"}               # index de case (0 = 1re case)
 
 # Orange : on écrit la valeur du dé dans la case suivante ; points = somme.
-ORANGE_CASES = 10
-ORANGE_BONUS = {2: "relance", 5: "plus1", 8: "relance"}
+ORANGE_CASES = 7
+ORANGE_BONUS = {2: "relance", 4: "plus1", 6: "relance"}
 
 # Violet : valeur strictement plus grande que la case précédente, sauf après un 6.
-VIOLET_CASES = 10
+VIOLET_CASES = 8
 VIOLET_BONUS = {3: "plus1", 6: "relance"}
 
 # Valeurs utilisées par la stratégie gloutonne (pas par les règles).
@@ -195,26 +204,28 @@ def lancer(rng, couleurs):
     return [(c, rng.randint(1, 6)) for c in couleurs]
 
 
-def tour(rng, feuilles, actif):
-    joueur = feuilles[actif]
-    a_lancer = list(COULEURS)
-    choisis = []      # dés gardés par le joueur actif
-    plateau = []      # plateau d'argent
-    while len(choisis) < 3 and a_lancer:
-        des = lancer(rng, a_lancer)
-        # relance éventuelle (joueur actif seulement), autant qu'il veut
-        while joueur.relances > 0:
-            best = joueur.meilleur(des)
-            if best is not None and best[0] >= SEUIL_RELANCE:
-                break
-            joueur.relances -= 1
-            joueur.stats["relance_utilisee"] += 1
-            des = lancer(rng, a_lancer)
-        # choix glouton d'un dé, en tenant compte des dés perdus vers le plateau
+ITERATIONS_MAX = 50   # garde-fou : nombre maximal d'itérations de boucle dans un tour
+
+
+class TourTropLong(RuntimeError):
+    pass
+
+
+# ---------------------------------------------------------------- stratégies
+class Gloutonne:
+    nom = "gloutonne"
+    description = ("le choix qui rapporte le plus de points immédiats ou de progrès, "
+                   "Relance si le meilleur choix est faible, +1 si le coup vaut assez")
+
+    def relancer(self, rng, joueur, des):
+        best = joueur.meilleur(des)
+        return best is None or best[0] < SEUIL_RELANCE
+
+    def choix_actif(self, rng, joueur, des, nb_choisis):
         best = None
         for i, (coul, val) in enumerate(des):
             perdus = sum(1 for (_, v2) in des if v2 < val)
-            cout = COUT_DE_PERDU * perdus if len(choisis) < 2 else 0.0
+            cout = COUT_DE_PERDU * perdus if nb_choisis < 2 else 0.0
             options = joueur.coups(coul, val)
             e_de = max((joueur.evaluer(z, c, val) for z, c in options), default=-5.0)
             if best is None or e_de - cout > best[0]:
@@ -222,9 +233,80 @@ def tour(rng, feuilles, actif):
         i = best[1]
         coul, val = des[i]
         options = joueur.coups(coul, val)
-        if options:
-            z, c = max(options, key=lambda zc: joueur.evaluer(zc[0], zc[1], val))
-            joueur.appliquer(z, c, val)
+        coup = max(options, key=lambda zc: joueur.evaluer(zc[0], zc[1], val)) if options else None
+        return i, coup
+
+    def choix_passif(self, rng, joueur, plateau):
+        best = joueur.meilleur(plateau)
+        if best is None:
+            return None
+        _, i, z, c = best
+        return i, (z, c)
+
+    def plus1(self, rng, joueur, table):
+        best = joueur.meilleur(table, avec_bonus=False)
+        if best is None or best[0] < SEUIL_PLUS1:
+            return None
+        _, i, z, c = best
+        return i, (z, c)
+
+
+class Enfant:
+    nom = "enfant"
+    description = ("jamais de Relance ; un dé utilisable au hasard (sinon un dé au hasard sans "
+                   "rien cocher), une case possible au hasard ; +1 dès qu'un coup est possible, "
+                   "sur un coup tiré au hasard")
+
+    def relancer(self, rng, joueur, des):
+        return False
+
+    def _choix(self, rng, joueur, des):
+        utiles = [i for i, (c, v) in enumerate(des) if joueur.coups(c, v)]
+        if not utiles:
+            return rng.randrange(len(des)), None
+        i = rng.choice(utiles)
+        return i, rng.choice(joueur.coups(*des[i]))
+
+    def choix_actif(self, rng, joueur, des, nb_choisis):
+        return self._choix(rng, joueur, des)
+
+    def choix_passif(self, rng, joueur, plateau):
+        i, coup = self._choix(rng, joueur, plateau)
+        return (i, coup) if coup else None
+
+    def plus1(self, rng, joueur, table):
+        coups = [(i, zc) for i, (c, v) in enumerate(table) for zc in joueur.coups(c, v)]
+        return rng.choice(coups) if coups else None
+
+
+STRATEGIES = [Gloutonne(), Enfant()]
+
+
+def tour(rng, feuilles, actif, strat):
+    joueur = feuilles[actif]
+    a_lancer = list(COULEURS)
+    choisis = []      # dés gardés par le joueur actif
+    plateau = []      # plateau d'argent
+    iterations = 0
+    # le joueur actif doit choisir un dé à chaque lancer, jusqu'à 3 choix
+    # tant qu'il reste des dés à lancer
+    while len(choisis) < 3 and a_lancer:
+        iterations += 1
+        if iterations > ITERATIONS_MAX:
+            raise TourTropLong("trop d'itérations dans un tour")
+        des = lancer(rng, a_lancer)
+        # Relances éventuelles (joueur actif seulement), plusieurs de suite possibles
+        while joueur.relances > 0 and strat.relancer(rng, joueur, des):
+            iterations += 1
+            if iterations > ITERATIONS_MAX:
+                raise TourTropLong("trop d'itérations dans un tour")
+            joueur.relances -= 1
+            joueur.stats["relance_utilisee"] += 1
+            des = lancer(rng, a_lancer)
+        i, coup = strat.choix_actif(rng, joueur, des, len(choisis))
+        coul, val = des[i]
+        if coup:
+            joueur.appliquer(coup[0], coup[1], val)
         choisis.append(des[i])
         restants = []
         for j, (c2, v2) in enumerate(des):
@@ -237,45 +319,45 @@ def tour(rng, feuilles, actif):
         a_lancer = [c2 for (c2, _) in restants]
         if len(choisis) == 3:
             plateau.extend(restants)
+    # le plateau contient toujours au moins 2 dés (5 dés, au plus 3 choisis)
+    assert len(plateau) >= 2 and len(choisis) + len(plateau) == len(COULEURS)
     # joueurs passifs : un dé du plateau
     for k, f in enumerate(feuilles):
         if k == actif:
             continue
-        best = f.meilleur(plateau)
-        if best is not None:
-            _, i, z, c = best
+        choix = strat.choix_passif(rng, f, plateau)
+        if choix:
+            i, (z, c) = choix
             f.appliquer(z, c, plateau[i][1])
     # fin du tour : au plus un +1 par joueur, sur n'importe lequel des 5 dés
+    # (y compris un dé déjà utilisé soi-même pendant ce tour)
     table = choisis + plateau
     for f in feuilles:
         if f.plus1 > 0:
-            best = f.meilleur(table, avec_bonus=False)
-            if best is not None and best[0] >= SEUIL_PLUS1:
+            choix = strat.plus1(rng, f, table)
+            if choix:
                 f.plus1 -= 1
                 f.stats["plus1_utilise"] += 1
-                _, i, z, c = best
+                i, (z, c) = choix
                 f.appliquer(z, c, table[i][1], avec_bonus=False)
 
 
-def partie(rng, n):
+def partie(rng, n, strat):
+    """Joue une partie ; renvoie les feuilles et le nombre de tours de joueur actif joués."""
     feuilles = [Feuille() for _ in range(n)]
     tours = 0
-    garde = 0
     for _ in range(MANCHES[n]):
         for actif in range(n):
-            tour(rng, feuilles, actif)
+            tour(rng, feuilles, actif, strat)
             tours += 1
-            garde += 1
-            if garde > 1000:      # garde-fou : ne doit jamais arriver
-                return feuilles, tours, False
-    return feuilles, tours, True
+    return feuilles, tours
 
 
 def moyenne(xs):
     return sum(xs) / len(xs) if xs else 0.0
 
 
-def simuler():
+def simuler(strat):
     rng = random.Random(GRAINE)
     resultats = {}
     for n in (2, 3, 4):
@@ -286,8 +368,8 @@ def simuler():
         bstats = {k: [] for k in ["relance_gagnee", "relance_utilisee",
                                   "plus1_gagne", "plus1_utilise", "bonus_perdu"]}
         for _ in range(PARTIES):
-            feuilles, t, ok = partie(rng, n)
-            finies += ok
+            feuilles, t = partie(rng, n, strat)
+            finies += (t == MANCHES[n] * n)
             tours.append(t)
             for f in feuilles:
                 s = f.scores()
@@ -305,7 +387,7 @@ def simuler():
             "score_et": statistics.pstdev(scores),
             "score_min": min(scores), "score_max": max(scores),
             "pct_finies": 100.0 * finies / PARTIES,
-            "tours": moyenne(tours), "tours_max": max(tours),
+            "tours": moyenne(tours), "tours_min": min(tours), "tours_max": max(tours),
             "remp": {z: moyenne(remp[z]) for z in ZONES},
             "pts": {z: moyenne(pts[z]) for z in ZONES},
             "part": {z: moyenne(part[z]) for z in ZONES},
@@ -319,9 +401,10 @@ def verifier(res):
     tout_ok = True
     for n, r in res.items():
         tests = [
-            (f"{n} joueurs : >= 1000 parties jouées", PARTIES >= 1000),
-            (f"{n} joueurs : 100 % des parties terminées", r["pct_finies"] == 100.0),
-            (f"{n} joueurs : durée {r['tours_max']} tours actifs x 1 min <= 20 min",
+            (f"{n} joueurs : {PARTIES} parties jouées (>= 1000)", PARTIES >= 1000),
+            (f"{n} joueurs : {r['pct_finies']:.0f} % des parties terminées avec exactement "
+             f"{MANCHES[n]} x {n} = {MANCHES[n] * n} tours actifs", r["pct_finies"] == 100.0),
+            (f"{n} joueurs : {r['tours_max']} tours actifs (critère : x 1 min <= 20)",
              r["tours_max"] <= 20),
         ]
         for z in ZONES:
@@ -336,43 +419,63 @@ def verifier(res):
     return tout_ok, lignes
 
 
-def rapport(res, tout_ok, lignes):
+def rapport(tous):
     o = []
     o.append("# Résultats de simulation — variante A (5 dés avec joker)\n")
-    o.append(f"Généré par `simulation.py` (graine {GRAINE}, {PARTIES} parties par nombre de joueurs, "
-             "stratégie gloutonne : le choix qui rapporte le plus de points immédiats ou de progrès).\n")
-    o.append("## Synthèse\n")
-    o.append("| | 2 joueurs | 3 joueurs | 4 joueurs |")
-    o.append("|---|---|---|---|")
-    def ligne(nom, f):
-        o.append(f"| {nom} | " + " | ".join(f(res[n]) for n in (2, 3, 4)) + " |")
-    ligne("Manches", lambda r: "")
-    o[-1] = "| Manches | " + " | ".join(str(MANCHES[n]) for n in (2, 3, 4)) + " |"
-    ligne("Score moyen (écart-type)", lambda r: f"{r['score_moy']:.1f} ({r['score_et']:.1f})")
-    ligne("Score min / max", lambda r: f"{r['score_min']} / {r['score_max']}")
-    ligne("Parties terminées", lambda r: f"{r['pct_finies']:.0f} %")
-    ligne("Tours de joueur actif (= minutes estimées)", lambda r: f"{r['tours']:.0f}")
-    for z in ZONES:
-        ligne(f"Remplissage {z}", lambda r, z=z: f"{100*r['remp'][z]:.0f} %")
-    for z in ZONES:
-        ligne(f"Points {z} (part du score)",
-              lambda r, z=z: f"{r['pts'][z]:.1f} ({100*r['part'][z]:.0f} %)")
-    noms = {"relance_gagnee": "Relances gagnées", "relance_utilisee": "Relances utilisées",
-            "plus1_gagne": "+1 gagnés", "plus1_utilise": "+1 utilisés",
-            "bonus_perdu": "Bonus perdus (case cochée avec un +1)"}
-    for k, nom in noms.items():
-        ligne(f"{nom} (par joueur et par partie)", lambda r, k=k: f"{r['bonus'][k]:.2f}")
-    o.append("\n## Vérification des critères 6 et 7\n")
-    for etat, nom in lignes:
-        o.append(f"- **{etat}** — {nom}")
-    o.append(f"\n**Bilan : {'OK partout' if tout_ok else 'au moins un ÉCHEC'}.**\n")
+    o.append(f"Généré par `simulation.py` (graine {GRAINE}, {PARTIES} parties par nombre de joueurs "
+             "et par stratégie). Deux stratégies :\n")
+    for strat, _, _, _ in tous:
+        o.append(f"- **{strat.nom}** : {strat.description}.")
+    o.append("\n**Fin de partie.** La fin est garantie par construction : le nombre de manches est "
+             "fixe (6, 5 ou 4) et un tour de joueur actif compte au plus 3 choix de dé (plus les "
+             "Relances, limitées par les bonus gagnés). La simulation le contrôle : elle compte les "
+             "tours de joueur actif réellement joués dans chaque partie et vérifie qu'ils valent "
+             f"manches × joueurs ; un garde-fou lève une erreur si un tour dépasse {ITERATIONS_MAX} "
+             "itérations de boucle (jamais déclenché).\n")
+    o.append("**Durée.** La ligne « tours actifs » compte les tours de joueur actif ; le critère "
+             "les convertit à raison de 1 min par tour (≤ 20). Ce n'est pas une durée mesurée : "
+             "les règles annoncent 20 à 30 minutes réelles avec des enfants de 6-7 ans.\n")
+    bilan = True
+    for strat, res, tout_ok, lignes in tous:
+        bilan &= tout_ok
+        o.append(f"## Stratégie {strat.nom}\n")
+        o.append("| | 2 joueurs | 3 joueurs | 4 joueurs |")
+        o.append("|---|---|---|---|")
+
+        def ligne(nom, f):
+            o.append(f"| {nom} | " + " | ".join(f(res[n], n) for n in (2, 3, 4)) + " |")
+        ligne("Manches", lambda r, n: str(MANCHES[n]))
+        ligne("Score moyen (écart-type)", lambda r, n: f"{r['score_moy']:.1f} ({r['score_et']:.1f})")
+        ligne("Score min / max", lambda r, n: f"{r['score_min']} / {r['score_max']}")
+        ligne("Parties terminées (tours actifs = manches × joueurs)",
+              lambda r, n: f"{r['pct_finies']:.0f} %")
+        ligne("Tours actifs (critère : × 1 min ≤ 20)", lambda r, n: f"{r['tours_max']}")
+        for z in ZONES:
+            ligne(f"Remplissage {z}", lambda r, n, z=z: f"{100*r['remp'][z]:.0f} %")
+        for z in ZONES:
+            ligne(f"Points {z} (part du score)",
+                  lambda r, n, z=z: f"{r['pts'][z]:.1f} ({100*r['part'][z]:.0f} %)")
+        noms = {"relance_gagnee": "Relances gagnées", "relance_utilisee": "Relances utilisées",
+                "plus1_gagne": "+1 gagnés", "plus1_utilise": "+1 utilisés",
+                "bonus_perdu": "Bonus perdus (case remplie avec un +1)"}
+        for k, nom in noms.items():
+            ligne(f"{nom} (par joueur et par partie)", lambda r, n, k=k: f"{r['bonus'][k]:.2f}")
+        o.append(f"\n### Vérification des critères 6 et 7 — stratégie {strat.nom}\n")
+        for etat, nom in lignes:
+            o.append(f"- **{etat}** — {nom}")
+        o.append(f"\n**Bilan {strat.nom} : {'OK partout' if tout_ok else 'au moins un ÉCHEC'}.**\n")
+    o.append("## Bilan général\n")
+    o.append(f"**{'OK partout, pour les deux stratégies' if bilan else 'au moins un ÉCHEC'}.**\n")
     return "\n".join(o)
 
 
 def main():
-    res = simuler()
-    tout_ok, lignes = verifier(res)
-    texte = rapport(res, tout_ok, lignes)
+    tous = []
+    for strat in STRATEGIES:
+        res = simuler(strat)
+        tout_ok, lignes = verifier(res)
+        tous.append((strat, res, tout_ok, lignes))
+    texte = rapport(tous)
     print(texte)
     chemin = os.path.join(os.path.dirname(os.path.abspath(__file__)), "resultats-simulation.md")
     with open(chemin, "w", encoding="utf-8") as fh:

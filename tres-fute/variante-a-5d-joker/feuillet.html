@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Très futé junior — feuille A</title>
+<title>Très futé junior — variante A</title>
 <style>
   @page { size: A4; margin: 9mm 10mm; }
   :root {
@@ -22,11 +22,12 @@
   .num { font-size: 14pt; font-weight: 700; }
 
   /* En-tête */
-  .tete { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 0.6mm solid var(--encre); padding-bottom: 2mm; }
-  .titre { font-size: 20pt; font-weight: 800; letter-spacing: 0.3mm; }
-  .titre small { display: block; font-size: 10pt; font-weight: 400; color: var(--gris); letter-spacing: 0; }
+  .tete { border-bottom: 0.6mm solid var(--encre); padding-bottom: 1.5mm; }
+  .titre { font-size: 18pt; font-weight: 800; letter-spacing: 0.2mm; white-space: nowrap; }
+  .sous-titre { display: flex; align-items: flex-end; justify-content: space-between; }
+  .sous-titre small { font-size: 10pt; font-weight: 400; color: var(--gris); }
   .prenom { font-size: 13pt; font-weight: 700; display: flex; align-items: flex-end; gap: 2mm; }
-  .prenom span.ligne { display: inline-block; width: 55mm; border-bottom: 0.4mm solid var(--encre); height: 9mm; }
+  .prenom span.ligne { display: inline-block; width: 60mm; border-bottom: 0.4mm solid var(--encre); height: 8mm; }
 
   /* Zones */
   .zone { border: 0.7mm solid var(--c); border-radius: 3mm; padding: 2mm 3mm 2.5mm; background: #fff; }
@@ -67,6 +68,7 @@
   .rond svg { width: 7mm; height: 7mm; opacity: 0.25; }
   .rond .fant { font-size: 14pt; font-weight: 800; opacity: 0.22; }
 
+  .rappel { font-size: 9pt; margin-top: 1.2mm; padding-left: 1mm; }
   .manches { display: flex; gap: 1.5mm; align-items: flex-start; }
   .manche { display: flex; flex-direction: column; align-items: center; width: 12.5mm; }
   .manche .case { width: 11mm; height: 11mm; background: #fff; font-size: 14pt; font-weight: 700; color: var(--gris); }
@@ -76,7 +78,7 @@
   /* Pistes vert / orange / violet */
   .rangee { display: flex; align-items: flex-end; }
   .col { display: flex; flex-direction: column; align-items: center; width: var(--case); }
-  .col .dessus { height: 10mm; display: flex; align-items: center; justify-content: center; }
+  .col .dessus { height: 8.5mm; display: flex; align-items: center; justify-content: center; }
   .col .dessous { height: 7.5mm; font-size: 14pt; font-weight: 700; display: flex; align-items: center; }
   .sep { width: 4.5mm; text-align: center; font-size: 15pt; font-weight: 800; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4mm; }
   .vert .sep { width: 6mm; }
@@ -115,8 +117,11 @@
 <div class="feuille">
 
   <div class="tete">
-    <div class="titre">Très futé junior <small>Variante A · <span class="num">5</span> dés · <b>dé blanc = joker</b> : il va dans la zone de ton choix</small></div>
-    <div class="prenom">Prénom <span class="ligne"></span></div>
+    <div class="titre">Très futé junior — variante A : 5 dés avec joker</div>
+    <div class="sous-titre">
+      <small><b>dé blanc = joker</b> : il va dans la zone de ton choix</small>
+      <div class="prenom">Prénom <span class="ligne"></span></div>
+    </div>
   </div>
 
   <div class="haut">
@@ -169,6 +174,7 @@
           <div class="rond"><span class="fant">+1</span></div>
           <div class="rond"><span class="fant">+1</span></div>
         </div>
+        <div class="rappel">dé pris avec un <b>+1</b> : pas de bonus</div>
       </div>
     </div>
   </div>
@@ -204,18 +210,15 @@
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep"></div>
       <div class="col"><div class="dessus"><span class="badge relance"><svg><use href="#ico-relance"/></svg></span></div><div class="case"></div></div><div class="sep"></div>
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep"></div>
-      <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep"></div>
       <div class="col"><div class="dessus"><span class="badge plus1">+1</span></div><div class="case"></div></div><div class="sep"></div>
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep"></div>
-      <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep"></div>
-      <div class="col"><div class="dessus"><span class="badge relance"><svg><use href="#ico-relance"/></svg></span></div><div class="case"></div></div><div class="sep"></div>
-      <div class="col"><div class="dessus"></div><div class="case"></div></div>
+      <div class="col"><div class="dessus"><span class="badge relance"><svg><use href="#ico-relance"/></svg></span></div><div class="case"></div></div>
     </div>
   </section>
 
   <!-- ZONE VIOLETTE -->
   <section class="zone violet">
-    <h2><span class="nom">VIOLET</span><span class="aide">Plus grand que la case d'avant. Après un <span class="num">6</span> : n'importe lequel. <i>Points : la somme.</i></span></h2>
+    <h2><span class="nom">VIOLET</span><span class="aide">Plus grand que la case d'avant. <i>Points : la somme.</i></span></h2>
     <div class="rangee">
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
@@ -224,9 +227,8 @@
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
       <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
       <div class="col"><div class="dessus"><span class="badge relance"><svg><use href="#ico-relance"/></svg></span></div><div class="case"></div></div><div class="sep">&lt;</div>
-      <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
-      <div class="col"><div class="dessus"></div><div class="case"></div></div><div class="sep">&lt;</div>
       <div class="col"><div class="dessus"></div><div class="case"></div></div>
+      <div class="legende" style="margin-left:4mm; align-self:flex-end; padding-bottom:1mm; width:34mm">Après un <span class="num">6</span> : on recommence, tous les nombres vont.</div>
     </div>
   </section>
 
