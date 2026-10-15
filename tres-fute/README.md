@@ -17,27 +17,28 @@ Chaque dossier contient :
 - `feuillet.html` : la source du feuillet ;
 - `simulation.py` et `resultats-simulation.md` : des milliers de parties simulées pour vérifier la durée, le remplissage des zones et l'équilibre des points.
 
-Ce qui ne change pas d'une variante à l'autre : le joueur actif lance jusqu'à 3 fois et garde un dé à chaque fois, les dés plus petits partent sur le plateau d'argent, les autres joueurs se servent sur le plateau. Seuls bonus gardés : la **relance** et le **+1** ; une case remplie grâce à un +1 ne donne pas de bonus, pour éviter les enchaînements. Pas de renards ni de cases ×2/×3. Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs (12 à 16 tours, environ un quart d'heure).
+Ce qui ne change pas d'une variante à l'autre : le joueur actif lance jusqu'à 3 fois et garde un dé à chaque fois, les dés plus petits partent sur le plateau d'argent, les autres joueurs se servent sur le plateau. Seuls bonus gardés : la **relance** et le **+1** ; une case remplie grâce à un +1 ne donne pas de bonus, pour éviter les enchaînements. Pas de renards ni de cases ×2/×3. Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs, soit 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans.
 
 ## Comparatif
 
-Chiffres issus des simulations (stratégie « meilleur coup immédiat », donc un peu meilleure qu'un enfant) :
+Chaque variante est simulée avec deux façons de jouer : « soignée » (le meilleur coup immédiat, mieux qu'un enfant) et « enfant » (un coup possible au hasard, sans jamais utiliser de relance). Objectifs tenus par les trois variantes dans les deux cas : chaque zone remplie à 30 % au moins en moyenne, et aucune zone ne rapporte plus de 40 % des points.
 
 | | A · 5 dés + joker | B · 5 dés sans joker | C · 6 dés + joker |
 |---|---|---|---|
 | Ce que fait l'enfant pendant la partie | trouver, comparer, écrire | trouver, comparer (« ou plus » et « ou moins »), écrire | trouver, comparer, écrire, **additionner bleu + blanc** |
 | Décisions par lancer | choisir un dé ; où mettre le joker | choisir un dé (chaque dé n'a qu'une zone) | choisir parmi 6 dés ; où mettre le joker |
-| Score moyen | ≈ 70 | ≈ 63 | ≈ 81 |
-| Zone la moins remplie | 45 % | 36 % | 42 % |
-| Part maximale d'une zone dans le score | 31 % | 29 % | 24,5 % |
+| Cases à remplir | 35 (jaune 12, vert 8, orange 7, violet 8) | 47 | 42 |
+| Score moyen : soigné / enfant | ≈ 70 / ≈ 51 | ≈ 63 / ≈ 55 | ≈ 81 / ≈ 57 |
+| Zone la moins remplie : soigné / enfant | 50 % / 38 % | 36 % / 34 % | 42 % / 36 % |
+| Part max d'une zone : soigné / enfant | 31 % / 38 % | 29 % / 31 % | 24,5 % / 33 % |
 | Densité du feuillet | aérée | moyenne | la plus dense |
 | Le plus proche du jeu original | — | — | ✔ |
 
 **Points forts et points faibles**
 
-- **A — 5 dés avec joker.** Le plus simple : 4 zones seulement, aucune addition pendant le jeu. Le joker garde le petit plaisir du « je le mets où je veux ». La zone bleue disparaît.
-- **B — 5 dés sans joker.** Chaque dé ne va que dans sa couleur : aucune hésitation, idéal pour une toute première partie. Mais 5 zones à suivre, et les « ou moins » du bleu se confondent facilement avec les « ou plus » du vert. Zones un peu moins remplies.
-- **C — 6 dés avec joker.** Tout le matériel de la boîte, toutes les couleurs. Plus riche et mieux équilibré, mais plus de comparaisons à chaque lancer (6 dés) et une règle abstraite : en bleu, on additionne le dé bleu et le dé blanc, même si le blanc est ailleurs sur la table.
+- **A — 5 dés avec joker.** Le plus simple : 4 zones seulement, aucune addition pendant le jeu. Le joker garde le petit plaisir du « je le mets où je veux ». La zone bleue disparaît. En jouant au hasard, l'orange se remplit presque entièrement et pèse lourd (38 % des points), et le jaune rapporte peu : un enfant qui vise les colonnes jaunes sera récompensé.
+- **B — 5 dés sans joker.** Chaque dé ne va que dans sa couleur : aucune hésitation, idéal pour une toute première partie. Mais 5 zones à suivre, et les « ou moins » du bleu se confondent facilement avec les « ou plus » du vert. Zones un peu moins remplies (le vert est le plus juste, à 34 % en jeu « enfant »).
+- **C — 6 dés avec joker.** Tout le matériel de la boîte, toutes les couleurs. Le mieux équilibré, mais plus de comparaisons à chaque lancer (6 dés) et une règle abstraite : en bleu, on additionne le dé bleu et le dé blanc, même si le blanc est ailleurs sur la table.
 
 **Recommandation :** commencer par **A**. C'est la variante qui demande le moins de règles à retenir tout en gardant le joker. Passer à **C** quand les enfants sont à l'aise : elle prépare au vrai jeu. **B** est une bonne alternative si le joker crée des disputes ou de l'hésitation.
 
