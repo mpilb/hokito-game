@@ -90,16 +90,18 @@ La zone jaune a 3 rangées de 3 cases :
 
 | | | | Rangée complète |
 |---|---|---|---|
-| 1 | 2 | 3 ↻ | 10 points |
-| 4 | 5 | 6 | 10 points |
-| 2 | 4 +1 | 6 | 10 points |
+| 1 | 2 | 3 ↻ | + 10 points |
+| 4 | 5 | 6 | + 10 points |
+| 2 | 4 +1 | 6 | + 10 points |
 
 - Avec le dé jaune (ou le blanc), on **coche une case qui porte le même nombre que le dé**. Si ce nombre est dans deux rangées, on choisit laquelle.
 - On ne coche jamais deux fois la même case. Si toutes les cases de ce nombre sont cochées (ou si les 9 cases sont cochées : zone pleine), on ne peut pas utiliser le dé ici.
 - Le 3 de la 1re rangée donne une **relance**, le 4 de la 3e rangée donne un **+1**.
-- **Points :** chaque **rangée complète** (3 cases cochées) rapporte **10 points**. Une rangée incomplète ne rapporte rien.
+- **Points :** chaque **case cochée** rapporte **1 point**, et chaque **rangée complète** (3 cases cochées) rapporte en plus **10 points**. Une rangée incomplète ne rapporte que ses cases cochées (1 point chacune).
 
 *Exemple :* Léa a le jaune 4. Elle peut cocher le 4 de la 2e rangée ou le 4 de la 3e rangée. Elle choisit la 3e rangée : la case a le symbole +1, elle gagne un +1.
+
+*Exemple de points :* à la fin, Léa a coché les 3 cases de la 1re rangée et 2 cases de la 3e. Cela fait 5 cases cochées = 5 points, plus 1 rangée complète = 10 points : **15 points** en jaune.
 
 ### 5.2 Zone bleue — « Additionne bleu + blanc » (additionner)
 
@@ -184,7 +186,7 @@ Il y a deux bonus. Sur la feuille, chacun a sa ligne de ronds dans l'encadré «
 - À la **fin de n'importe quel tour** (le sien ou celui d'un autre), après que les autres joueurs ont pris leur dé du plateau d'argent, un joueur peut utiliser **un seul +1** par tour. Un +1 gagné pendant ce tour peut servir à la fin de ce même tour.
 - Il prend alors **n'importe lequel des 6 dés** : un dé gardé par le joueur actif, un dé du plateau d'argent, même un dé qu'il a déjà utilisé lui-même pendant ce tour. Il l'utilise sur sa feuille comme d'habitude (règle générale : si ce dé peut remplir une case, il doit l'utiliser ; si aucun dé ne peut, il garde son +1 et ne fait pas de croix).
 - **La règle de couleur reste la même** : un dé ne sert que dans la zone de sa couleur, et le dé blanc reste un joker (on choisit la zone). La zone bleue se lit toujours « bleu + blanc » (partie 5.2).
-- Plusieurs joueurs peuvent utiliser un +1 à la fin du même tour, l'un après l'autre, et prendre le même dé.
+- **On lit la valeur du dé sans le déplacer** : le dé reste où il est (devant le joueur actif ou sur le plateau d'argent). Plusieurs joueurs peuvent donc utiliser un +1 à la fin du même tour, et prendre le même dé.
 
 ### 6.3 Pas de bonus en chaîne
 
@@ -202,7 +204,7 @@ L'adulte remplit l'encadré « Décompte » de chaque feuille :
 
 | Zone | Comment compter |
 |---|---|
-| Jaune | 10 points par rangée pleine (3 cases cochées) |
+| Jaune | 1 point par case cochée, plus 10 points par rangée pleine (3 cases cochées) |
 | Bleu | compter les cases cochées, lire le tableau sous la zone |
 | Vert | le nombre sous la dernière case cochée |
 | Orange | additionner les nombres écrits |
@@ -213,18 +215,18 @@ Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent 
 
 **Exemple de décompte.** Voici la feuille de Zoé à la fin de la partie :
 
-- **Jaune :** les rangées 1 (1-2-3) et 2 (4-5-6) sont complètes ; dans la rangée 3, seuls le 2 et le 4 sont cochés, le 6 ne l'est pas, donc elle ne rapporte rien. 2 rangées pleines × 10 = **20 points**.
+- **Jaune :** les rangées 1 (1-2-3) et 2 (4-5-6) sont complètes ; dans la rangée 3, seuls le 2 et le 4 sont cochés, le 6 ne l'est pas, donc elle ne donne pas de bonus de rangée. Cases cochées : 3 + 3 + 2 = 8 cases = 8 points. Rangées pleines : 2 × 10 = 20 points. 8 + 20 = **28 points**.
 - **Bleu :** 5 cases cochées. Le tableau donne 12 pour 5 cases : **12 points**.
 - **Vert :** 5 cases cochées (de « 1 ou + » jusqu'au deuxième « 2 ou + »). Le nombre écrit sous la dernière case cochée est 16 : **16 points**.
 - **Orange :** les nombres écrits sont 5, 2, 6 et 3. 5 + 2 = 7, 7 + 6 = 13, 13 + 3 = 16 : **16 points**.
 - **Violet :** les nombres écrits sont 2, 4, 6, 1 et 3 (le 1 est permis parce qu'il vient juste après un 6). 2 + 4 = 6, 6 + 6 = 12, 12 + 1 = 13, 13 + 3 = 16 : **16 points**.
-- **Total :** 20 + 12 + 16 + 16 + 16 = **80 points**.
+- **Total :** 28 + 12 + 16 + 16 + 16 = **88 points**.
 
 | Jaune | Bleu | Vert | Orange | Violet | **Total** |
 |---|---|---|---|---|---|
-| 20 | 12 | 16 | 16 | 16 | **80** |
+| 28 | 12 | 16 | 16 | 16 | **88** |
 
-(80 est un bon score : c'est la moyenne quand on joue avec soin ; en jouant plus au hasard, les enfants font plutôt 55 à 60. Voir `resultats-simulation.md`.)
+(88 est un bon score : c'est proche de la moyenne quand on joue avec soin (86 à 91 points) ; en jouant plus au hasard, les enfants font plutôt 60 à 65. Voir `resultats-simulation.md`.)
 
 ## 8. Correspondance feuille ↔ règles
 
@@ -233,7 +235,7 @@ Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent 
 | Prénom | 2 (point 1) |
 | Encadré « Dé blanc = joker » | 3 |
 | Ligne « Manches » (6 cases, avec 2 j. / 3 j. / 4 j.) | 2 (point 4) et 4.3 |
-| Zone jaune : 9 cases, 3 « = 10 points », ↻ sur le 3, +1 sur le 4 du bas | 5.1 |
+| Zone jaune : 9 cases, 3 « + 10 points » (rangée pleine), rappel « + 1 point par case cochée », ↻ sur le 3, +1 sur le 4 du bas | 5.1 |
 | Zone bleue : 9 cases, ↻ et +1, tableau des points | 5.2 |
 | Zone verte : 8 cases avec « … ou + », points sous chaque case, ↻ et +1 | 5.3 |
 | Zone orange : 8 cases, ↻ et +1 | 5.4 |
@@ -241,12 +243,13 @@ Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent 
 | Encadré « Bonus » : rappel « gagné = je colorie, utilisé = je fais une croix » | 6 |
 | Encadré « Bonus », ligne « Relances » : 1 rond « départ » + 5 ronds, et son rappel | 2 (point 2) et 6.1 |
 | Encadré « Bonus », ligne « +1 / Dé en plus » : 5 ronds, et son rappel (« un seul par tour », « aucun bonus ») | 6.2 et 6.3 |
-| Encadré « Décompte » (5 zones + total, avec un indice par zone) | 7 |
+| Encadré « Décompte » (5 zones + total, avec un indice par zone : « cases cochées + rangées pleines » en jaune) | 7 |
 
 Il y a exactement 5 cases ↻ et 5 cases +1 dans les zones : c'est pour ça qu'il y a 5 ronds à gagner dans chaque ligne de bonus (plus le rond « départ » des relances).
 
 ## 9. Conseils pour l'adulte
 
+- **Proposez la relance à voix haute :** « Tu as une relance, tu veux relancer ? » Les enfants oublient aussi leurs relances.
 - **« Quelqu'un utilise un +1 ? »** À la fin de chaque tour, posez la question à voix haute. Les enfants oublient presque toujours leur +1 de fin de tour.
 - **Rappelez la règle générale « si tu peux, tu dois »** : un dé choisi qui peut remplir une case doit être utilisé (partie 4). Le joueur choisit seulement *où* (et, avec le dé blanc, *quelle zone*).
 - **Première partie : triez à voix haute.** Après chaque dé gardé, faites dire à l'enfant : « ceux-là sont plus petits, ils vont sur le plateau d'argent ». Faites aussi dire à voix haute où chaque dé pourrait aller (« le vert 5 : je coche la case verte »).
@@ -263,4 +266,5 @@ Il y a exactement 5 cases ↻ et 5 cases +1 dans les zones : c'est pour ça qu'i
 - **Chaque coup = une seule opération simple** : lire (jaune, orange), comparer (vert, violet) ou additionner deux dés (bleu). Pas de multiplicateurs ×2/×3, pas de renards, pas de bonus qui coche une case ailleurs : les bonus sont seulement des relances et des +1, et un dé pris avec un +1 ne rapporte pas de bonus, ce qui supprime les chaînes.
 - **Le décompte est fait par l'adulte**, guidé par la feuille (tableau bleu, points sous les cases vertes, additions orange et violette). Les enfants n'ont aucun tableau à retenir pendant la partie.
 - **Manches courtes** (6/5/4 selon le nombre de joueurs) : au plus 16 tours de joueur actif (comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs), et chaque joueur reçoit à peu près le même nombre de dés quel que soit le nombre de joueurs.
-- **Barème équilibré** par simulation (`simulation.py`) : avec des choix soignés, chaque zone fait entre 17 % et 25 % du score moyen (score moyen ≈ 80 points) ; avec des choix au hasard, aucune zone ne dépasse 33 % (score moyen ≈ 55 à 60 points). Aucune ne domine.
+- **Barème équilibré** par simulation (`simulation.py`) : avec des choix soignés, chaque zone fait entre 16 % et 29 % du score moyen (score moyen ≈ 86 à 91 points) ; avec des choix au hasard, aucune zone ne dépasse environ 30 % (score moyen ≈ 60 à 65 points). Aucune ne domine.
+- **La zone jaune rapporte 1 point par case cochée**, en plus des 10 points par rangée complète : avec des choix au hasard, beaucoup de feuilles finissaient à 0 point en jaune malgré 5 à 7 cases cochées, ce qui était décourageant. Avec ce point par case, presque aucune feuille ne finit à 0 en jaune (moins de 0,1 % en simulation).

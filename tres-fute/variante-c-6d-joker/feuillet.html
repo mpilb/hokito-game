@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Très futé junior — feuillet variante C</title>
 <style>
-  @page { size: A4; margin: 9mm 10mm; }
+  @page { size: A4; margin: 7mm 10mm; }
   :root {
     --jaune: #E0B000; --jaune-f: #FFF5C7;
     --bleu: #1D63C4;  --bleu-f: #E2EDFB;
@@ -21,7 +21,7 @@
     font-size: 11pt;
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
-  .page { width: 190mm; height: 278mm; display: flex; flex-direction: column; gap: 2mm; overflow: hidden; }
+  .page { width: 190mm; height: 282mm; display: flex; flex-direction: column; gap: 1.5mm; overflow: hidden; }
 
   /* En-tête */
   .entete { display: flex; align-items: flex-end; justify-content: space-between; gap: 6mm; }
@@ -71,6 +71,7 @@
   .duo .jaune { flex: 0 0 88mm; }
   .grille { display: flex; flex-direction: column; gap: 3.4mm; }
   .egal { font-size: 14pt; font-weight: bold; white-space: nowrap; margin-left: 1mm; }
+  .pt-case { margin-top: 1.2mm; font-size: 10.5pt; line-height: 1.1; }
   .egal small { font-size: 10pt; font-weight: normal; }
 
   .bonus-boite { flex: 1; border: 0.6mm solid #444; border-radius: 3mm; padding: 1.6mm 2.5mm; display: flex; flex-direction: column; justify-content: space-between; gap: 1.2mm; }
@@ -94,14 +95,17 @@
   .sous .lib { width: auto; font-size: 9.5pt; font-weight: normal; }
 
   /* Décompte */
-  .decompte { border: 0.8mm solid var(--encre); border-radius: 3mm; padding: 1.6mm 3mm 2.4mm 3mm; }
+  .decompte { border: 0.8mm solid var(--encre); border-radius: 3mm; padding: 1.4mm 3mm 1.4mm 3mm; }
   .decompte h2 { margin: 0 0 1.2mm 0; font-size: 14pt; }
   .decompte h2 span { font-size: 10pt; font-weight: normal; }
   .calc { display: flex; align-items: flex-end; gap: 0.8mm; }
   .calc .op { font-size: 16pt; font-weight: bold; padding-bottom: 3mm; }
   .total-case { display: flex; flex-direction: column; align-items: center; gap: 0.8mm; }
   .total-case .lib { font-size: 11pt; font-weight: bold; }
-  .total-case .indice { font-size: 9.5pt; color: #333; height: 3.8mm; line-height: 1.1; text-align: center; white-space: nowrap; }
+  .total-case .indice { font-size: 9.5pt; color: #333; height: 7.5mm; line-height: 1.1; text-align: center; display: flex; align-items: flex-end; justify-content: center; }
+  .total-case { width: 23mm; }
+  .total-case.j { width: 31mm; }
+  .total-case.t { width: 27mm; }
   .total-case .boite { width: 23mm; height: 12mm; border: 0.6mm solid #333; border-radius: 2mm; background: #fff; }
   .total-case.j .boite { border-color: var(--jaune); border-width: 1mm; }
   .total-case.b .boite { border-color: var(--bleu); border-width: 1mm; }
@@ -145,19 +149,20 @@
         <div class="rang">
           <div class="case">1</div><div class="case">2</div>
           <div class="case">3<span class="bonus r">↻</span></div>
-          <div class="egal">= 10 <small>points</small></div>
+          <div class="egal">+ 10 <small>points</small></div>
         </div>
         <div class="rang">
           <div class="case">4</div><div class="case">5</div><div class="case">6</div>
-          <div class="egal">= 10 <small>points</small></div>
+          <div class="egal">+ 10 <small>points</small></div>
         </div>
         <div class="rang">
           <div class="case">2</div>
           <div class="case">4<span class="bonus p">+1</span></div>
           <div class="case">6</div>
-          <div class="egal">= 10 <small>points</small></div>
+          <div class="egal">+ 10 <small>points</small></div>
         </div>
       </div>
+      <div class="pt-case"><b>+ 1 point par case cochée</b></div>
     </div>
 
     <div class="bonus-boite">
@@ -237,7 +242,7 @@
   <div class="decompte">
     <h2>DÉCOMPTE <span>(rempli par l'adulte à la fin)</span></h2>
     <div class="calc">
-      <div class="total-case j"><span class="lib">Jaune</span><span class="indice">rangées pleines</span><div class="boite"></div></div>
+      <div class="total-case j"><span class="lib">Jaune</span><span class="indice">cases cochées<br>+ rangées pleines</span><div class="boite"></div></div>
       <div class="op">+</div>
       <div class="total-case b"><span class="lib">Bleu</span><span class="indice">lire le tableau</span><div class="boite"></div></div>
       <div class="op">+</div>

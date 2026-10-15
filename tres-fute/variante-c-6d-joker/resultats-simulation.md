@@ -10,17 +10,23 @@ Graine 20261015, 2000 parties par nombre de joueurs, stratégie gloutonne (meill
 
 | Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Tours actifs (critère : × 1 min ≤ 20) |
 |---|---|---|---|---|---|---|
-| 2 | 6 | 81.0 | 8.8 | 100 % | 12 / 12 | 12 |
-| 3 | 5 | 83.6 | 9.3 | 100 % | 15 / 15 | 15 |
-| 4 | 4 | 79.4 | 9.2 | 100 % | 16 / 16 | 16 |
+| 2 | 6 | 88.0 | 8.7 | 100 % | 12 / 12 | 12 |
+| 3 | 5 | 90.5 | 9.4 | 100 % | 15 / 15 | 15 |
+| 4 | 4 | 85.9 | 9.2 | 100 % | 16 / 16 | 16 |
 
 ## Par zone (remplissage moyen / points moyens / part moyenne du score)
 
 | Joueurs | Jaune | Bleu | Vert | Orange | Violet |
 |---|---|---|---|---|---|
-| 2 | 77 % / 18.2 pts / 22 % | 59 % / 13.8 pts / 17 % | 58 % / 15.0 pts / 19 % | 42 % / 14.2 pts / 17 % | 55 % / 19.8 pts / 24 % |
-| 3 | 76 % / 17.7 pts / 21 % | 61 % / 14.4 pts / 17 % | 61 % / 16.1 pts / 19 % | 48 % / 15.6 pts / 18 % | 56 % / 19.9 pts / 24 % |
-| 4 | 73 % / 16.0 pts / 20 % | 59 % / 13.8 pts / 18 % | 60 % / 15.6 pts / 20 % | 48 % / 15.2 pts / 19 % | 54 % / 18.8 pts / 23 % |
+| 2 | 77 % / 25.1 pts / 29 % | 59 % / 13.8 pts / 16 % | 58 % / 15.0 pts / 17 % | 42 % / 14.2 pts / 16 % | 55 % / 19.8 pts / 22 % |
+| 3 | 76 % / 24.5 pts / 27 % | 61 % / 14.4 pts / 16 % | 61 % / 16.1 pts / 18 % | 48 % / 15.6 pts / 17 % | 56 % / 19.9 pts / 22 % |
+| 4 | 73 % / 22.6 pts / 26 % | 59 % / 13.8 pts / 16 % | 60 % / 15.6 pts / 18 % | 48 % / 15.2 pts / 17 % | 54 % / 18.8 pts / 22 % |
+
+## Feuilles à 0 point en jaune (jaune : 1 point par case cochée + 10 par rangée pleine)
+
+| Joueurs | 2 | 3 | 4 |
+|---|---|---|---|
+| Part de feuilles à 0 point en jaune | 0.00 % | 0.00 % | 0.00 % |
 
 ## Bonus (moyenne par joueur et par partie)
 
@@ -36,17 +42,17 @@ Graine 20261015, 2000 parties par nombre de joueurs, stratégie gloutonne (meill
 - OK — C6 2 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 2 joueurs : chaque zone ≥ 30 % remplie (min 42.1 %)
 - OK — C6 2 joueurs : tours actifs × 1 min ≤ 20 (12 tours actifs)
-- OK — C7 2 joueurs : aucune zone > 40 % du score (max 24.5 %)
+- OK — C7 2 joueurs : aucune zone > 40 % du score (max 28.5 %)
 - OK — C6 3 joueurs : ≥ 1 000 parties (2000)
 - OK — C6 3 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 3 joueurs : chaque zone ≥ 30 % remplie (min 48.1 %)
 - OK — C6 3 joueurs : tours actifs × 1 min ≤ 20 (15 tours actifs)
-- OK — C7 3 joueurs : aucune zone > 40 % du score (max 23.8 %)
+- OK — C7 3 joueurs : aucune zone > 40 % du score (max 27.1 %)
 - OK — C6 4 joueurs : ≥ 1 000 parties (2000)
 - OK — C6 4 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 4 joueurs : chaque zone ≥ 30 % remplie (min 47.7 %)
 - OK — C6 4 joueurs : tours actifs × 1 min ≤ 20 (16 tours actifs)
-- OK — C7 4 joueurs : aucune zone > 40 % du score (max 23.7 %)
+- OK — C7 4 joueurs : aucune zone > 40 % du score (max 26.3 %)
 
 **Bilan glouton : OK partout**
 
@@ -58,17 +64,23 @@ Graine 20261015, 2000 parties par nombre de joueurs, stratégie « enfant » (au
 
 | Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Tours actifs (critère : × 1 min ≤ 20) |
 |---|---|---|---|---|---|---|
-| 2 | 6 | 54.9 | 8.8 | 100 % | 12 / 12 | 12 |
-| 3 | 5 | 59.4 | 8.8 | 100 % | 15 / 15 | 15 |
-| 4 | 4 | 57.4 | 8.4 | 100 % | 16 / 16 | 16 |
+| 2 | 6 | 59.7 | 8.9 | 100 % | 12 / 12 | 12 |
+| 3 | 5 | 64.5 | 9.1 | 100 % | 15 / 15 | 15 |
+| 4 | 4 | 62.4 | 8.6 | 100 % | 16 / 16 | 16 |
 
 ## Par zone (remplissage moyen / points moyens / part moyenne du score)
 
 | Joueurs | Jaune | Bleu | Vert | Orange | Violet |
 |---|---|---|---|---|---|
-| 2 | 53 % / 4.3 pts / 7 % | 46 % / 9.6 pts / 18 % | 48 % / 11.9 pts / 22 % | 74 % / 17.9 pts / 33 % | 36 % / 11.2 pts / 20 % |
-| 3 | 57 % / 5.7 pts / 9 % | 50 % / 10.8 pts / 18 % | 51 % / 12.8 pts / 22 % | 83 % / 18.9 pts / 32 % | 37 % / 11.2 pts / 19 % |
-| 4 | 56 % / 5.6 pts / 9 % | 49 % / 10.6 pts / 19 % | 49 % / 12.3 pts / 22 % | 83 % / 18.1 pts / 32 % | 36 % / 10.7 pts / 18 % |
+| 2 | 53 % / 9.0 pts / 15 % | 46 % / 9.6 pts / 16 % | 48 % / 11.9 pts / 20 % | 74 % / 17.9 pts / 30 % | 36 % / 11.2 pts / 19 % |
+| 3 | 57 % / 10.8 pts / 16 % | 50 % / 10.8 pts / 17 % | 51 % / 12.8 pts / 20 % | 83 % / 18.9 pts / 29 % | 37 % / 11.2 pts / 17 % |
+| 4 | 56 % / 10.6 pts / 17 % | 49 % / 10.6 pts / 17 % | 49 % / 12.3 pts / 20 % | 83 % / 18.1 pts / 29 % | 36 % / 10.7 pts / 17 % |
+
+## Feuilles à 0 point en jaune (jaune : 1 point par case cochée + 10 par rangée pleine)
+
+| Joueurs | 2 | 3 | 4 |
+|---|---|---|---|
+| Part de feuilles à 0 point en jaune | 0.03 % | 0.00 % | 0.01 % |
 
 ## Bonus (moyenne par joueur et par partie)
 
@@ -84,17 +96,17 @@ Graine 20261015, 2000 parties par nombre de joueurs, stratégie « enfant » (au
 - OK — C6 2 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 2 joueurs : chaque zone ≥ 30 % remplie (min 36.2 %)
 - OK — C6 2 joueurs : tours actifs × 1 min ≤ 20 (12 tours actifs)
-- OK — C7 2 joueurs : aucune zone > 40 % du score (max 32.6 %)
+- OK — C7 2 joueurs : aucune zone > 40 % du score (max 30.0 %)
 - OK — C6 3 joueurs : ≥ 1 000 parties (2000)
 - OK — C6 3 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 3 joueurs : chaque zone ≥ 30 % remplie (min 37.3 %)
 - OK — C6 3 joueurs : tours actifs × 1 min ≤ 20 (15 tours actifs)
-- OK — C7 3 joueurs : aucune zone > 40 % du score (max 31.9 %)
+- OK — C7 3 joueurs : aucune zone > 40 % du score (max 29.4 %)
 - OK — C6 4 joueurs : ≥ 1 000 parties (2000)
 - OK — C6 4 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
 - OK — C6 4 joueurs : chaque zone ≥ 30 % remplie (min 36.1 %)
 - OK — C6 4 joueurs : tours actifs × 1 min ≤ 20 (16 tours actifs)
-- OK — C7 4 joueurs : aucune zone > 40 % du score (max 31.7 %)
+- OK — C7 4 joueurs : aucune zone > 40 % du score (max 29.2 %)
 
 **Bilan enfant : OK partout**
 

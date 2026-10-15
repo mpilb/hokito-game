@@ -53,8 +53,10 @@ COULEURS = ["blanc", "jaune", "bleu", "vert", "orange", "violet"]
 ZONES = ["jaune", "bleu", "vert", "orange", "violet"]
 
 # Jaune : 3 rangées de 3 nombres ; on coche une case portant la valeur du dé.
+# Points : 1 par case cochée + 10 par rangée complète.
 JAUNE_GRILLE = [[1, 2, 3], [4, 5, 6], [2, 4, 6]]
 JAUNE_POINTS_RANGEE = [10, 10, 10]       # rangée complète
+JAUNE_POINT_PAR_CASE = 1                 # + 1 point par case cochée (en plus des rangées)
 JAUNE_BONUS = {(0, 2): "R", (2, 1): "P"}
 
 # Bleu : somme dé bleu + dé blanc ; on coche la case de cette somme.
@@ -202,6 +204,7 @@ class Feuille:
     # -------- décompte --------
     def scores(self):
         j = sum(JAUNE_POINTS_RANGEE[r] for r in range(len(JAUNE_GRILLE)) if all(self.jaune[r]))
+        j += JAUNE_POINT_PAR_CASE * sum(sum(r) for r in self.jaune)
         return {
             "jaune": j,
             "bleu": BLEU_POINTS[sum(self.bleu)],
@@ -355,6 +358,8 @@ def simuler(nb, rng, strat):
     zs = {z: [] for z in ZONES}
     remp = {z: [] for z in ZONES}
     parts = {z: [] for z in ZONES}
+    jaune_zero = 0
+    nb_feuilles = 0
     st = {}
     for _ in range(PARTIES):
         feuilles, tours, ok = partie(rng, nb, strat)
@@ -363,6 +368,8 @@ def simuler(nb, rng, strat):
         for f in feuilles:
             s = f.scores()
             t = sum(s.values())
+            nb_feuilles += 1
+            jaune_zero += (s["jaune"] == 0)
             totaux.append(t)
             r = f.remplissage()
             for z in ZONES:
@@ -374,6 +381,7 @@ def simuler(nb, rng, strat):
     somme_tot = sum(totaux)
     return {
         "nb": nb,
+        "jaune_zero": jaune_zero / nb_feuilles,
         "moy": statistics.mean(totaux),
         "et": statistics.pstdev(totaux),
         "fini": fini / PARTIES,
@@ -412,6 +420,10 @@ def section(strat, resultats, L):
     for r in resultats:
         cells = [f"{100*r['remp'][z]:.0f} % / {r['zone_moy'][z]:.1f} pts / {100*r['part'][z]:.0f} %" for z in ZONES]
         L.append(f"| {r['nb']} | " + " | ".join(cells) + " |")
+    L.append("\n## Feuilles à 0 point en jaune (jaune : 1 point par case cochée + 10 par rangée pleine)\n")
+    L.append("| Joueurs | " + " | ".join(f"{r['nb']}" for r in resultats) + " |")
+    L.append("|---|" + "---|" * len(resultats))
+    L.append("| Part de feuilles à 0 point en jaune | " + " | ".join(f"{100*r['jaune_zero']:.2f} %" for r in resultats) + " |")
     L.append("\n## Bonus (moyenne par joueur et par partie)\n")
     L.append("| Joueurs | Relances gagnées | Relances utilisées | +1 gagnés | +1 utilisés | Bonus non pris (dé du +1) | Dés pris sans rien cocher (actif) |")
     L.append("|---|---|---|---|---|---|---|")
