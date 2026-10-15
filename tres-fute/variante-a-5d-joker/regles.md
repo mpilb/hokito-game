@@ -4,7 +4,7 @@ Version simplifiée de *Très futé* (*Ganz schön clever*, Wolfgang Warsch) pou
 
 Pendant la partie, les enfants n'ont qu'à **lire**, **comparer** et **écrire** la valeur d'un dé. Aucun calcul pendant le jeu : les additions se font à la fin, par l'adulte.
 
-Durée : 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans.
+Durée : 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs.
 
 ---
 
@@ -16,7 +16,7 @@ Durée : 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfa
 
 ## 2. La feuille de score
 
-La feuille (une par page A4) contient :
+La feuille (une page A4, imprimée en un exemplaire par joueur) contient :
 
 | Partie de la feuille | Où | Ce qu'on y fait |
 |---|---|---|
@@ -54,7 +54,7 @@ Le joueur actif répète au maximum 3 fois :
 1. **Il lance** tous les dés qui ne sont ni déjà choisis, ni sur le plateau d'argent (au premier lancer : les 5 dés).
 2. *(S'il le veut et s'il a un bonus Relance disponible : il peut utiliser une Relance, voir 6.1.)*
 3. **Il choisit un dé** parmi ceux qu'il vient de lancer et le pose devant lui, à l'écart. Il utilise sa valeur dans la zone de la **même couleur** (le dé blanc va dans la zone de son choix, voir 4.4).
-4. **Tous les dés plus petits** que le dé choisi (valeur strictement plus petite) vont **sur le plateau d'argent**. Il ne pourra plus les lancer pendant ce tour.
+4. Parmi les dés qu'il vient de lancer, **tous ceux qui sont plus petits** que le dé choisi (valeur strictement plus petite) vont **sur le plateau d'argent**. Les dés déjà choisis aux lancers précédents restent devant lui. Il ne pourra plus les lancer pendant ce tour.
 5. Les dés qui restent (valeur égale ou plus grande) seront lancés de nouveau au lancer suivant (ce n'est pas une Relance : aucun bonus n'est utilisé).
 
 Le tour du joueur actif s'arrête quand il a choisi **3 dés**, ou plus tôt s'il ne reste **plus aucun dé** à lancer. Après son 3e dé, les dés qui n'ont pas été choisis vont eux aussi sur le plateau d'argent.
@@ -72,6 +72,7 @@ Le joueur actif **ne peut pas s'arrêter volontairement** : à chaque lancer, il
 Quand le joueur actif a fini, **chaque joueur passif choisit un dé sur le plateau d'argent** et l'utilise sur sa propre feuille.
 
 - Plusieurs joueurs peuvent prendre **le même dé** : on ne le déplace pas, chacun l'utilise sur sa feuille.
+- Prendre un dé est facultatif : un joueur passif peut ne rien prendre (par exemple si aucun dé du plateau ne lui sert). Mais s'il prend un dé qui peut remplir une case, il doit l'utiliser (voir 4.4).
 - Les joueurs passifs ne prennent pas les dés posés devant le joueur actif (sauf avec un bonus +1, voir 6.2).
 - Le plateau d'argent n'est **jamais vide** à ce moment : le joueur actif garde au plus 3 des 5 dés, il y a donc toujours au moins 2 dés sur le plateau.
 

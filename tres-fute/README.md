@@ -13,11 +13,11 @@ Trois variantes ont été construites pour comparer :
 Chaque dossier contient :
 
 - `regles.md` : les règles, à lire par l'adulte, avec un exemple par zone ;
-- `feuillet.pdf` : la feuille de score, une page A4 par joueur, à imprimer (en couleur de préférence ; elle reste utilisable en noir et blanc) ;
+- `feuillet.pdf` : la feuille de score : une page A4, à imprimer en autant d'exemplaires que de joueurs (en couleur de préférence ; elle reste utilisable en noir et blanc) ;
 - `feuillet.html` : la source du feuillet ;
 - `simulation.py` et `resultats-simulation.md` : des milliers de parties simulées pour vérifier la durée, le remplissage des zones et l'équilibre des points.
 
-Ce qui ne change pas d'une variante à l'autre : le joueur actif lance jusqu'à 3 fois et garde un dé à chaque fois, les dés plus petits partent sur le plateau d'argent, les autres joueurs se servent sur le plateau. Seuls bonus gardés : la **relance** et le **+1** ; une case remplie grâce à un +1 ne donne pas de bonus, pour éviter les enchaînements. Pas de renards ni de cases ×2/×3. Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs, soit 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans.
+Ce qui ne change pas d'une variante à l'autre : le joueur actif lance jusqu'à 3 fois et garde un dé à chaque fois, les dés plus petits partent sur le plateau d'argent, les autres joueurs se servent sur le plateau. Seuls bonus gardés : la **relance** et le **+1** ; une case remplie grâce à un +1 ne donne pas de bonus, pour éviter les enchaînements. Pas de renards ni de cases ×2/×3. Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs, soit 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs.
 
 ## Comparatif
 
@@ -46,7 +46,7 @@ Chaque variante est simulée avec deux façons de jouer : « soignée » (le mei
 
 - un 6e dé et une 5e zone, le **bleu**, où l'on additionne le dé bleu et le dé blanc ;
 - la grille **jaune** passe à 3 × 3 et rapporte 10 points par **rangée** complète (et non par colonne) ;
-- les seuils et les points de la zone **verte**, la longueur des zones orange et violette et la place des bonus changent ;
+- les seuils et les points de la zone **verte**, la longueur de la zone orange (8 cases au lieu de 7) et la place des bonus changent ;
 - chaque joueur commence avec **une relance** déjà gagnée.
 
 **Bon à savoir :** une relance ne remplit jamais de case par elle-même. Mais si, après une relance, on choisit un dé qui remplit une case à bonus, on gagne ce bonus normalement. Seul le dé pris avec un +1 ne fait jamais gagner de bonus.

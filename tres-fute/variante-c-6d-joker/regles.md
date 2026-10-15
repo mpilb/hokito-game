@@ -4,13 +4,13 @@ Version simplifiée de *Très futé* (*Ganz schön clever*, Wolfgang Warsch) pou
 On garde les 6 dés du jeu d'origine, dont le dé blanc qui sert de joker.
 Un adulte explique les règles, aide pendant la partie si besoin et fait le décompte final avec la feuille.
 
-2 à 4 joueurs · 12 à 16 tours de joueur actif (comptez 20 à 30 minutes avec des enfants de 6-7 ans) · à partir de 6 ans avec un adulte.
+2 à 4 joueurs · 12 à 16 tours de joueur actif (comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs) · à partir de 6 ans avec un adulte.
 
 ---
 
 ## 1. Matériel
 
-- 6 dés : **blanc** (le joker), **jaune**, **bleu**, **vert**, **orange**, **violet**.
+- 6 dés : **blanc** (le joker), **jaune**, **bleu**, **vert**, **orange**, **violet**. Si vous n'avez pas de dés de couleur, collez une gommette de la bonne couleur sur des dés ordinaires.
 - Une feuille de score par joueur (`feuillet.pdf`) et un crayon par joueur.
 - Un **plateau d'argent** : une assiette, un couvercle ou une feuille posée au milieu de la table.
 - Une petite place devant le joueur actif pour poser les dés qu'il garde.
@@ -41,20 +41,20 @@ Les autres dés ne peuvent servir **que dans la zone de leur couleur**.
 Un tour a trois moments : le joueur actif joue, puis les autres joueurs prennent un dé, puis chacun peut utiliser un « +1 ».
 
 **Règle générale : si tu peux, tu dois.** Quand tu as choisi un dé (comme joueur actif, en prenant un dé du plateau d'argent ou avec un +1), **si ce dé peut remplir une case, tu dois l'utiliser** ; sinon, tu ne coches rien. Si le dé peut aller dans plusieurs cases (ou, pour le dé blanc, dans plusieurs zones), tu choisis celle que tu veux parmi les cases possibles, mais tu ne peux pas décider de ne rien cocher.
-Ce qui reste facultatif : prendre un dé du plateau d'argent (partie 4.2) et utiliser un +1 (partie 6.2). Un +1 ne se croise que si le dé pris est utilisé : si aucun dé ne peut remplir une case, on garde son +1.
+Ce qui reste facultatif : prendre un dé du plateau d'argent (partie 4.2) et utiliser un +1 (partie 6.2). On ne fait une croix sur un +1 que si le dé pris est utilisé : si aucun dé ne peut remplir une case, on garde son +1.
 
 ### 4.1 Le joueur actif (jusqu'à 3 lancers)
 
 1. **Il lance** tous les dés qui ne sont ni gardés ni sur le plateau d'argent (au premier lancer : les 6 dés). S'il a une relance, il peut l'utiliser maintenant (partie 6.1).
 2. **Il garde un dé** de son choix et l'utilise tout de suite sur sa feuille (voir les zones). Il pose ce dé devant lui : il ne sera plus lancé de nouveau, mais sa valeur reste visible jusqu'à la fin du tour.
-3. **Tous les dés plus petits** que le dé gardé vont sur le **plateau d'argent**. « Plus petit » veut dire un nombre de points plus petit ; les dés de même valeur ne vont pas sur le plateau, ils restent à lancer de nouveau.
+3. Parmi les dés qu'il vient de lancer, **tous ceux qui sont plus petits** que le dé gardé vont sur le **plateau d'argent** (les dés gardés aux lancers précédents restent devant lui). « Plus petit » veut dire un nombre de points plus petit ; les dés de même valeur ne vont pas sur le plateau, ils restent à lancer de nouveau.
 4. Il recommence avec les dés qui restent : 2e lancer, il garde un 2e dé ; 3e lancer, il garde un 3e dé.
 5. **Après le 3e dé gardé, tous les dés qui restent vont sur le plateau d'argent.**
 
 Précisions :
 - Le joueur actif **doit** garder un dé à chaque lancer et continue jusqu'à 3 dés gardés, tant qu'il lui reste des dés à lancer : **il ne peut pas s'arrêter volontairement**. Si aucun dé ne peut remplir une case, il garde quand même un dé et ne coche rien. Si le dé qu'il a gardé peut remplir une case, il doit l'utiliser (règle générale, partie 4).
 - S'il n'y a plus aucun dé à lancer (tous sont sur le plateau d'argent ou devant lui), son tour s'arrête plus tôt.
-- Le joueur actif ne prend jamais de dé sur le plateau d'argent.
+- Le joueur actif ne prend jamais de dé sur le plateau d'argent (sauf avec un +1, partie 6.2).
 - **Au tour suivant, on reprend tous les dés** (ceux qui étaient devant le joueur actif, ceux du plateau d'argent) : le plateau d'argent est vidé et on lance de nouveau les 6 dés.
 
 **Exemple de tour.** Léa lance les 6 dés : blanc 2, jaune 5, bleu 1, vert 4, orange 3, violet 6.
@@ -224,7 +224,7 @@ Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent 
 |---|---|---|---|---|---|
 | 20 | 12 | 16 | 16 | 16 | **80** |
 
-(Un score de 80 est un score moyen pour cette variante : voir `resultats-simulation.md`.)
+(80 est un bon score : c'est la moyenne quand on joue avec soin ; en jouant plus au hasard, les enfants font plutôt 55 à 60. Voir `resultats-simulation.md`.)
 
 ## 8. Correspondance feuille ↔ règles
 
@@ -262,5 +262,5 @@ Il y a exactement 5 cases ↻ et 5 cases +1 dans les zones : c'est pour ça qu'i
 - **Zones plus petites** (8 ou 9 cases au lieu de 11 à 16) pour qu'un enfant en remplisse une bonne partie avec environ 25 dés par partie : la simulation donne au moins 40 % de remplissage moyen dans chaque zone avec des choix soignés (stratégie gloutonne) et au moins 35 % avec des choix faits au hasard, sans aucune relance (stratégie « enfant »).
 - **Chaque coup = une seule opération simple** : lire (jaune, orange), comparer (vert, violet) ou additionner deux dés (bleu). Pas de multiplicateurs ×2/×3, pas de renards, pas de bonus qui coche une case ailleurs : les bonus sont seulement des relances et des +1, et un dé pris avec un +1 ne rapporte pas de bonus, ce qui supprime les chaînes.
 - **Le décompte est fait par l'adulte**, guidé par la feuille (tableau bleu, points sous les cases vertes, additions orange et violette). Les enfants n'ont aucun tableau à retenir pendant la partie.
-- **Manches courtes** (6/5/4 selon le nombre de joueurs) : au plus 16 tours de joueur actif (comptez 20 à 30 minutes avec des enfants de 6-7 ans), et chaque joueur reçoit à peu près le même nombre de dés quel que soit le nombre de joueurs.
+- **Manches courtes** (6/5/4 selon le nombre de joueurs) : au plus 16 tours de joueur actif (comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs), et chaque joueur reçoit à peu près le même nombre de dés quel que soit le nombre de joueurs.
 - **Barème équilibré** par simulation (`simulation.py`) : avec des choix soignés, chaque zone fait entre 17 % et 25 % du score moyen (score moyen ≈ 80 points) ; avec des choix au hasard, aucune zone ne dépasse 33 % (score moyen ≈ 55 à 60 points). Aucune ne domine.

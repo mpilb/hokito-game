@@ -1,7 +1,7 @@
 # Très futé junior — variante B : 5 dés sans joker
 
 Version simplifiée de *Très futé* (*Ganz schön clever*, Wolfgang Warsch) pour des enfants de 6-7 ans.
-2 à 4 joueurs, 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans.
+2 à 4 joueurs, 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs.
 Un adulte explique les règles, aide pendant la partie si besoin et fait le décompte final.
 
 Ces règles sont écrites pour l'adulte. Chaque case du feuillet est expliquée ci-dessous ; le tableau de
@@ -12,8 +12,9 @@ correspondance en fin de document le vérifie case par case.
 ## 1. Matériel
 
 - **5 dés** : jaune, bleu, vert, orange, violet. Si vous utilisez la boîte du jeu original, **laissez le dé
-  blanc dans la boîte** : il ne sert pas dans cette variante.
-- **Un feuillet par joueur** (`feuillet.pdf`, une page A4 par joueur).
+  blanc dans la boîte** : il ne sert pas dans cette variante. Si vous n'avez pas de dés de couleur, collez une
+  gommette de la bonne couleur sur des dés ordinaires.
+- **Un feuillet par joueur** (`feuillet.pdf` : une page A4, à imprimer en autant d'exemplaires que de joueurs).
 - Un crayon par joueur (un crayon de couleur en plus est pratique pour colorier les bonus).
 - Un **plateau d'argent** : n'importe quel objet qui délimite un endroit de la table (une assiette, un
   couvercle de boîte, une feuille de papier).
@@ -72,7 +73,7 @@ Pendant le tour d'un joueur actif, les autres joueurs sont les **joueurs passifs
 
 ### 4.2 Les joueurs passifs : un dé du plateau d'argent
 
-Quand le joueur actif a fini, **chaque joueur passif** choisit **un** dé sur le plateau d'argent. Si ce dé
+Quand le joueur actif a fini, **chaque joueur passif** peut choisir **un** dé sur le plateau d'argent (c'est facultatif : il peut ne rien prendre). Si ce dé
 peut remplir une case de la zone de sa couleur, il **doit** l'utiliser (même obligation que pour le joueur
 actif) ; sinon, il ne coche rien. Plusieurs joueurs peuvent prendre le même dé (on ne le déplace pas,
 chacun le recopie sur son feuillet). Si aucun dé du plateau ne peut servir à un joueur passif, il ne
@@ -288,4 +289,4 @@ Le plus grand total gagne. En cas d'égalité, les joueurs se partagent la victo
   (voir `resultats-simulation.md` : avec un jeu glouton comme avec un jeu « enfant » au hasard, sans
   relance, chaque zone est remplie à plus de 33 % et aucune ne dépasse 31 % du score) ; le barème bleu/vert est le même pour les deux zones.
 - **Manches** inchangées par rapport à l'original (6/5/4), ce qui donne 12 à 16 tours de joueur actif ;
-  avec des enfants de 6-7 ans, comptez 20 à 30 minutes.
+  avec des enfants de 6-7 ans, comptez 20 à 30 minutes (plutôt 30 à 40 à 4 joueurs).
