@@ -50,7 +50,8 @@ Pendant le tour d'un joueur actif, les autres joueurs sont les **joueurs passifs
 
 ### 4.1 Le joueur actif : 3 choix au maximum
 
-1. **Lancer.** Le joueur actif lance tous les dés disponibles (au début du tour : les 5 dés).
+1. **Lancer.** Le joueur actif lance tous les dés disponibles (au début du tour : les 5 dés). Juste après
+   ce lancer, avant de choisir, il peut utiliser une ou plusieurs Relances s'il en a (voir 6.2).
 2. **Choisir un dé.** Il prend un des dés qu'il vient de lancer et le pose devant lui (ce dé est
    « choisi », il ne sera plus lancé de nouveau pendant ce tour).
    - **Obligation de jouer.** Si le dé qu'il a choisi peut remplir une case de la zone de sa couleur

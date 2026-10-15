@@ -14,7 +14,7 @@ Chaque dossier contient :
 
 - `regles.md` : les règles, à lire par l'adulte, avec un exemple par zone ;
 - `feuillet.pdf` : la feuille de score : une page A4, à imprimer en autant d'exemplaires que de joueurs (en couleur de préférence ; elle reste utilisable en noir et blanc) ;
-- `feuillet.html` : la source du feuillet ;
+- `feuillet.html` : la source du feuillet (pour imprimer, prenez le PDF : sa mise en page est figée, alors que le HTML peut se décaler selon le navigateur) ;
 - `simulation.py` et `resultats-simulation.md` : des milliers de parties simulées pour vérifier la durée, le remplissage des zones et l'équilibre des points.
 
 Ce qui ne change pas d'une variante à l'autre : le joueur actif lance jusqu'à 3 fois et garde un dé à chaque fois, les dés plus petits partent sur le plateau d'argent, les autres joueurs se servent sur le plateau. Seuls bonus gardés : la **relance** et le **+1** ; une case remplie grâce à un +1 ne donne pas de bonus, pour éviter les enchaînements. Pas de renards ni de cases ×2/×3. Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs, soit 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfants de 6-7 ans, plutôt 30 à 40 à 4 joueurs.
