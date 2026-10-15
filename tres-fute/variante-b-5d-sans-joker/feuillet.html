@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Petits futés – feuillet B</title>
+<title>Très futé junior – feuillet B</title>
 <style>
   @page { size: A4; margin: 8mm; }
   :root {
@@ -18,21 +18,21 @@
   html, body { margin: 0; padding: 0; background: #fff; color: var(--encre);
     font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif;
     -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .feuille { width: 194mm; height: 280mm; display: flex; flex-direction: column; gap: 1.8mm; overflow: hidden; }
+  .feuille { width: 194mm; height: 280mm; display: flex; flex-direction: column; gap: 1.6mm; overflow: hidden; }
   .d { font-size: 14pt; font-weight: bold; }
 
   /* ---------- en-tête */
   .entete { display: flex; align-items: flex-end; gap: 5mm; border-bottom: 0.6mm solid var(--encre); padding-bottom: 2mm; }
   .titre { flex: 0 0 auto; }
   .titre h1 { margin: 0; font-size: 19pt; letter-spacing: 0.3pt; }
-  .titre p { margin: 0.5mm 0 0; font-size: 9.5pt; }
+  .titre p { margin: 0.5mm 0 0; font-size: 10pt; }
   .prenom { flex: 1 1 auto; font-size: 12pt; font-weight: bold; }
-  .prenom .ligne { height: 10mm; border: 0.5mm solid var(--encre); border-radius: 2mm; margin-top: 1mm; }
+  .prenom .ligne { height: 9mm; border: 0.5mm solid var(--encre); border-radius: 2mm; margin-top: 1mm; }
   .manches { flex: 0 0 auto; font-size: 12pt; font-weight: bold; }
   .manches .cases { display: flex; gap: 1.2mm; margin-top: 1mm; }
   .manches .c { width: 10.5mm; height: 10.5mm; border: 0.5mm solid var(--encre); border-radius: 2mm;
     display: flex; align-items: center; justify-content: center; font-size: 15pt; font-weight: bold; color: #555; }
-  .manches .note { font-size: 9pt; font-weight: normal; margin-left: 1.5mm; }
+  .manches .note { font-size: 10pt; font-weight: normal; margin-left: 1.5mm; }
 
   /* ---------- zones */
   .zone { border: 0.7mm solid var(--c); border-radius: 3mm; background: var(--cc); padding: 1.4mm 2.4mm 1.6mm; }
@@ -40,17 +40,17 @@
   .zone h2 .regle { white-space: normal; }
   .zone h2 .nom { background: var(--c); color: #fff; padding: 0.4mm 2.5mm; border-radius: 1.5mm; letter-spacing: 0.6pt; }
   .zone.jaune h2 .nom, .zone.orange h2 .nom { color: var(--encre); }
-  .zone h2 .regle { font-size: 9.5pt; font-weight: normal; line-height: 1.1; }
+  .zone h2 .regle { font-size: 10pt; font-weight: normal; line-height: 1.1; }
   .jaune  { --c: var(--jaune);  --cc: var(--jaune-clair); }
   .bleu   { --c: var(--bleu);   --cc: var(--bleu-clair); }
   .vert   { --c: var(--vert);   --cc: var(--vert-clair); }
   .orange { --c: var(--orange); --cc: var(--orange-clair); }
   .violet { --c: var(--violet); --cc: var(--violet-clair); }
 
-  .case { width: 15mm; height: 14mm; background: #fff; border: 0.6mm solid var(--encre); border-radius: 2mm;
+  .case { width: 15mm; height: 13mm; background: #fff; border: 0.6mm solid var(--encre); border-radius: 2mm;
     display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
   .case .n { font-size: 19pt; font-weight: bold; }
-  .case .mot { font-size: 7.5pt; margin-top: 0.8mm; }
+  .case .mot { font-size: 8.5pt; margin-top: 0.8mm; letter-spacing: -0.04em; white-space: nowrap; }
 
   /* bonus : étiquette sous la case */
   .bon { height: 7mm; display: flex; align-items: center; justify-content: center; }
@@ -63,11 +63,11 @@
   .col { display: flex; flex-direction: column; align-items: center; }
   .pts { width: 15mm; height: 7.5mm; border-top: 0.4mm dashed #555; display: flex; align-items: center; justify-content: center;
     font-size: 14pt; font-weight: bold; }
-  .lib { width: 15mm; flex: 0 0 15mm; font-size: 8.5pt; line-height: 1.25; }
-  .lib .h { height: 14mm; display: flex; align-items: center; }
+  .lib { width: 15mm; flex: 0 0 15mm; font-size: 10pt; line-height: 1.25; }
+  .lib .h { height: 13mm; display: flex; align-items: center; }
   .lib .b { height: 7mm; display: flex; align-items: center; }
   .lib .p { height: 7.5mm; display: flex; align-items: center; font-weight: bold; }
-  .signe { width: 3mm; height: 14mm; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: bold; margin: 0 -1.2mm; }
+  .signe { width: 3mm; height: 13mm; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: bold; margin: 0 -1.2mm; }
 
   /* ---------- haut : jaune + bonus */
   .haut { display: flex; gap: 2.4mm; }
@@ -78,28 +78,28 @@
   .grille .lb { display: flex; align-items: center; justify-content: center; }
   .grille .cp { height: 7.5mm; border-top: 0.4mm dashed #555; display: flex; align-items: center; justify-content: center;
     font-size: 14pt; font-weight: bold; }
-  .legende { width: 29mm; font-size: 9pt; line-height: 1.2; }
+  .legende { width: 30mm; font-size: 10pt; line-height: 1.2; }
   .legende br + br { display: block; content: ""; margin-top: 1.2mm; }
 
   .bonus { border: 0.7mm solid var(--encre); border-radius: 3mm; padding: 1.4mm 2.4mm 1.6mm; flex: 1 1 auto; }
   .bonus h2 { margin: 0 0 0.6mm; font-size: 13pt; }
-  .bonus .expl { font-size: 8.8pt; margin: 0.6mm 0 1.2mm; line-height: 1.2; }
+  .bonus .expl { font-size: 10pt; margin: 0.4mm 0 0.8mm; line-height: 1.15; }
   .bonus .t { font-size: 10pt; font-weight: bold; display: flex; align-items: center; gap: 1.5mm; }
   .bonus .t .badge { height: 5.6mm; min-width: 8mm; }
   .bonus .t .badge svg { width: 4.6mm; height: 4.6mm; }
-  .piste { display: flex; align-items: center; gap: 1mm; margin-top: 0.8mm; }
-  .jeton { width: 10mm; height: 10mm; border: 0.6mm solid var(--encre); border-radius: 50%; background: #fff;
-    display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: bold; color: #b3b3b3; }
-  .jeton svg { width: 5.6mm; height: 5.6mm; fill: #b3b3b3; }
+  .piste { display: flex; align-items: center; gap: 1mm; margin-top: 0.6mm; }
+  .jeton { width: 8.6mm; height: 8.6mm; border: 0.6mm solid var(--encre); border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 12pt; font-weight: bold; color: #b3b3b3; }
+  .jeton svg { width: 5mm; height: 5mm; fill: #b3b3b3; }
 
   /* ---------- décompte */
   .decompte { border: 0.7mm solid var(--encre); border-radius: 3mm; padding: 1.4mm 2.4mm 1.6mm; }
   .decompte h2 { margin: 0 0 1.2mm; font-size: 13pt; }
-  .decompte h2 span { font-size: 9pt; font-weight: normal; }
+  .decompte h2 span { font-size: 10pt; font-weight: normal; }
   .totaux { display: grid; grid-template-columns: repeat(5, 1fr) 1.25fr; gap: 2mm; }
   .tot .l { font-size: 11pt; font-weight: bold; margin-bottom: 0.6mm; }
-  .decompte .aide { font-size: 8.8pt; margin: 1.2mm 0 0; line-height: 1.2; }
-  .tot .v { height: 12mm; border: 0.6mm solid var(--encre); border-radius: 2mm; background: var(--cc, #fff); }
+  .decompte .aide { font-size: 10pt; margin: 1.2mm 0 0; line-height: 1.2; }
+  .tot .v { height: 10mm; border: 0.6mm solid var(--encre); border-radius: 2mm; background: var(--cc, #fff); }
   .tot.total .v { border-width: 1.1mm; background: #fff; }
   .tot.total .l { font-size: 12pt; }
 </style>
@@ -115,8 +115,8 @@
 
   <div class="entete">
     <div class="titre">
-      <h1>Petits futés</h1>
-      <p>Variante B · 5 dés de couleur, sans joker</p>
+      <h1>Très futé junior</h1>
+      <p>Variante B : 5 dés sans joker</p>
     </div>
     <div class="prenom">Prénom<div class="ligne"></div></div>
     <div class="manches">Manches <span class="note"><span class="d">2</span> joueurs → <span class="d">6</span> · <span class="d">3</span> j. → <span class="d">5</span> · <span class="d">4</span> j. → <span class="d">4</span></span>
@@ -142,27 +142,27 @@
           <div></div>
         </div>
         <div class="legende">
-          Dé jaune : coche une case qui a <b>le même nombre</b>.<br><br>
-          Ligne pleine → le bonus au bout de la ligne.<br><br>
-          Colonne pleine → <span class="d">+10</span> points.<br><br>
-          Chaque case cochée vaut aussi <span class="d">1</span> point.
+          Dé jaune : coche une case de <b>même nombre</b>.<br><br>
+          Ligne pleine : son bonus.<br><br>
+          Colonne pleine : <span class="d">+10</span> points.<br><br>
+          Chaque case cochée : <span class="d">1</span> point.
         </div>
       </div>
     </div>
 
     <div class="bonus">
       <h2>Mes bonus</h2>
-      <p class="expl">Gagné → je colorie un rond. Utilisé → je le barre.</p>
+      <p class="expl">Gagné : je colorie un rond. Utilisé : je le barre.</p>
       <div class="t">RELANCE <span class="badge"><svg fill="#fff"><use href="#relance"/></svg></span></div>
       <div class="piste">
         <div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div><div class="jeton"><svg><use href="#relance"/></svg></div>
       </div>
-      <p class="expl">À mon tour, après un lancer : je relance tous ces dés.</p>
+      <p class="expl">À mon tour, après un lancer : je relance les dés lancés.</p>
       <div class="t">PLUS UN <span class="badge">+1</span></div>
       <div class="piste">
         <div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div><div class="jeton">+1</div>
       </div>
-      <p class="expl">Fin d'un tour : je prends un dé au choix et je l'utilise. Un seul par tour, sans bonus.</p>
+      <p class="expl">En fin de tour : j'utilise un dé de mon choix. Un seul par tour, sans bonus gagné.</p>
     </div>
   </div>
 
@@ -250,7 +250,7 @@
       <div class="tot violet"><div class="l">Violet</div><div class="v"></div></div>
       <div class="tot total"><div class="l">TOTAL</div><div class="v"></div></div>
     </div>
-    <p class="aide">Jaune : cases cochées + dix par colonne pleine · Bleu, vert : points sous la dernière case · Orange, violet : somme.</p>
+    <p class="aide">Jaune : cases cochées + 10 par colonne pleine · Bleu, vert : points sous la dernière case cochée · Orange, violet : somme des nombres.</p>
   </div>
 
 </div>
