@@ -6,7 +6,8 @@ Implémente exactement les règles de regles.md :
 - Joueur actif : il choisit un dé à chaque lancer et ne peut pas s'arrêter volontairement
   (3 choix, ou moins s'il ne reste plus de dé). Après chaque choix, les dés strictement plus
   petits vont sur le plateau d'argent ; après le 3e choix, les dés restants y vont aussi.
-- Joueurs passifs : chacun prend un dé du plateau d'argent (ou passe).
+- Joueurs passifs : chacun prend un dé du plateau d'argent ; obligation de jouer : si ce dé peut
+  remplir une case, on l'utilise (la gloutonne prend donc toujours le meilleur coup possible).
 - Bonus : relance (joueur actif, après un lancer, plusieurs de suite possibles) et +1 (fin de
   tour, n'importe lequel des 5 dés, un seul +1 par joueur et par tour). Un bonus gagné pendant
   un tour peut servir dès ce tour. Une case remplie grâce à un +1 ne donne pas de bonus.
@@ -287,7 +288,7 @@ def partie(nb_joueurs, rng, strategie="gloutonne"):
                     m = fp.meilleur_coup(c, valeurs[c])
                     if m and (best is None or m[0] > best[0]):
                         best = (m[0], c, m[1])
-                if best and best[0] > -1.0:
+                if best:   # obligation de jouer : si un dé du plateau peut remplir une case, on le joue
                     fp.jouer(best[2], valeurs[best[1]])
             # +1 : un seul par joueur et par tour, n'importe lequel des 5 dés
             for p in range(nb_joueurs):

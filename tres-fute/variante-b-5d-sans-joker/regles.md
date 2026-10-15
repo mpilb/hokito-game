@@ -31,8 +31,9 @@ correspondance en fin de document le vérifie case par case.
    | 3       | 5       | 15                   |
    | 4       | 4       | 16                   |
 
-4. Au début de chaque manche, chaque joueur barre la case **Manches** du numéro de la manche (1 au
-   début de la première manche, puis 2, etc.). À 3 joueurs on n'utilise pas la case 6 ; à 4 joueurs on
+4. À la **fin** de chaque manche (quand tout le monde a été joueur actif une fois, après les +1 du
+   dernier tour de la manche), chaque joueur barre la case **Manches** du numéro de la manche qui vient
+   de se terminer (1 à la fin de la première manche, puis 2, etc.). À 3 joueurs on n'utilise pas la case 6 ; à 4 joueurs on
    n'utilise ni la 5 ni la 6.
 
 ## 3. Idée du jeu
@@ -50,11 +51,11 @@ Pendant le tour d'un joueur actif, les autres joueurs sont les **joueurs passifs
 
 1. **Lancer.** Le joueur actif lance tous les dés disponibles (au début du tour : les 5 dés).
 2. **Choisir un dé.** Il prend un des dés qu'il vient de lancer et le pose devant lui (ce dé est
-   « choisi », il ne sera plus relancé pendant ce tour).
-   - Il **utilise** ce dé dans la zone de sa couleur (voir la partie 5), s'il le peut. S'il le peut, il
-     doit le faire.
-   - S'il ne peut pas l'utiliser (zone pleine ou nombre qui ne convient pas), il le pose quand même devant
-     lui et ne remplit rien. Une zone pleine n'accepte plus aucun dé.
+   « choisi », il ne sera plus lancé de nouveau pendant ce tour).
+   - **Obligation de jouer.** Si le dé qu'il a choisi peut remplir une case de la zone de sa couleur
+     (voir la partie 5), il **doit** l'utiliser. S'il ne peut pas l'utiliser (zone pleine ou nombre qui ne
+     convient pas), il le pose quand même devant lui et ne coche rien. Une zone pleine n'accepte plus
+     aucun dé. Cette obligation vaut aussi pour les joueurs passifs et pour le +1 (voir 4.2 et 6.3).
 3. **Les plus petits vont sur le plateau d'argent.** Tous les dés qu'il vient de lancer et qui montrent un
    nombre **strictement plus petit** que le dé choisi vont sur le plateau d'argent. Les dés qui montrent le
    **même nombre** ou un nombre plus grand restent disponibles.
@@ -71,9 +72,11 @@ Pendant le tour d'un joueur actif, les autres joueurs sont les **joueurs passifs
 
 ### 4.2 Les joueurs passifs : un dé du plateau d'argent
 
-Quand le joueur actif a fini, **chaque joueur passif** choisit **un** dé sur le plateau d'argent et l'utilise
-dans la zone de sa couleur. Plusieurs joueurs peuvent prendre le même dé (on ne le déplace pas, chacun
-le recopie sur son feuillet). Un joueur passif peut aussi **passer** s'il ne veut ou ne peut rien utiliser.
+Quand le joueur actif a fini, **chaque joueur passif** choisit **un** dé sur le plateau d'argent. Si ce dé
+peut remplir une case de la zone de sa couleur, il **doit** l'utiliser (même obligation que pour le joueur
+actif) ; sinon, il ne coche rien. Plusieurs joueurs peuvent prendre le même dé (on ne le déplace pas,
+chacun le recopie sur son feuillet). Si aucun dé du plateau ne peut servir à un joueur passif, il ne
+coche rien ce tour-là.
 
 > **Exemple (suite).** Sur le plateau d'argent il y a jaune 2, bleu 1, violet 3. Tom prend le bleu 1 pour
 > sa zone bleue ; Inès prend aussi le bleu 1. Personne ne prend le violet 3.
@@ -116,7 +119,8 @@ cases remplies) n'accepte plus de dé : le dé de cette couleur ne peut alors pl
 ### 5.2 Bleu — la descente
 
 - 10 cases à remplir **dans l'ordre, de gauche à droite**, sans en sauter.
-- Chaque case porte un nombre et les mots « ou moins ». Avec le dé bleu, on coche **la prochaine case
+- Chaque case porte un nombre et les mots « ou moins », sauf la **dernière** case, qui porte seulement
+  « 1 » (rien n'est plus petit que 1 : seul un 1 convient). Avec le dé bleu, on coche **la prochaine case
   libre** si le dé est **égal ou plus petit** que le nombre de cette case. Sinon, le dé bleu ne peut pas
   servir.
 - Bonus : la 4e case donne une relance, la 7e case donne un +1.
@@ -124,14 +128,16 @@ cases remplies) n'accepte plus de dé : le dé de cette couleur ne peut alors pl
 
 > **Exemple.** Les 3 premières cases de Tom sont cochées ; la prochaine est « 3 ou moins ». Le dé bleu
 > montre 1 : 1 est plus petit que 3, Tom coche la case et gagne une relance. Si le dé avait montré 5,
-> il n'aurait pas pu le mettre en bleu. À la fin, sa dernière case cochée est la 5e : **14 points**.
+> il n'aurait pas pu le mettre en bleu. À la fin, sa dernière case cochée est la 5e : **14 points**. (Pour cocher la 10e et dernière case, « 1 », il
+> faut obtenir un 1 exactement.)
 
 Astuce à dire aux enfants : les petits dés vont souvent sur le plateau d'argent, et la zone bleue les aime.
 
 ### 5.3 Vert — la montée
 
 - 10 cases à remplir **dans l'ordre, de gauche à droite**, sans en sauter.
-- Chaque case porte un nombre et les mots « ou plus ». Avec le dé vert, on coche **la prochaine case
+- Chaque case porte un nombre et les mots « ou plus », sauf la **dernière** case, qui porte seulement
+  « 6 » (rien n'est plus grand que 6 : seul un 6 convient). Avec le dé vert, on coche **la prochaine case
   libre** si le dé est **égal ou plus grand** que le nombre de cette case. Sinon, le dé vert ne peut pas
   servir.
 - Bonus : la 4e case donne un +1, la 7e case donne une relance.
@@ -139,7 +145,8 @@ Astuce à dire aux enfants : les petits dés vont souvent sur le plateau d'argen
 
 > **Exemple.** La prochaine case verte d'Inès est « 4 ou plus ». Le dé vert montre 4 : c'est égal, elle
 > coche (et gagne un +1, c'est la 4e case). Un 3 n'aurait pas suffi. À la fin, sa dernière case cochée
-> est la 4e : **10 points**.
+> est la 4e : **10 points**. (Pour cocher la 10e et dernière case, « 6 », il faut obtenir un 6
+> exactement.)
 
 ### 5.4 Orange — le trésor
 
@@ -197,8 +204,10 @@ ne peut pas servir tout de suite : on la garde pour un prochain tour actif.
   utiliser **un seul** +1.
 - Il prend **n'importe lequel des 5 dés**, où qu'il soit (devant le joueur actif ou sur le plateau
   d'argent), même un dé qu'il a déjà utilisé lui-même pendant ce tour, avec la valeur qu'il montre.
+- **Obligation de jouer** : le dé pris doit remplir une case (on ne gaspille pas un +1 pour rien) ; on peut
+  aussi décider de ne pas utiliser son +1 ce tour-là et de le garder.
 - La **règle de couleur** s'applique toujours : le dé s'utilise dans la zone de sa couleur, avec les règles
-  de cette zone (comparaison avec la case, zone pleine...). Si aucun des 5 dés ne peut servir, on garde son +1.
+  de cette zone (comparaison avec la case, zone pleine...). Si aucun des 5 dés ne peut servir, on garde son +1 (et si plusieurs dés peuvent servir, on choisit celui qu'on veut).
 - **Un bonus ne déclenche pas un autre bonus** : si la case remplie grâce à un +1 porte une pastille (ou
   complète une ligne jaune), on **ne gagne pas** ce bonus. On ne colorie rien dans « Mes bonus ».
   (Les +10 d'une colonne jaune complétée ainsi comptent quand même : ce sont des points, pas un bonus.)
@@ -227,7 +236,7 @@ Le plus grand total gagne. En cas d'égalité, les joueurs se partagent la victo
 
 > **Exemple de décompte.** Un joueur termine avec les scores des exemples ci-dessus : jaune 16, bleu 14,
 > vert 10, orange 10, violet 13. Total : 16 + 14 + 10 + 10 + 13 = **63 points**. C'est un score typique : en
-> simulation, les totaux moyens vont d'environ 53 à 66 points selon le nombre de joueurs et la façon de jouer
+> simulation, les totaux moyens vont d'environ 53 à 67 points selon le nombre de joueurs et la façon de jouer
 > (voir `resultats-simulation.md`).
 
 ## 8. Correspondance feuillet ↔ règles
@@ -239,8 +248,8 @@ Le plus grand total gagne. En cas d'égalité, les joueurs se partagent la victo
 | Jaune : 12 cases à nombre | 5.1 |
 | Jaune : pastilles au bout des lignes (relance, +1, relance) | 5.1, 6 |
 | Jaune : « +10 » sous chaque colonne, « 1 point » par case | 5.1, 7 |
-| Bleu : 10 cases « ou moins », pastilles (4e relance, 7e +1), ligne « points » | 5.2, 6, 7 |
-| Vert : 10 cases « ou plus », pastilles (4e +1, 7e relance), ligne « points » | 5.3, 6, 7 |
+| Bleu : 10 cases (9 « ou moins » puis la case « 1 »), pastilles (4e relance, 7e +1), ligne « points » | 5.2, 6, 7 |
+| Vert : 10 cases (9 « ou plus » puis la case « 6 »), pastilles (4e +1, 7e relance), ligne « points » | 5.3, 6, 7 |
 | Orange : 8 cases, pastilles (3e relance, 6e +1) | 5.4, 6 |
 | Violet : 7 cases, signes « < », pastilles (3e +1, 6e relance) | 5.5, 6 |
 | Mes bonus : 6 ronds Relance, 5 ronds Plus un | 6.1, 6.2, 6.3 |
@@ -248,11 +257,19 @@ Le plus grand total gagne. En cas d'égalité, les joueurs se partagent la victo
 
 ## 9. Conseils pour l'adulte
 
-- Pour la première partie, jouez « cartes sur table » : dites à voix haute où chaque dé peut aller.
-- Rappelez au joueur actif que choisir un grand dé envoie beaucoup de dés sur le plateau d'argent : il
-  aura moins de choix ensuite, mais les autres en auront plus.
-- Les enfants oublient souvent le +1 de fin de tour : demandez « Quelqu'un utilise un +1 ? » à chaque fin
-  de tour.
+- **À la fin de chaque tour**, demandez : « Quelqu'un utilise un +1 ? » Les enfants oublient souvent
+  le +1 de fin de tour.
+- **Pendant la première partie**, faites trier à voix haute : après chaque choix du joueur actif, faites
+  dire « Ces dés sont plus petits que le dé choisi, ils vont sur le plateau d'argent », et laissez
+  l'enfant les y déplacer lui-même. Jouez « cartes sur table » : dites aussi à voix haute où chaque dé
+  peut aller dans la zone de sa couleur.
+- **Prévenez** qu'un gros dé choisi tôt (un 5 ou un 6) envoie beaucoup de dés sur le plateau d'argent :
+  le tour du joueur actif est plus court (parfois seulement 2 choix) et il aura moins de choix ensuite,
+  mais les joueurs passifs en auront davantage.
+- **Rappelez l'exception** : un dé pris avec un +1 ne donne jamais de bonus, même si la case remplie
+  porte une pastille, et même si une ligne jaune est complétée (on ne colorie rien dans « Mes bonus »).
+- Rappelez l'obligation de jouer : si le dé choisi peut remplir une case, on la remplit.
+- Vérifiez à la fin de chaque manche que chaque joueur a barré la bonne case **Manches**.
 
 ## Choix de conception
 

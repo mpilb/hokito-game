@@ -13,51 +13,51 @@ Graine 20261015 (la même pour les deux stratégies), 2000 parties par nombre de
 
 ## gloutonne – 2 joueurs (6 manches)
 
-- Score moyen : 61.5 (écart-type 10.7)
+- Score moyen : 61.9 (écart-type 10.7)
 - Parties terminées (tours actifs comptés = manches × joueurs) : 100 %
 - Tours de joueur actif par partie : 12 (critère : × 1 min = 12 ≤ 20)
 
 | Zone | Cases | Remplissage moyen | Points moyens | Part moyenne du score |
 |------|------:|------------------:|--------------:|----------------------:|
-| jaune | 12 | 55 % | 14.8 | 24 % |
-| bleu | 10 | 50 % | 15.0 | 24 % |
+| jaune | 12 | 55 % | 15.1 | 24 % |
+| bleu | 10 | 49 % | 14.9 | 24 % |
 | vert | 10 | 39 % | 10.5 | 17 % |
-| orange | 8 | 36 % | 10.9 | 18 % |
-| violet | 7 | 37 % | 10.3 | 17 % |
+| orange | 8 | 40 % | 11.3 | 18 % |
+| violet | 7 | 36 % | 10.0 | 16 % |
 
-Bonus par joueur et par partie : relances gagnées 1.47, utilisées 0.86 ; +1 gagnés 1.35, utilisés 1.34 ; bonus non gagnés (case remplie par un +1) 0.21.
+Bonus par joueur et par partie : relances gagnées 1.52, utilisées 0.87 ; +1 gagnés 1.36, utilisés 1.35 ; bonus non gagnés (case remplie par un +1) 0.22.
 
 ## gloutonne – 3 joueurs (5 manches)
 
-- Score moyen : 66.2 (écart-type 11.3)
+- Score moyen : 66.9 (écart-type 11.0)
 - Parties terminées (tours actifs comptés = manches × joueurs) : 100 %
 - Tours de joueur actif par partie : 15 (critère : × 1 min = 15 ≤ 20)
 
 | Zone | Cases | Remplissage moyen | Points moyens | Part moyenne du score |
 |------|------:|------------------:|--------------:|----------------------:|
-| jaune | 12 | 51 % | 13.2 | 20 % |
-| bleu | 10 | 57 % | 18.3 | 27 % |
-| vert | 10 | 42 % | 11.4 | 18 % |
-| orange | 8 | 44 % | 12.7 | 19 % |
-| violet | 7 | 40 % | 10.6 | 16 % |
+| jaune | 12 | 51 % | 13.2 | 19 % |
+| bleu | 10 | 58 % | 18.5 | 27 % |
+| vert | 10 | 41 % | 11.2 | 17 % |
+| orange | 8 | 51 % | 13.4 | 20 % |
+| violet | 7 | 40 % | 10.8 | 16 % |
 
-Bonus par joueur et par partie : relances gagnées 1.71, utilisées 0.95 ; +1 gagnés 1.63, utilisés 1.62 ; bonus non gagnés (case remplie par un +1) 0.24.
+Bonus par joueur et par partie : relances gagnées 1.79, utilisées 0.99 ; +1 gagnés 1.71, utilisés 1.69 ; bonus non gagnés (case remplie par un +1) 0.26.
 
 ## gloutonne – 4 joueurs (4 manches)
 
-- Score moyen : 62.9 (écart-type 10.9)
+- Score moyen : 64.1 (écart-type 10.5)
 - Parties terminées (tours actifs comptés = manches × joueurs) : 100 %
 - Tours de joueur actif par partie : 16 (critère : × 1 min = 16 ≤ 20)
 
 | Zone | Cases | Remplissage moyen | Points moyens | Part moyenne du score |
 |------|------:|------------------:|--------------:|----------------------:|
-| jaune | 12 | 45 % | 10.3 | 16 % |
-| bleu | 10 | 58 % | 18.5 | 29 % |
-| vert | 10 | 40 % | 10.8 | 17 % |
-| orange | 8 | 46 % | 13.1 | 21 % |
-| violet | 7 | 40 % | 10.2 | 16 % |
+| jaune | 12 | 45 % | 10.6 | 16 % |
+| bleu | 10 | 58 % | 18.7 | 29 % |
+| vert | 10 | 40 % | 10.9 | 17 % |
+| orange | 8 | 55 % | 13.9 | 22 % |
+| violet | 7 | 39 % | 10.1 | 16 % |
 
-Bonus par joueur et par partie : relances gagnées 1.72, utilisées 0.82 ; +1 gagnés 1.62, utilisés 1.61 ; bonus non gagnés (case remplie par un +1) 0.24.
+Bonus par joueur et par partie : relances gagnées 1.81, utilisées 0.87 ; +1 gagnés 1.74, utilisés 1.73 ; bonus non gagnés (case remplie par un +1) 0.27.
 
 # Stratégie enfant
 
@@ -114,41 +114,41 @@ Bonus par joueur et par partie : relances gagnées 1.71, utilisées 0.00 ; +1 ga
 ## Stratégie gloutonne
 
 - OK — 2 j. – toutes les parties se terminent (100 %)
-- OK — 2 j. – remplissage jaune ≥ 30 % (55.2 %)
-- OK — 2 j. – remplissage bleu ≥ 30 % (49.7 %)
-- OK — 2 j. – remplissage vert ≥ 30 % (39.1 %)
-- OK — 2 j. – remplissage orange ≥ 30 % (36.0 %)
-- OK — 2 j. – remplissage violet ≥ 30 % (36.6 %)
+- OK — 2 j. – remplissage jaune ≥ 30 % (55.3 %)
+- OK — 2 j. – remplissage bleu ≥ 30 % (49.5 %)
+- OK — 2 j. – remplissage vert ≥ 30 % (39.4 %)
+- OK — 2 j. – remplissage orange ≥ 30 % (39.5 %)
+- OK — 2 j. – remplissage violet ≥ 30 % (36.0 %)
 - OK — 2 j. – tours actifs × 1 min ≤ 20 (12)
-- OK — 2 j. – part jaune ≤ 40 % (23.9 %)
-- OK — 2 j. – part bleu ≤ 40 % (24.0 %)
+- OK — 2 j. – part jaune ≤ 40 % (24.2 %)
+- OK — 2 j. – part bleu ≤ 40 % (23.7 %)
 - OK — 2 j. – part vert ≤ 40 % (17.4 %)
-- OK — 2 j. – part orange ≤ 40 % (17.9 %)
-- OK — 2 j. – part violet ≤ 40 % (16.8 %)
+- OK — 2 j. – part orange ≤ 40 % (18.4 %)
+- OK — 2 j. – part violet ≤ 40 % (16.3 %)
 - OK — 3 j. – toutes les parties se terminent (100 %)
-- OK — 3 j. – remplissage jaune ≥ 30 % (51.2 %)
-- OK — 3 j. – remplissage bleu ≥ 30 % (57.4 %)
-- OK — 3 j. – remplissage vert ≥ 30 % (41.5 %)
-- OK — 3 j. – remplissage orange ≥ 30 % (44.0 %)
-- OK — 3 j. – remplissage violet ≥ 30 % (39.7 %)
+- OK — 3 j. – remplissage jaune ≥ 30 % (51.5 %)
+- OK — 3 j. – remplissage bleu ≥ 30 % (57.9 %)
+- OK — 3 j. – remplissage vert ≥ 30 % (41.0 %)
+- OK — 3 j. – remplissage orange ≥ 30 % (50.8 %)
+- OK — 3 j. – remplissage violet ≥ 30 % (40.3 %)
 - OK — 3 j. – tours actifs × 1 min ≤ 20 (15)
-- OK — 3 j. – part jaune ≤ 40 % (19.7 %)
-- OK — 3 j. – part bleu ≤ 40 % (27.2 %)
-- OK — 3 j. – part vert ≤ 40 % (17.6 %)
-- OK — 3 j. – part orange ≤ 40 % (19.4 %)
-- OK — 3 j. – part violet ≤ 40 % (16.1 %)
+- OK — 3 j. – part jaune ≤ 40 % (19.4 %)
+- OK — 3 j. – part bleu ≤ 40 % (27.1 %)
+- OK — 3 j. – part vert ≤ 40 % (17.1 %)
+- OK — 3 j. – part orange ≤ 40 % (20.2 %)
+- OK — 3 j. – part violet ≤ 40 % (16.2 %)
 - OK — 4 j. – toutes les parties se terminent (100 %)
-- OK — 4 j. – remplissage jaune ≥ 30 % (44.7 %)
-- OK — 4 j. – remplissage bleu ≥ 30 % (58.2 %)
-- OK — 4 j. – remplissage vert ≥ 30 % (40.1 %)
-- OK — 4 j. – remplissage orange ≥ 30 % (46.5 %)
-- OK — 4 j. – remplissage violet ≥ 30 % (39.6 %)
+- OK — 4 j. – remplissage jaune ≥ 30 % (45.4 %)
+- OK — 4 j. – remplissage bleu ≥ 30 % (58.4 %)
+- OK — 4 j. – remplissage vert ≥ 30 % (40.5 %)
+- OK — 4 j. – remplissage orange ≥ 30 % (55.5 %)
+- OK — 4 j. – remplissage violet ≥ 30 % (39.4 %)
 - OK — 4 j. – tours actifs × 1 min ≤ 20 (16)
-- OK — 4 j. – part jaune ≤ 40 % (16.2 %)
-- OK — 4 j. – part bleu ≤ 40 % (28.9 %)
-- OK — 4 j. – part vert ≤ 40 % (17.5 %)
-- OK — 4 j. – part orange ≤ 40 % (21.1 %)
-- OK — 4 j. – part violet ≤ 40 % (16.3 %)
+- OK — 4 j. – part jaune ≤ 40 % (16.3 %)
+- OK — 4 j. – part bleu ≤ 40 % (28.6 %)
+- OK — 4 j. – part vert ≤ 40 % (17.3 %)
+- OK — 4 j. – part orange ≤ 40 % (21.9 %)
+- OK — 4 j. – part violet ≤ 40 % (15.9 %)
 
 **Bilan gloutonne : OK partout**
 
@@ -197,7 +197,7 @@ Bonus par joueur et par partie : relances gagnées 1.71, utilisées 0.00 ; +1 ga
 
 | Stratégie | Remplissage minimum (toutes zones, 2/3/4 j.) | Part maximale (toutes zones, 2/3/4 j.) |
 |-----------|-----------------------------------------------|-----------------------------------------|
-| gloutonne | 36.0 % (orange, 2 j.) | 28.9 % (bleu, 4 j.) |
+| gloutonne | 36.0 % (violet, 2 j.) | 28.6 % (bleu, 4 j.) |
 | enfant | 33.8 % (vert, 4 j.) | 30.6 % (orange, 2 j.) |
 
 **Bilan général : OK partout**

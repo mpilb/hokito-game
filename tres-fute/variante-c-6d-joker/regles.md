@@ -32,7 +32,7 @@ Une manche = chaque joueur est une fois le joueur actif.
 
 ## 3. Le dé blanc, le joker
 
-Le dé blanc peut remplacer **n'importe quelle couleur**. Quand on prend le dé blanc, on choisit dans quelle zone on l'utilise (jaune, bleu, vert, orange ou violet) et on l'utilise comme un dé de cette couleur.
+Le dé blanc peut remplacer **n'importe quelle couleur**. Quand on prend le dé blanc, on choisit dans quelle zone on l'utilise (jaune, bleu, vert, orange ou violet) et on l'utilise comme un dé de cette couleur. On choisit **parmi les zones où il peut remplir une case** ; si aucune zone ne convient, il ne sert à rien.
 
 Les autres dés ne peuvent servir **que dans la zone de leur couleur**.
 
@@ -40,29 +40,32 @@ Les autres dés ne peuvent servir **que dans la zone de leur couleur**.
 
 Un tour a trois moments : le joueur actif joue, puis les autres joueurs prennent un dé, puis chacun peut utiliser un « +1 ».
 
+**Règle générale : si tu peux, tu dois.** Quand tu as choisi un dé (comme joueur actif, en prenant un dé du plateau d'argent ou avec un +1), **si ce dé peut remplir une case, tu dois l'utiliser** ; sinon, tu ne coches rien. Si le dé peut aller dans plusieurs cases (ou, pour le dé blanc, dans plusieurs zones), tu choisis celle que tu veux parmi les cases possibles, mais tu ne peux pas décider de ne rien cocher.
+Ce qui reste facultatif : prendre un dé du plateau d'argent (partie 4.2) et utiliser un +1 (partie 6.2). Un +1 ne se croise que si le dé pris est utilisé : si aucun dé ne peut remplir une case, on garde son +1.
+
 ### 4.1 Le joueur actif (jusqu'à 3 lancers)
 
 1. **Il lance** tous les dés qui ne sont ni gardés ni sur le plateau d'argent (au premier lancer : les 6 dés). S'il a une relance, il peut l'utiliser maintenant (partie 6.1).
-2. **Il garde un dé** de son choix et l'utilise tout de suite sur sa feuille (voir les zones). Il pose ce dé devant lui : il ne sera plus relancé, mais sa valeur reste visible jusqu'à la fin du tour.
-3. **Tous les dés plus petits** que le dé gardé vont sur le **plateau d'argent**. « Plus petit » veut dire un nombre de points plus petit ; les dés de même valeur ne vont pas sur le plateau, ils restent à relancer.
+2. **Il garde un dé** de son choix et l'utilise tout de suite sur sa feuille (voir les zones). Il pose ce dé devant lui : il ne sera plus lancé de nouveau, mais sa valeur reste visible jusqu'à la fin du tour.
+3. **Tous les dés plus petits** que le dé gardé vont sur le **plateau d'argent**. « Plus petit » veut dire un nombre de points plus petit ; les dés de même valeur ne vont pas sur le plateau, ils restent à lancer de nouveau.
 4. Il recommence avec les dés qui restent : 2e lancer, il garde un 2e dé ; 3e lancer, il garde un 3e dé.
 5. **Après le 3e dé gardé, tous les dés qui restent vont sur le plateau d'argent.**
 
 Précisions :
-- Le joueur actif **doit** garder un dé à chaque lancer et continue jusqu'à 3 dés gardés, tant qu'il lui reste des dés à lancer : **il ne peut pas s'arrêter volontairement**. S'il ne peut rien cocher ni écrire avec, il garde quand même un dé et ne coche rien.
+- Le joueur actif **doit** garder un dé à chaque lancer et continue jusqu'à 3 dés gardés, tant qu'il lui reste des dés à lancer : **il ne peut pas s'arrêter volontairement**. Si aucun dé ne peut remplir une case, il garde quand même un dé et ne coche rien. Si le dé qu'il a gardé peut remplir une case, il doit l'utiliser (règle générale, partie 4).
 - S'il n'y a plus aucun dé à lancer (tous sont sur le plateau d'argent ou devant lui), son tour s'arrête plus tôt.
 - Le joueur actif ne prend jamais de dé sur le plateau d'argent.
 - **Au tour suivant, on reprend tous les dés** (ceux qui étaient devant le joueur actif, ceux du plateau d'argent) : le plateau d'argent est vidé et on lance de nouveau les 6 dés.
 
 **Exemple de tour.** Léa lance les 6 dés : blanc 2, jaune 5, bleu 1, vert 4, orange 3, violet 6.
 Elle garde le jaune 5 et coche un 5 dans la zone jaune. Les dés plus petits que 5 (blanc 2, bleu 1, vert 4, orange 3) vont sur le plateau d'argent. Il reste le violet 6.
-2e lancer : elle relance le violet, qui fait 2. Elle le garde et écrit 2 dans la zone violette. Plus aucun dé à lancer : son tour s'arrête.
+2e lancer : elle lance de nouveau le violet, qui fait 2. Elle le garde et écrit 2 dans la zone violette. Plus aucun dé à lancer : son tour s'arrête.
 
 ### 4.2 Les autres joueurs (le plateau d'argent)
 
 Quand le joueur actif a fini, **chaque autre joueur prend un dé du plateau d'argent** et l'utilise sur sa propre feuille.
 - Plusieurs joueurs peuvent prendre **le même dé** (on ne l'enlève pas, on lit juste sa valeur).
-- Si aucun dé du plateau ne l'arrange, un joueur peut ne rien prendre.
+- Prendre un dé est facultatif : un joueur peut ne rien prendre (par exemple si aucun dé du plateau ne peut remplir une case chez lui). Mais s'il prend un dé qui peut remplir une case, il doit l'utiliser (règle générale, partie 4).
 
 *Suite de l'exemple :* sur le plateau il y a blanc 2, bleu 1, vert 4, orange 3. Tom prend le vert 4 et coche une case verte ; Zoé prend le blanc 2 comme un dé orange et écrit 2 dans la zone orange.
 
@@ -103,7 +106,7 @@ La zone jaune a 3 rangées de 3 cases :
 La zone bleue a 9 cases : **2 ou 3**, 4, 5, 6, 7, 8, 9, 10, **11 ou 12**.
 
 - Quand on prend le dé bleu, **ou** le dé blanc pour la zone bleue, on **additionne le dé bleu et le dé blanc**, et on **coche la case de cette somme**. Le dé blanc compte **une seule fois** : on ne prend pas un deuxième dé, c'est toujours « bleu + blanc ».
-- On lit les deux dés **tels qu'ils sont posés sur la table au moment où l'on coche** : devant le joueur actif, sur le plateau d'argent, ou parmi les dés pas encore relancés. Si un de ces dés est relancé plus tard, cela ne change rien à ce qui est déjà coché.
+- On lit les deux dés **tels qu'ils sont posés sur la table au moment où l'on coche** : devant le joueur actif, sur le plateau d'argent, ou parmi les dés pas encore lancés de nouveau. Si un de ces dés est lancé de nouveau plus tard, cela ne change rien à ce qui est déjà coché.
 - Les cases se cochent dans n'importe quel ordre. Si la case de la somme est déjà cochée (ou si les 9 cases sont cochées : zone pleine), on ne peut pas utiliser le dé ici.
 - La case « 2 ou 3 » donne un **+1**, la case « 11 ou 12 » donne une **relance**.
 - **Points :** on compte les cases cochées et on lit le tableau imprimé sous la zone :
@@ -116,7 +119,7 @@ La zone bleue a 9 cases : **2 ou 3**, 4, 5, 6, 7, 8, 9, 10, **11 ou 12**.
 
 *Exemple avec le dé blanc :* dans l'exemple du 4.2, le plateau d'argent contient le blanc 2 et le bleu 1. Au lieu de jouer le blanc en orange, Zoé aurait pu prendre le **dé blanc** et choisir la zone bleue : bleu 1 + blanc 2 = 3. Elle cocherait la case « 2 ou 3 » et gagnerait un +1. Le blanc n'est compté qu'une fois (elle ne l'ajoute pas à lui-même).
 
-*Exemple avec un dé pas encore relancé :* Léa lance les 6 dés et garde le bleu 3 pour la zone bleue. Le blanc montre 5 et reste à relancer (il n'est pas plus petit que 3) : 3 + 5 = 8, elle coche la case 8. Si le blanc fait 1 à son lancer suivant, la case 8 reste cochée.
+*Exemple avec un dé pas encore lancé de nouveau :* Léa lance les 6 dés et garde le bleu 3 pour la zone bleue. Le blanc montre 5 et reste à lancer de nouveau (il n'est pas plus petit que 3) : 3 + 5 = 8, elle coche la case 8. Si le blanc fait 1 à son lancer suivant, la case 8 reste cochée.
 
 ### 5.3 Zone verte — « Au moins ce nombre » (comparer)
 
@@ -179,7 +182,7 @@ Il y a deux bonus. Sur la feuille, chacun a sa ligne de ronds dans l'encadré «
 ### 6.2 +1 (ligne « +1 », 5 ronds)
 
 - À la **fin de n'importe quel tour** (le sien ou celui d'un autre), après que les autres joueurs ont pris leur dé du plateau d'argent, un joueur peut utiliser **un seul +1** par tour. Un +1 gagné pendant ce tour peut servir à la fin de ce même tour.
-- Il prend alors **n'importe lequel des 6 dés** : un dé gardé par le joueur actif, un dé du plateau d'argent, même un dé qu'il a déjà utilisé lui-même pendant ce tour. Il l'utilise sur sa feuille comme d'habitude.
+- Il prend alors **n'importe lequel des 6 dés** : un dé gardé par le joueur actif, un dé du plateau d'argent, même un dé qu'il a déjà utilisé lui-même pendant ce tour. Il l'utilise sur sa feuille comme d'habitude (règle générale : si ce dé peut remplir une case, il doit l'utiliser ; si aucun dé ne peut, il garde son +1 et ne fait pas de croix).
 - **La règle de couleur reste la même** : un dé ne sert que dans la zone de sa couleur, et le dé blanc reste un joker (on choisit la zone). La zone bleue se lit toujours « bleu + blanc » (partie 5.2).
 - Plusieurs joueurs peuvent utiliser un +1 à la fin du même tour, l'un après l'autre, et prendre le même dé.
 
@@ -208,6 +211,21 @@ L'adulte remplit l'encadré « Décompte » de chaque feuille :
 
 Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent ensemble.
 
+**Exemple de décompte.** Voici la feuille de Zoé à la fin de la partie :
+
+- **Jaune :** les rangées 1 (1-2-3) et 2 (4-5-6) sont complètes ; dans la rangée 3, seuls le 2 et le 4 sont cochés, le 6 ne l'est pas, donc elle ne rapporte rien. 2 rangées pleines × 10 = **20 points**.
+- **Bleu :** 5 cases cochées. Le tableau donne 12 pour 5 cases : **12 points**.
+- **Vert :** 5 cases cochées (de « 1 ou + » jusqu'au deuxième « 2 ou + »). Le nombre écrit sous la dernière case cochée est 16 : **16 points**.
+- **Orange :** les nombres écrits sont 5, 2, 6 et 3. 5 + 2 = 7, 7 + 6 = 13, 13 + 3 = 16 : **16 points**.
+- **Violet :** les nombres écrits sont 2, 4, 6, 1 et 3 (le 1 est permis parce qu'il vient juste après un 6). 2 + 4 = 6, 6 + 6 = 12, 12 + 1 = 13, 13 + 3 = 16 : **16 points**.
+- **Total :** 20 + 12 + 16 + 16 + 16 = **80 points**.
+
+| Jaune | Bleu | Vert | Orange | Violet | **Total** |
+|---|---|---|---|---|---|
+| 20 | 12 | 16 | 16 | 16 | **80** |
+
+(Un score de 80 est un score moyen pour cette variante : voir `resultats-simulation.md`.)
+
 ## 8. Correspondance feuille ↔ règles
 
 | Élément de la feuille | Règle |
@@ -227,7 +245,18 @@ Le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent 
 
 Il y a exactement 5 cases ↻ et 5 cases +1 dans les zones : c'est pour ça qu'il y a 5 ronds à gagner dans chaque ligne de bonus (plus le rond « départ » des relances).
 
-## 9. Choix de conception
+## 9. Conseils pour l'adulte
+
+- **« Quelqu'un utilise un +1 ? »** À la fin de chaque tour, posez la question à voix haute. Les enfants oublient presque toujours leur +1 de fin de tour.
+- **Rappelez la règle générale « si tu peux, tu dois »** : un dé choisi qui peut remplir une case doit être utilisé (partie 4). Le joueur choisit seulement *où* (et, avec le dé blanc, *quelle zone*).
+- **Première partie : triez à voix haute.** Après chaque dé gardé, faites dire à l'enfant : « ceux-là sont plus petits, ils vont sur le plateau d'argent ». Faites aussi dire à voix haute où chaque dé pourrait aller (« le vert 5 : je coche la case verte »).
+- **Un gros dé choisi tôt envoie beaucoup de dés sur le plateau d'argent.** Le joueur actif aura moins de dés à lancer de nouveau et son tour sera plus court, mais les autres joueurs auront plus de choix. Ce n'est ni bon ni mauvais, mais il vaut mieux le dire avant que l'enfant ne le découvre.
+- **Rappelez l'exception du +1 :** un dé pris avec un +1 ne donne **aucun bonus**. La case se coche normalement, mais on ne colorie pas de rond (partie 6.3).
+- **Zone bleue :** aidez à repérer les deux dés à additionner (« le bleu et le blanc »), même quand le blanc est sur le plateau ou déjà gardé.
+- **Fin de manche :** quand tout le monde a été joueur actif, rappelez de cocher la case de la manche.
+- **Décompte :** faites-le vous-même, avec la feuille ouverte, en annonçant chaque zone (partie 7). Les enfants peuvent vérifier la lecture du tableau bleu et des points verts.
+
+## 10. Choix de conception
 
 - **Les 6 dés et le joker sont gardés**, ainsi que le cœur du jeu : 3 lancers, un dé gardé à chaque fois, les plus petits sur le plateau d'argent, les autres joueurs qui se servent sur le plateau.
 - **Zones plus petites** (8 ou 9 cases au lieu de 11 à 16) pour qu'un enfant en remplisse une bonne partie avec environ 25 dés par partie : la simulation donne au moins 40 % de remplissage moyen dans chaque zone avec des choix soignés (stratégie gloutonne) et au moins 35 % avec des choix faits au hasard, sans aucune relance (stratégie « enfant »).

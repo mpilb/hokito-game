@@ -28,7 +28,7 @@ Chaque variante est simulée avec deux façons de jouer : « soignée » (le mei
 | Ce que fait l'enfant pendant la partie | trouver, comparer, écrire | trouver, comparer (« ou plus » et « ou moins »), écrire | trouver, comparer, écrire, **additionner bleu + blanc** |
 | Décisions par lancer | choisir un dé ; où mettre le joker | choisir un dé (chaque dé n'a qu'une zone) | choisir parmi 6 dés ; où mettre le joker |
 | Cases à remplir | 35 (jaune 12, vert 8, orange 7, violet 8) | 47 | 42 |
-| Score moyen : soigné / enfant | ≈ 70 / ≈ 51 | ≈ 63 / ≈ 55 | ≈ 81 / ≈ 57 |
+| Score moyen : soigné / enfant | ≈ 70 / ≈ 51 | ≈ 64 / ≈ 55 | ≈ 81 / ≈ 57 |
 | Zone la moins remplie : soigné / enfant | 50 % / 38 % | 36 % / 34 % | 42 % / 36 % |
 | Part max d'une zone : soigné / enfant | 31 % / 38 % | 29 % / 31 % | 24,5 % / 33 % |
 | Densité du feuillet | aérée | moyenne | la plus dense |
