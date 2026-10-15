@@ -10,7 +10,7 @@ Durée : 12 à 16 tours de joueur actif ; comptez 20 à 30 minutes avec des enfa
 
 ## 1. Matériel
 
-- **5 dés à six faces** : 1 **blanc** (le joker), 1 **jaune**, 1 **vert**, 1 **orange**, 1 **violet**. Si vous n'avez pas de dés de couleur, collez une gommette de la bonne couleur sur des dés ordinaires.
+- **5 dés à six faces** : 1 **blanc** (le joker), 1 **jaune**, 1 **vert**, 1 **orange**, 1 **violet**. Si vous partez de la boîte du jeu original, **laissez le dé bleu dans la boîte** : il ne sert pas ici. Si vous n'avez pas de dés de couleur, collez une gommette de la bonne couleur sur des dés ordinaires.
 - **Le plateau d'argent** : une assiette, un couvercle de boîte ou une feuille posée au milieu de la table.
 - **Une feuille de score par joueur** (`feuillet.pdf`) et un crayon. Des crayons de couleur sont pratiques pour colorier les bonus, mais pas obligatoires.
 
@@ -52,7 +52,7 @@ Dans une manche, chaque joueur est une fois le **joueur actif**. Pendant son tou
 Le joueur actif répète au maximum 3 fois :
 
 1. **Il lance** tous les dés qui ne sont ni déjà choisis, ni sur le plateau d'argent (au premier lancer : les 5 dés).
-2. *(S'il le veut et s'il a un bonus Relance disponible : il peut relancer, voir 6.1.)*
+2. *(S'il le veut et s'il a un bonus Relance disponible : il peut utiliser une Relance, voir 6.1.)*
 3. **Il choisit un dé** parmi ceux qu'il vient de lancer et le pose devant lui, à l'écart. Il utilise sa valeur dans la zone de la **même couleur** (le dé blanc va dans la zone de son choix, voir 4.4).
 4. **Tous les dés plus petits** que le dé choisi (valeur strictement plus petite) vont **sur le plateau d'argent**. Il ne pourra plus les lancer pendant ce tour.
 5. Les dés qui restent (valeur égale ou plus grande) seront lancés de nouveau au lancer suivant (ce n'est pas une Relance : aucun bonus n'est utilisé).
@@ -62,7 +62,7 @@ Le tour du joueur actif s'arrête quand il a choisi **3 dés**, ou plus tôt s'i
 Le joueur actif **ne peut pas s'arrêter volontairement** : à chaque lancer, il doit choisir un dé, et il lance de nouveau les dés qui restent tant qu'il n'a pas choisi 3 dés et qu'il lui reste des dés à lancer (même si les dés ne lui servent à rien, voir 4.4).
 
 > **Exemple.** Léa est la joueuse active. Elle lance les 5 dés : blanc 2, jaune 5, vert 4, orange 1, violet 6.
-> Elle prend le jaune 5 et coche un 5 dans sa zone jaune. Le blanc 2, le vert 4 et l'orange 1 sont plus petits que 5 : ils vont sur le plateau d'argent. Le violet 6 reste devant elle.
+> Elle prend le jaune 5 et coche le 5 de la ligne 2 (1re colonne) dans sa zone jaune. Le blanc 2, le vert 4 et l'orange 1 sont plus petits que 5 : ils vont sur le plateau d'argent. Le violet 6 reste devant elle.
 > Elle lance de nouveau le violet : 3. Elle le prend et écrit 3 dans sa zone violette. Il ne reste plus aucun dé à lancer : son tour s'arrête après 2 dés.
 
 **Conseil à donner aux enfants** : prendre un dé qui fait un grand nombre envoie beaucoup de dés sur le plateau. C'est parfois une bonne idée, parfois non !
@@ -86,7 +86,7 @@ Quand tous les joueurs passifs ont joué, chaque joueur (le joueur actif aussi) 
 - **Le dé blanc est un joker** : il compte comme un dé jaune, vert, orange **ou** violet. Celui qui le prend dit dans quelle zone il le met, et utilise sa valeur.
 - **On ne peut utiliser un dé que dans la zone de sa couleur** (sauf le blanc).
 - **Une zone pleine n'accepte plus de dé** : quand toutes ses cases sont remplies (ou, en jaune, quand les cases du nombre du dé sont déjà cochées), le dé ne peut plus servir dans cette zone. Un dé blanc peut encore aller dans une autre zone.
-- **On n'est jamais obligé de cocher.** Si le dé choisi ne va nulle part (ou si on ne veut pas l'utiliser), on ne coche rien. Le joueur actif doit quand même choisir un dé à chaque lancer, et les dés plus petits vont quand même sur le plateau.
+- **Si tu peux, tu dois.** Si le dé que tu as choisi peut remplir une case, tu dois l'utiliser ; sinon, tu ne coches rien. Cela vaut pour le joueur actif, pour les joueurs passifs et pour le +1 (on ne barre un +1 que si le dé choisi peut remplir une case). Avec le dé blanc, tu choisis la zone parmi celles où il peut aller. Quand le dé peut remplir plusieurs cases (par exemple deux 5 dans la grille jaune), tu choisis laquelle. Le joueur actif doit toujours choisir un dé à chaque lancer, même si aucun ne lui sert ; dans ce cas, les dés plus petits vont quand même sur le plateau.
 
 ## 5. Les quatre zones
 
@@ -153,7 +153,7 @@ On gagne un bonus quand on remplit une case qui a un symbole de bonus dessiné j
 
 > **Exemple (suite de 4.1 et 4.2).** Fin du tour de Léa. Sur la table : jaune 5 et violet 3 devant Léa ; blanc 2, vert 4 et orange 1 sur le plateau d'argent.
 > Tom a un +1 colorié. En violet, il a déjà écrit 6, 1, 2. Il barre son +1 et prend le violet 3 choisi par Léa : 3 est plus grand que 2, il l'écrit dans sa 4e case violette. Cette case a un symbole +1 : comme il l'a remplie grâce à un +1, il barre le symbole et ne gagne rien.
-> Léa a aussi un +1 colorié : elle reprend le jaune 5 qu'elle a déjà utilisé pendant son tour et coche l'autre 5 de sa grille jaune (il y en a un en ligne 2 et un en ligne 3). Elle ne pourrait pas mettre ce jaune 5 en orange : seul le dé blanc change de zone.
+> Léa a aussi un +1 colorié : elle reprend le jaune 5 qu'elle a déjà utilisé pendant son tour et coche l'autre 5 de sa grille jaune : il y en a deux (ligne 2 et ligne 3), elle avait déjà coché celui de la ligne 2 pendant son tour, il lui reste donc celui de la ligne 3 (3e colonne). Elle ne pourrait pas mettre ce jaune 5 en orange : seul le dé blanc change de zone.
 
 ## 7. Fin de la partie
 
@@ -174,6 +174,15 @@ L'adulte remplit l'encadré **Décompte** en bas de chaque feuille :
 Le joueur qui a le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent ensemble.
 
 > **Exemple de décompte.** Jaune : 2 colonnes complètes = 20. Vert : dernière case cochée = la 5e, sous laquelle est écrit 16. Orange : 6 + 5 + 3 + 4 + 6 + 2 = 26. Violet : 2 + 4 + 6 + 3 + 5 = 20. Total : 20 + 16 + 26 + 20 = **82**.
+
+## Conseils pour l'adulte
+
+- **À la fin de chaque tour, demandez : « Quelqu'un utilise un +1 ? »** Les enfants oublient facilement leurs bonus.
+- **Pendant la première partie, faites trier à voix haute** les dés plus petits que le dé choisi vers le plateau d'argent (« le 4 est plus petit que 5 : il va sur le plateau »). C'est l'étape qui demande le plus d'attention au début.
+- **Prévenez les enfants qu'un gros dé choisi tôt envoie beaucoup de dés sur le plateau** et raccourcit le tour : avec un 6, tous les dés qui ne sont pas des 6 partent sur le plateau, et il reste peu (ou plus) de dés à lancer.
+- **Rappelez l'exception du +1** : un dé pris avec un +1 ne donne pas de bonus (on barre le symbole sur la feuille, sans colorier de rond). Les points, eux, comptent.
+- **Rappelez « si tu peux, tu dois »** quand un enfant hésite à cocher : un dé utilisable doit être utilisé (voir 4.4).
+- **Faites le décompte avec l'enfant** en suivant l'encadré de la feuille, zone par zone.
 
 ---
 
