@@ -1,47 +1,101 @@
 # Résultats de simulation — variante C (6 dés avec joker)
 
-Graine 20261015, 2000 parties par nombre de joueurs, stratégie gloutonne (meilleur gain immédiat ou progrès, moins le coût des dés envoyés sur le plateau d'argent).
+Les « tours actifs » sont comptés réellement, feuille par feuille, pendant la simulation. La fin de chaque partie est garantie par construction (nombre de manches fixe, au plus 3 choix par tour) ; le contrôle « parties terminées » vérifie que chaque joueur a bien été joueur actif exactement « manches » fois, et un garde-fou (MAX_ITER) lèverait une erreur en cas de boucle. La « durée » du critère 6 est exprimée en tours actifs (× 1 min ≤ 20) : ce n'est pas une durée mesurée ; avec des enfants de 6-7 ans, comptez plutôt 20 à 30 minutes.
+
+# Stratégie gloutonne
+
+Graine 20261015, 2000 parties par nombre de joueurs, stratégie gloutonne (meilleur gain immédiat ou progrès, moins le coût des dés envoyés sur le plateau d'argent ; relances et +1 utilisés quand ils servent).
 
 ## Résumé par nombre de joueurs
 
-| Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Durée estimée |
+| Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Tours actifs (critère : × 1 min ≤ 20) |
 |---|---|---|---|---|---|---|
-| 2 | 6 | 80.9 | 9.0 | 100 % | 12 / 12 | 12 min |
-| 3 | 5 | 83.5 | 9.0 | 100 % | 15 / 15 | 15 min |
-| 4 | 4 | 79.0 | 9.0 | 100 % | 16 / 16 | 16 min |
+| 2 | 6 | 81.0 | 8.8 | 100 % | 12 / 12 | 12 |
+| 3 | 5 | 83.6 | 9.3 | 100 % | 15 / 15 | 15 |
+| 4 | 4 | 79.4 | 9.2 | 100 % | 16 / 16 | 16 |
 
 ## Par zone (remplissage moyen / points moyens / part moyenne du score)
 
 | Joueurs | Jaune | Bleu | Vert | Orange | Violet |
 |---|---|---|---|---|---|
-| 2 | 77 % / 18.3 pts / 23 % | 59 % / 13.9 pts / 17 % | 57 % / 14.9 pts / 19 % | 42 % / 14.0 pts / 17 % | 54 % / 19.8 pts / 24 % |
-| 3 | 76 % / 17.6 pts / 21 % | 61 % / 14.4 pts / 17 % | 61 % / 16.0 pts / 19 % | 48 % / 15.6 pts / 18 % | 56 % / 19.9 pts / 24 % |
-| 4 | 73 % / 16.0 pts / 20 % | 59 % / 13.7 pts / 18 % | 60 % / 15.6 pts / 20 % | 48 % / 15.1 pts / 19 % | 54 % / 18.5 pts / 23 % |
+| 2 | 77 % / 18.2 pts / 22 % | 59 % / 13.8 pts / 17 % | 58 % / 15.0 pts / 19 % | 42 % / 14.2 pts / 17 % | 55 % / 19.8 pts / 24 % |
+| 3 | 76 % / 17.7 pts / 21 % | 61 % / 14.4 pts / 17 % | 61 % / 16.1 pts / 19 % | 48 % / 15.6 pts / 18 % | 56 % / 19.9 pts / 24 % |
+| 4 | 73 % / 16.0 pts / 20 % | 59 % / 13.8 pts / 18 % | 60 % / 15.6 pts / 20 % | 48 % / 15.2 pts / 19 % | 54 % / 18.8 pts / 23 % |
 
 ## Bonus (moyenne par joueur et par partie)
 
 | Joueurs | Relances gagnées | Relances utilisées | +1 gagnés | +1 utilisés | Bonus non pris (dé du +1) | Dés pris sans rien cocher (actif) |
 |---|---|---|---|---|---|---|
-| 2 | 2.79 (+1 au départ) | 3.15 | 2.94 | 2.93 | 0.31 | 0.48 |
-| 3 | 2.94 (+1 au départ) | 2.98 | 3.05 | 3.05 | 0.33 | 0.42 |
-| 4 | 2.80 (+1 au départ) | 2.53 | 2.97 | 2.96 | 0.35 | 0.29 |
+| 2 | 2.82 (+1 au départ) | 3.30 | 2.96 | 2.95 | 0.31 | 0.47 |
+| 3 | 2.94 (+1 au départ) | 3.22 | 3.07 | 3.06 | 0.33 | 0.42 |
+| 4 | 2.81 (+1 au départ) | 2.83 | 2.97 | 2.96 | 0.34 | 0.29 |
 
 ## Vérification des critères
 
 - OK — C6 2 joueurs : ≥ 1 000 parties (2000)
-- OK — C6 2 joueurs : toutes les parties se terminent (100 %)
-- OK — C6 2 joueurs : chaque zone ≥ 30 % remplie (min 42 %)
-- OK — C6 2 joueurs : durée ≤ 20 min (12 tours actifs)
+- OK — C6 2 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 2 joueurs : chaque zone ≥ 30 % remplie (min 42.1 %)
+- OK — C6 2 joueurs : tours actifs × 1 min ≤ 20 (12 tours actifs)
 - OK — C7 2 joueurs : aucune zone > 40 % du score (max 24.5 %)
 - OK — C6 3 joueurs : ≥ 1 000 parties (2000)
-- OK — C6 3 joueurs : toutes les parties se terminent (100 %)
-- OK — C6 3 joueurs : chaque zone ≥ 30 % remplie (min 48 %)
-- OK — C6 3 joueurs : durée ≤ 20 min (15 tours actifs)
-- OK — C7 3 joueurs : aucune zone > 40 % du score (max 23.9 %)
+- OK — C6 3 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 3 joueurs : chaque zone ≥ 30 % remplie (min 48.1 %)
+- OK — C6 3 joueurs : tours actifs × 1 min ≤ 20 (15 tours actifs)
+- OK — C7 3 joueurs : aucune zone > 40 % du score (max 23.8 %)
 - OK — C6 4 joueurs : ≥ 1 000 parties (2000)
-- OK — C6 4 joueurs : toutes les parties se terminent (100 %)
-- OK — C6 4 joueurs : chaque zone ≥ 30 % remplie (min 48 %)
-- OK — C6 4 joueurs : durée ≤ 20 min (16 tours actifs)
-- OK — C7 4 joueurs : aucune zone > 40 % du score (max 23.5 %)
+- OK — C6 4 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 4 joueurs : chaque zone ≥ 30 % remplie (min 47.7 %)
+- OK — C6 4 joueurs : tours actifs × 1 min ≤ 20 (16 tours actifs)
+- OK — C7 4 joueurs : aucune zone > 40 % du score (max 23.7 %)
 
-**Bilan : OK partout**
+**Bilan glouton : OK partout**
+
+# Stratégie « enfant »
+
+Graine 20261015, 2000 parties par nombre de joueurs, stratégie « enfant » (aucune relance ; un dé au hasard parmi ceux qui servent, placement au hasard ; +1 utilisé sur un coup possible tiré au hasard).
+
+## Résumé par nombre de joueurs
+
+| Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Tours actifs (critère : × 1 min ≤ 20) |
+|---|---|---|---|---|---|---|
+| 2 | 6 | 54.9 | 8.8 | 100 % | 12 / 12 | 12 |
+| 3 | 5 | 59.4 | 8.8 | 100 % | 15 / 15 | 15 |
+| 4 | 4 | 57.4 | 8.4 | 100 % | 16 / 16 | 16 |
+
+## Par zone (remplissage moyen / points moyens / part moyenne du score)
+
+| Joueurs | Jaune | Bleu | Vert | Orange | Violet |
+|---|---|---|---|---|---|
+| 2 | 53 % / 4.3 pts / 7 % | 46 % / 9.6 pts / 18 % | 48 % / 11.9 pts / 22 % | 74 % / 17.9 pts / 33 % | 36 % / 11.2 pts / 20 % |
+| 3 | 57 % / 5.7 pts / 9 % | 50 % / 10.8 pts / 18 % | 51 % / 12.8 pts / 22 % | 83 % / 18.9 pts / 32 % | 37 % / 11.2 pts / 19 % |
+| 4 | 56 % / 5.6 pts / 9 % | 49 % / 10.6 pts / 19 % | 49 % / 12.3 pts / 22 % | 83 % / 18.1 pts / 32 % | 36 % / 10.7 pts / 18 % |
+
+## Bonus (moyenne par joueur et par partie)
+
+| Joueurs | Relances gagnées | Relances utilisées | +1 gagnés | +1 utilisés | Bonus non pris (dé du +1) | Dés pris sans rien cocher (actif) |
+|---|---|---|---|---|---|---|
+| 2 | 2.17 (+1 au départ) | 0.00 | 1.98 | 1.97 | 0.38 | 0.67 |
+| 3 | 2.30 (+1 au départ) | 0.00 | 2.29 | 2.28 | 0.44 | 0.65 |
+| 4 | 2.25 (+1 au départ) | 0.00 | 2.25 | 2.24 | 0.43 | 0.51 |
+
+## Vérification des critères
+
+- OK — C6 2 joueurs : ≥ 1 000 parties (2000)
+- OK — C6 2 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 2 joueurs : chaque zone ≥ 30 % remplie (min 36.2 %)
+- OK — C6 2 joueurs : tours actifs × 1 min ≤ 20 (12 tours actifs)
+- OK — C7 2 joueurs : aucune zone > 40 % du score (max 32.6 %)
+- OK — C6 3 joueurs : ≥ 1 000 parties (2000)
+- OK — C6 3 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 3 joueurs : chaque zone ≥ 30 % remplie (min 37.3 %)
+- OK — C6 3 joueurs : tours actifs × 1 min ≤ 20 (15 tours actifs)
+- OK — C7 3 joueurs : aucune zone > 40 % du score (max 31.9 %)
+- OK — C6 4 joueurs : ≥ 1 000 parties (2000)
+- OK — C6 4 joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs) (100 %)
+- OK — C6 4 joueurs : chaque zone ≥ 30 % remplie (min 36.1 %)
+- OK — C6 4 joueurs : tours actifs × 1 min ≤ 20 (16 tours actifs)
+- OK — C7 4 joueurs : aucune zone > 40 % du score (max 31.7 %)
+
+**Bilan enfant : OK partout**
+
+**Bilan général : OK partout (les deux stratégies)**

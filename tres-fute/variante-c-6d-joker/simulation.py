@@ -1,21 +1,39 @@
 #!/usr/bin/env python3
-"""Simulation de « Très futé — variante C : 6 dés avec joker » (version 6-7 ans).
+"""Simulation de « Très futé junior — variante C : 6 dés avec joker » (version 6-7 ans).
 
-Implémente exactement les règles de regles.md :
+Implémente les règles de regles.md :
 - 6 dés : blanc (joker), jaune, bleu, vert, orange, violet.
-- Joueur actif : jusqu'à 3 lancers, garde 1 dé à chaque fois ; les dés plus petits
-  (strictement) que le dé gardé vont sur le plateau d'argent ; après le 3e choix,
-  tous les dés restants vont sur le plateau d'argent.
+- Joueur actif : jusqu'à 3 lancers, garde 1 dé à chaque lancer (il ne peut pas s'arrêter
+  avant) ; les dés plus petits (strictement) que le dé gardé vont sur le plateau d'argent ;
+  après le 3e choix, tous les dés restants vont sur le plateau d'argent.
 - Puis chaque autre joueur prend 1 dé du plateau d'argent (plusieurs joueurs
-  peuvent prendre le même).
+  peuvent prendre le même) ou aucun s'il ne peut rien en faire.
 - Puis chaque joueur peut utiliser au plus un « +1 » : il prend n'importe lequel
-  des 6 dés. Un dé pris avec un +1 ne rapporte jamais de bonus (pas de chaîne).
+  des 6 dés (même un dé déjà utilisé). Un dé pris avec un +1 ne rapporte jamais de
+  bonus (pas de chaîne). Un +1 gagné pendant ce tour est utilisable à la fin du même tour.
 - Relance : seul le joueur actif, juste après un lancer, relance tous les dés
-  qu'il vient de lancer.
+  qu'il vient de lancer ; plusieurs relances de suite sont permises ; une relance gagnée
+  pendant le tour est utilisable dès le lancer suivant.
+- Zone bleue : somme du dé bleu et du dé blanc tels qu'ils sont posés au moment où
+  l'on coche (une relance ultérieure ne change rien à ce qui est déjà coché).
 - Manches : 6 à 2 joueurs, 5 à 3 joueurs, 4 à 4 joueurs.
 
-Stratégie gloutonne (choix légaux uniquement) : la règle permet plusieurs relances
-de suite ; la stratégie simulée en utilise au plus une par lancer.
+Deux stratégies, toutes deux limitées aux choix légaux :
+- « gloutonne » : meilleur gain immédiat ou progrès, moins le coût des dés envoyés
+  sur le plateau ; relance (autant de fois qu'il faut, tant qu'il en reste) si le meilleur
+  coup vaut moins que SEUIL_RELANCE ; +1 utilisé si le coup en vaut la peine.
+- « enfant » : jamais de relance ; à chaque choix (joueur actif sur ses dés lancés,
+  joueur passif sur le plateau d'argent), un dé est tiré au hasard parmi ceux qui
+  permettent au moins un coup, puis un placement au hasard parmi ses placements possibles
+  (pour le joker : toutes zones confondues) ; si aucun dé ne sert, le joueur actif prend un
+  dé au hasard sans rien cocher, le joueur passif ne prend rien ; en fin de tour, un +1
+  disponible est utilisé sur un coup tiré au hasard parmi tous les coups possibles
+  (dé, placement) des 6 dés, s'il en existe un.
+
+Contrôle « toutes les parties se terminent » : la fin est garantie par construction
+(nombre de manches fixe, chaque tour de joueur actif a au plus 3 choix) ; on la contrôle
+en comptant réellement les tours de joueur actif joués par chaque feuille (il doit y en avoir
+exactement « manches » par joueur) et grâce à un garde-fou (MAX_ITER) qui lève une erreur.
 
 Python 3 sans dépendance. Graine fixe. Écrit resultats-simulation.md à côté.
 """
@@ -25,6 +43,7 @@ import os
 
 GRAINE = 20261015
 PARTIES = 2000
+MAX_ITER = 200          # garde-fou : nombre maximal d'itérations dans un tour
 
 # ------------------------------------------------------------------ règles ---
 MANCHES = {2: 6, 3: 5, 4: 4}
@@ -83,6 +102,7 @@ class Feuille:
         self.plus1 = 0
         self.stats = {"R_gagnes": 0, "P_gagnes": 0, "R_utilises": 0,
                       "P_utilises": 0, "bonus_perdus_chaine": 0, "des_inutiles": 0}
+        self.tours_actifs = 0     # tours de joueur actif réellement joués par cette feuille
 
     # -------- coups possibles pour un dé (couleur, valeur) --------
     def coups(self, couleur, valeur, valeurs):
@@ -200,49 +220,114 @@ class Feuille:
         }
 
 
-def tour_actif(rng, f, valeurs):
+def choix_enfant(rng, f, des, valeurs):
+    """Stratégie enfant : un dé au hasard parmi ceux qui servent, puis un placement
+    au hasard. Renvoie (couleur, coup) ou None si aucun dé ne peut servir."""
+    utiles = []
+    for coul in des:
+        cps = f.coups(coul, valeurs[coul], valeurs)
+        if cps:
+            utiles.append((coul, cps))
+    if not utiles:
+        return None
+    coul, cps = rng.choice(utiles)
+    return coul, rng.choice(cps)
+
+
+def tour_actif(rng, f, valeurs, strat):
     """Joue le tour du joueur actif. Renvoie la liste des couleurs sur le plateau d'argent."""
-    plateau_lancer = list(COULEURS)
+    f.tours_actifs += 1
+    a_lancer = list(COULEURS)
+    gardes = []
     argent = []
     for choix in range(3):
-        if not plateau_lancer:
+        if not a_lancer:
             break
-        for c in plateau_lancer:
+        for c in a_lancer:
             valeurs[c] = rng.randint(1, 6)
 
-        def note(couleur):
-            perdus = sum(1 for d in plateau_lancer if d != couleur and valeurs[d] < valeurs[couleur])
-            cps = f.coups(couleur, valeurs[couleur], valeurs)
-            base = max((f.evaluer(cp) for cp in cps), default=-1.0)
-            cout = COUT_DE_PERDU * perdus if choix < 2 else 0.0
-            best_cp = max(cps, key=f.evaluer) if cps else None
-            return base - cout, best_cp
+        if strat == "enfant":
+            res = choix_enfant(rng, f, a_lancer, valeurs)
+            if res is None:
+                coul, cp = rng.choice(a_lancer), None
+            else:
+                coul, cp = res
+        else:
+            def note(couleur):
+                perdus = sum(1 for d in a_lancer if d != couleur and valeurs[d] < valeurs[couleur])
+                cps = f.coups(couleur, valeurs[couleur], valeurs)
+                base = max((f.evaluer(cp) for cp in cps), default=-1.0)
+                cout = COUT_DE_PERDU * perdus if choix < 2 else 0.0
+                best_cp = max(cps, key=f.evaluer) if cps else None
+                return base - cout, best_cp
 
-        def meilleur():
-            return max(((note(c), c) for c in plateau_lancer), key=lambda x: x[0][0])
+            def meilleur():
+                return max(((note(c), c) for c in a_lancer), key=lambda x: x[0][0])
 
-        (score, cp), coul = meilleur()
-        if score < SEUIL_RELANCE and f.relances > 0:
-            f.relances -= 1
-            f.stats["R_utilises"] += 1
-            for c in plateau_lancer:
-                valeurs[c] = rng.randint(1, 6)
             (score, cp), coul = meilleur()
-        # le joueur garde le dé choisi
-        plateau_lancer.remove(coul)
-        petits = [d for d in plateau_lancer if valeurs[d] < valeurs[coul]]
+            iterations = 0
+            # plusieurs relances de suite possibles, tant qu'il en reste et que le coup est mauvais
+            while score < SEUIL_RELANCE and f.relances > 0:
+                iterations += 1
+                if iterations > MAX_ITER:
+                    raise RuntimeError("garde-fou : trop de relances dans un lancer")
+                f.relances -= 1
+                f.stats["R_utilises"] += 1
+                for c in a_lancer:
+                    valeurs[c] = rng.randint(1, 6)
+                (score, cp), coul = meilleur()
+        # le joueur garde le dé choisi (obligatoire : il ne peut pas s'arrêter)
+        a_lancer.remove(coul)
+        gardes.append(coul)
+        petits = [d for d in a_lancer if valeurs[d] < valeurs[coul]]
         for d in petits:
-            plateau_lancer.remove(d)
+            a_lancer.remove(d)
             argent.append(d)
         if cp is not None:
             f.jouer(cp)
         else:
             f.stats["des_inutiles"] += 1
-    argent.extend(plateau_lancer)  # après le 3e choix, le reste va sur le plateau
+    argent.extend(a_lancer)  # après le 3e choix, le reste va sur le plateau
+    # contrôles de cohérence du tour
+    if sorted(gardes + argent) != sorted(COULEURS):
+        raise RuntimeError("tour incohérent : les 6 dés ne sont pas tous répartis")
+    if not (len(gardes) == 3 or (len(gardes) < 3 and not a_lancer)):
+        raise RuntimeError("tour incohérent : moins de 3 choix alors qu'il restait des dés")
     return argent
 
 
-def partie(rng, nb):
+def tour_passif(rng, f, argent, valeurs, strat):
+    """Un joueur autre que l'actif prend (ou non) un dé du plateau d'argent."""
+    if strat == "enfant":
+        res = choix_enfant(rng, f, argent, valeurs)
+        if res is not None:
+            f.jouer(res[1])
+    else:
+        best = f.meilleur_coup(argent, valeurs)
+        if best is not None and best[0] > 0:
+            f.jouer(best[2])
+
+
+def fin_de_tour_plus1(rng, f, valeurs, strat, manche, m, dernier):
+    """Utilisation éventuelle d'un +1 (un seul par tour) : n'importe lequel des 6 dés."""
+    if f.plus1 <= 0:
+        return
+    if strat == "enfant":
+        tous = [(c, cp) for c in COULEURS for cp in f.coups(c, valeurs[c], valeurs)]
+        if not tous:
+            return
+        choix = rng.choice(tous)[1]
+    else:
+        best = f.meilleur_coup(COULEURS, valeurs, par_plus1=True)
+        if best is None or not (best[0] >= SEUIL_PLUS1 or (manche == m - 1 and best[0] > 0) or dernier):
+            return
+        choix = best[2]
+    f.plus1 -= 1
+    f.stats["P_utilises"] += 1
+    f.jouer(choix, par_plus1=True)
+
+
+def partie(rng, nb, strat):
     feuilles = [Feuille() for _ in range(nb)]
     valeurs = {c: 1 for c in COULEURS}
     tours = 0
@@ -250,34 +335,29 @@ def partie(rng, nb):
     for manche in range(m):
         for a in range(nb):
             tours += 1
-            argent = tour_actif(rng, feuilles[a], valeurs)
+            if tours > m * nb:
+                raise RuntimeError("garde-fou : plus de tours que prévu")
+            argent = tour_actif(rng, feuilles[a], valeurs, strat)
             for p in range(nb):
-                if p == a:
-                    continue
-                best = feuilles[p].meilleur_coup(argent, valeurs)
-                if best is not None and best[0] > 0:
-                    feuilles[p].jouer(best[2])
+                if p != a:
+                    tour_passif(rng, feuilles[p], argent, valeurs, strat)
             dernier = (manche == m - 1 and a == nb - 1)
             for p in range(nb):
-                f = feuilles[p]
-                if f.plus1 > 0:
-                    best = f.meilleur_coup(COULEURS, valeurs, par_plus1=True)
-                    if best is not None and (best[0] >= SEUIL_PLUS1 or (manche == m - 1 and best[0] > 0) or dernier):
-                        f.plus1 -= 1
-                        f.stats["P_utilises"] += 1
-                        f.jouer(best[2], par_plus1=True)
-    terminee = tours == m * nb
-    return feuilles, tours, terminee
+                fin_de_tour_plus1(rng, feuilles[p], valeurs, strat, manche, m, dernier)
+    # comptage réel : chaque feuille doit avoir été joueur actif exactement « m » fois
+    tours_comptes = sum(f.tours_actifs for f in feuilles)
+    terminee = tours_comptes == m * nb and all(f.tours_actifs == m for f in feuilles)
+    return feuilles, tours_comptes, terminee
 
 
-def simuler(nb, rng):
+def simuler(nb, rng, strat):
     totaux, tours_l, fini = [], [], 0
     zs = {z: [] for z in ZONES}
     remp = {z: [] for z in ZONES}
     parts = {z: [] for z in ZONES}
     st = {}
     for _ in range(PARTIES):
-        feuilles, tours, ok = partie(rng, nb)
+        feuilles, tours, ok = partie(rng, nb, strat)
         fini += ok
         tours_l.append(tours)
         for f in feuilles:
@@ -307,19 +387,25 @@ def simuler(nb, rng):
     }
 
 
-def main():
-    rng = random.Random(GRAINE)
-    resultats = [simuler(nb, rng) for nb in (2, 3, 4)]
-    L = []
-    L.append("# Résultats de simulation — variante C (6 dés avec joker)\n")
-    L.append(f"Graine {GRAINE}, {PARTIES} parties par nombre de joueurs, stratégie gloutonne "
-             "(meilleur gain immédiat ou progrès, moins le coût des dés envoyés sur le plateau d'argent).\n")
+NOM_STRAT = {
+    "glouton": "stratégie gloutonne (meilleur gain immédiat ou progrès, moins le coût des dés "
+               "envoyés sur le plateau d'argent ; relances et +1 utilisés quand ils servent)",
+    "enfant": "stratégie « enfant » (aucune relance ; un dé au hasard parmi ceux qui servent, "
+              "placement au hasard ; +1 utilisé sur un coup possible tiré au hasard)",
+}
+
+
+def section(strat, resultats, L):
+    """Ajoute à L la présentation d'une stratégie. Renvoie True si tous les seuils sont OK."""
+    titre = "Stratégie gloutonne" if strat == "glouton" else "Stratégie « enfant »"
+    L.append(f"# {titre}\n")
+    L.append(f"Graine {GRAINE}, {PARTIES} parties par nombre de joueurs, {NOM_STRAT[strat]}.\n")
     L.append("## Résumé par nombre de joueurs\n")
-    L.append("| Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Durée estimée |")
+    L.append("| Joueurs | Manches | Score moyen | Écart-type | Parties terminées | Tours actifs (moy / max) | Tours actifs (critère : × 1 min ≤ 20) |")
     L.append("|---|---|---|---|---|---|---|")
     for r in resultats:
         L.append(f"| {r['nb']} | {MANCHES[r['nb']]} | {r['moy']:.1f} | {r['et']:.1f} | {100*r['fini']:.0f} % "
-                 f"| {r['tours']:.0f} / {r['tours_max']} | {r['tours_max']} min |")
+                 f"| {r['tours']:.0f} / {r['tours_max']} | {r['tours_max']} |")
     L.append("\n## Par zone (remplissage moyen / points moyens / part moyenne du score)\n")
     L.append("| Joueurs | " + " | ".join(z.capitalize() for z in ZONES) + " |")
     L.append("|---|" + "---|" * len(ZONES))
@@ -333,25 +419,41 @@ def main():
         s = r["stats"]
         L.append(f"| {r['nb']} | {s['R_gagnes']:.2f} (+{RELANCES_DE_DEPART} au départ) | {s['R_utilises']:.2f} | "
                  f"{s['P_gagnes']:.2f} | {s['P_utilises']:.2f} | {s['bonus_perdus_chaine']:.2f} | {s['des_inutiles']:.2f} |")
-
     L.append("\n## Vérification des critères\n")
     tout_ok = True
     for r in resultats:
         nb = r["nb"]
+        pmax = max(max(r["part"].values()), max(r["part_glob"].values()))
         checks = [
             (f"C6 {nb} joueurs : ≥ 1 000 parties", PARTIES >= 1000, f"{PARTIES}"),
-            (f"C6 {nb} joueurs : toutes les parties se terminent", r["fini"] == 1.0, f"{100*r['fini']:.0f} %"),
+            (f"C6 {nb} joueurs : toutes les parties se terminent (tours actifs comptés = manches × joueurs)",
+             r["fini"] == 1.0, f"{100*r['fini']:.0f} %"),
             (f"C6 {nb} joueurs : chaque zone ≥ 30 % remplie",
-             min(r["remp"].values()) >= 0.30, f"min {100*min(r['remp'].values()):.0f} %"),
-            (f"C6 {nb} joueurs : durée ≤ 20 min", r["tours_max"] <= 20, f"{r['tours_max']} tours actifs"),
-            (f"C7 {nb} joueurs : aucune zone > 40 % du score",
-             max(max(r["part"].values()), max(r["part_glob"].values())) <= 0.40,
-             f"max {100*max(max(r['part'].values()), max(r['part_glob'].values())):.1f} %"),
+             min(r["remp"].values()) >= 0.30, f"min {100*min(r['remp'].values()):.1f} %"),
+            (f"C6 {nb} joueurs : tours actifs × 1 min ≤ 20", r["tours_max"] <= 20, f"{r['tours_max']} tours actifs"),
+            (f"C7 {nb} joueurs : aucune zone > 40 % du score", pmax <= 0.40, f"max {100*pmax:.1f} %"),
         ]
         for nom, ok, det in checks:
             tout_ok &= ok
             L.append(f"- {'OK' if ok else 'ÉCHEC'} — {nom} ({det})")
-    L.append(f"\n**Bilan : {'OK partout' if tout_ok else 'au moins un ÉCHEC'}**\n")
+    L.append(f"\n**Bilan {strat} : {'OK partout' if tout_ok else 'au moins un ÉCHEC'}**\n")
+    return tout_ok
+
+
+def main():
+    L = ["# Résultats de simulation — variante C (6 dés avec joker)\n"]
+    L.append("Les « tours actifs » sont comptés réellement, feuille par feuille, pendant la simulation. "
+             "La fin de chaque partie est garantie par construction (nombre de manches fixe, au plus "
+             "3 choix par tour) ; le contrôle « parties terminées » vérifie que chaque joueur a bien été "
+             "joueur actif exactement « manches » fois, et un garde-fou (MAX_ITER) lèverait une erreur "
+             "en cas de boucle. La « durée » du critère 6 est exprimée en tours actifs (× 1 min ≤ 20) : "
+             "ce n'est pas une durée mesurée ; avec des enfants de 6-7 ans, comptez plutôt 20 à 30 minutes.\n")
+    bilans = {}
+    for strat in ("glouton", "enfant"):
+        rng = random.Random(GRAINE)
+        resultats = [simuler(nb, rng, strat) for nb in (2, 3, 4)]
+        bilans[strat] = section(strat, resultats, L)
+    L.append(f"**Bilan général : {'OK partout (les deux stratégies)' if all(bilans.values()) else 'au moins un ÉCHEC'}**\n")
     texte = "\n".join(L)
     print(texte)
     chemin = os.path.join(os.path.dirname(os.path.abspath(__file__)), "resultats-simulation.md")
