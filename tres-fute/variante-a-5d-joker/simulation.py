@@ -14,6 +14,7 @@ Implémente exactement les règles de regles.md :
   qu'il vient de lancer ; plusieurs Relances de suite sont permises.
 - Un bonus gagné pendant un tour sert dès ce tour ; une zone pleine n'accepte plus de dé.
 - Manches : 2 joueurs = 6, 3 joueurs = 5, 4 joueurs = 4.
+- Points jaunes : 1 point par case cochée + 10 points par colonne complète.
 
 Deux stratégies sont simulées :
 - « gloutonne » : le choix qui rapporte le plus de points immédiats ou de progrès ;
@@ -42,6 +43,7 @@ JAUNE_GRILLE = [
 ]
 JAUNE_BONUS_LIGNE = ["relance", "plus1", "relance"]  # ligne complète -> bonus
 JAUNE_POINTS_COLONNE = [10, 10, 10, 10]                # colonne complète -> points
+JAUNE_POINTS_CASE = 1                                  # chaque case cochée -> 1 point
 
 # Vert : on coche de gauche à droite ; le dé doit être >= au nombre de la case.
 VERT_SEUILS = [1, 2, 3, 4, 1, 2, 3, 5]
@@ -185,8 +187,9 @@ class Feuille:
     # ---- décompte final (fait par l'adulte)
     def scores(self):
         nl, nc = len(JAUNE_GRILLE), len(JAUNE_GRILLE[0])
-        jaune = sum(JAUNE_POINTS_COLONNE[c] for c in range(nc)
-                    if all(self.jaune[r][c] for r in range(nl)))
+        jaune = JAUNE_POINTS_CASE * sum(sum(l) for l in self.jaune)
+        jaune += sum(JAUNE_POINTS_COLONNE[c] for c in range(nc)
+                     if all(self.jaune[r][c] for r in range(nl)))
         vert = VERT_POINTS[self.vert - 1] if self.vert else 0
         return {"jaune": jaune, "vert": vert,
                 "orange": sum(self.orange), "violet": sum(self.violet)}
@@ -365,6 +368,8 @@ def simuler(strat):
         remp = {z: [] for z in ZONES}
         part = {z: [] for z in ZONES}
         pts = {z: [] for z in ZONES}
+        jaune_zero = []
+        jaune_sans_colonne = []
         bstats = {k: [] for k in ["relance_gagnee", "relance_utilisee",
                                   "plus1_gagne", "plus1_utilise", "bonus_perdu"]}
         for _ in range(PARTIES):
@@ -380,6 +385,10 @@ def simuler(strat):
                     remp[z].append(r[z])
                     pts[z].append(s[z])
                     part[z].append(s[z] / total if total else 0.0)
+                jaune_zero.append(s["jaune"] == 0)
+                jaune_sans_colonne.append(
+                    not any(all(f.jaune[r][c] for r in range(len(JAUNE_GRILLE)))
+                            for c in range(len(JAUNE_GRILLE[0]))))
                 for k in bstats:
                     bstats[k].append(f.stats[k])
         resultats[n] = {
@@ -391,6 +400,8 @@ def simuler(strat):
             "remp": {z: moyenne(remp[z]) for z in ZONES},
             "pts": {z: moyenne(pts[z]) for z in ZONES},
             "part": {z: moyenne(part[z]) for z in ZONES},
+            "jaune_zero": 100.0 * moyenne(jaune_zero),
+            "jaune_sans_colonne": 100.0 * moyenne(jaune_sans_colonne),
             "bonus": {k: moyenne(v) for k, v in bstats.items()},
         }
     return resultats
@@ -455,6 +466,9 @@ def rapport(tous):
         for z in ZONES:
             ligne(f"Points {z} (part du score)",
                   lambda r, n, z=z: f"{r['pts'][z]:.1f} ({100*r['part'][z]:.0f} %)")
+        ligne("Feuilles à 0 point en jaune", lambda r, n: f"{r['jaune_zero']:.1f} %")
+        ligne("Feuilles sans aucune colonne jaune complète (0 point de colonne)",
+              lambda r, n: f"{r['jaune_sans_colonne']:.1f} %")
         noms = {"relance_gagnee": "Relances gagnées", "relance_utilisee": "Relances utilisées",
                 "plus1_gagne": "+1 gagnés", "plus1_utilise": "+1 utilisés",
                 "bonus_perdu": "Bonus perdus (case remplie avec un +1)"}

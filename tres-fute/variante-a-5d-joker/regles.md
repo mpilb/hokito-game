@@ -21,13 +21,13 @@ La feuille (une page A4, imprimée en un exemplaire par joueur) contient :
 | Partie de la feuille | Où | Ce qu'on y fait |
 |---|---|---|
 | **Prénom** | en haut à droite | On écrit son prénom. Le rappel « dé blanc = joker » est écrit sous le titre. |
-| **Zone JAUNE** : grille de 3 lignes × 4 colonnes, un symbole de bonus au bout de chaque ligne, « 10 » sous chaque colonne | en haut à gauche | On coche des nombres (section 5.1). |
+| **Zone JAUNE** : grille de 3 lignes × 4 colonnes, un symbole de bonus au bout de chaque ligne, « 10 » sous chaque colonne ; rappel « case cochée : 1 point · colonne complète : +10 » | en haut à gauche | On coche des nombres (section 5.1). |
 | **Manches** : 6 cases numérotées, avec « fin à 4 / 3 / 2 joueurs » sous les cases 4, 5 et 6 | en haut à droite | On coche une case à la fin de chaque manche (section 7). |
 | **Mes bonus** : 6 ronds **Relance** et 4 ronds **+1**, avec le rappel « dé pris avec un +1 : pas de bonus » | sous les manches | On colorie un rond quand on gagne un bonus, on le barre quand on l'utilise (section 6). |
 | **Zone VERTE** : 8 cases « 1 ou + », « 2 ou + »…, des points sous chaque case | au milieu | On coche de gauche à droite (section 5.2). |
 | **Zone ORANGE** : 7 cases vides | au milieu | On écrit des nombres de gauche à droite (section 5.3). |
 | **Zone VIOLETTE** : 8 cases vides séparées par des « < », avec le rappel « après un 6 : on recommence » | en bas | On écrit des nombres de plus en plus grands (section 5.4). |
-| **Décompte** : 5 cases (Jaune + Vert + Orange + Violet = Total) | tout en bas | L'adulte écrit les points de chaque zone et le total (section 8). |
+| **Décompte** : 5 cases (Jaune + Vert + Orange + Violet = Total) ; sous Jaune : « cases cochées + 10 par colonne » | tout en bas | L'adulte écrit les points de chaque zone et le total (section 8). |
 
 Dans les zones verte, orange et violette, un **symbole de bonus** (flèche qui tourne = Relance, « +1 ») est dessiné **au-dessus** de certaines cases.
 
@@ -97,10 +97,11 @@ Une grille de 3 lignes et 4 colonnes. Chaque case porte un nombre de 1 à 6 (cha
 
 - **Règle** : avec un dé jaune (ou le blanc), on **coche une case qui porte exactement le même nombre** que le dé. Une seule case par dé. Si les deux cases de ce nombre sont déjà cochées, le dé ne sert à rien en jaune.
 - **Bonus de ligne** : quand les 4 cases d'une **ligne** sont cochées, on gagne le bonus dessiné au bout de la ligne (ligne 1 : Relance ; ligne 2 : +1 ; ligne 3 : Relance).
-- **Points de colonne** : chaque **colonne** dont les 3 cases sont cochées rapporte **10 points** (le « 10 » est écrit sous chaque colonne).
+- **Points** : à la fin, chaque **case cochée** rapporte **1 point**, et chaque **colonne** dont les 3 cases sont cochées rapporte en plus **10 points** (le « 10 » est écrit sous chaque colonne). Zone jaune = nombre de cases cochées + 10 × nombre de colonnes complètes (maximum 12 + 40 = 52).
 
 > **Exemple.** Tom prend le jaune 4. Dans sa grille, il y a un 4 en ligne 1 et un 4 en ligne 3 : il en coche un, au choix. S'il coche celui de la ligne 1 et que les trois autres cases de cette ligne (1, 2, 3) sont déjà cochées, la ligne 1 est complète : il gagne une Relance.
-> Autre cas : s'il coche le 4 de la ligne 3 (2e colonne) alors que le 2 de la ligne 1 et le 6 de la ligne 2 (les deux autres cases de la 2e colonne) sont déjà cochés, la 2e colonne est complète : elle lui rapportera **10 points** à la fin.
+> Autre cas : s'il coche le 4 de la ligne 3 (2e colonne) alors que le 2 de la ligne 1 et le 6 de la ligne 2 (les deux autres cases de la 2e colonne) sont déjà cochés, la 2e colonne est complète : elle lui rapportera **10 points** à la fin, en plus du point de chacune de ses 3 cases cochées.
+> Exemple de points : à la fin de la partie, Tom a 7 cases cochées, dont 2 colonnes complètes. Sa zone jaune vaut 7 (une par case cochée) + 20 (2 colonnes × 10) = **27 points**. S'il n'avait coché que 4 cases sans colonne complète, il aurait 4 points.
 
 ### 5.2 Zone VERTE — « Assez grand ? »
 
@@ -147,10 +148,10 @@ On gagne un bonus quand on remplit une case qui a un symbole de bonus dessiné j
 
 ### 6.2 +1 — un dé en plus (4 ronds)
 
-- **À la fin de chaque tour** (le sien ou celui d'un autre joueur), quand tout le monde a joué : on barre un rond +1 colorié et on **utilise un des 5 dés posés sur la table**, n'importe lequel (ceux choisis par le joueur actif ou ceux du plateau d'argent), avec sa valeur actuelle. On peut même reprendre **un dé qu'on a déjà utilisé soi-même pendant ce tour** (le joueur actif peut reprendre un de ses dés, un joueur passif le dé du plateau qu'il a pris).
+- **À la fin de chaque tour** (le sien ou celui d'un autre joueur), quand tout le monde a joué : on barre un rond +1 colorié et on **utilise un des 5 dés posés sur la table**, n'importe lequel (ceux choisis par le joueur actif ou ceux du plateau d'argent), avec sa valeur actuelle. **On lit la valeur du dé sans le déplacer** : plusieurs joueurs peuvent utiliser un +1 sur le même dé. On peut même reprendre **un dé qu'on a déjà utilisé soi-même pendant ce tour** (le joueur actif peut reprendre un de ses dés, un joueur passif le dé du plateau qu'il a pris).
 - **La règle de couleur s'applique** : le dé va dans la zone de sa couleur, et le dé blanc reste un joker (il va dans la zone de son choix).
 - **Un seul +1 par joueur et par tour.**
-- **Une case remplie grâce à un +1 ne donne pas de bonus** : si elle a un symbole de bonus (ou si elle complète une ligne jaune), on barre ce symbole sur la feuille, sans colorier de rond. Ainsi un bonus ne déclenche jamais un autre bonus. Les **points** (par exemple les 10 points d'une colonne jaune) comptent normalement.
+- **Une case remplie grâce à un +1 ne donne pas de bonus** : si elle a un symbole de bonus (ou si elle complète une ligne jaune), on barre ce symbole sur la feuille, sans colorier de rond. Ainsi un bonus ne déclenche jamais un autre bonus. Les **points** (le point de la case jaune cochée, les 10 points d'une colonne jaune) comptent normalement.
 
 > **Exemple (suite de 4.1 et 4.2).** Fin du tour de Léa. Sur la table : jaune 5 et violet 3 devant Léa ; blanc 2, vert 4 et orange 1 sur le plateau d'argent.
 > Tom a un +1 colorié. En violet, il a déjà écrit 6, 1, 2. Il barre son +1 et prend le violet 3 choisi par Léa : 3 est plus grand que 2, il l'écrit dans sa 4e case violette. Cette case a un symbole +1 : comme il l'a remplie grâce à un +1, il barre le symbole et ne gagne rien.
@@ -166,7 +167,7 @@ L'adulte remplit l'encadré **Décompte** en bas de chaque feuille :
 
 | Ligne du décompte | Comment compter |
 |---|---|
-| **Jaune** | 10 points par colonne entièrement cochée (0, 10, 20, 30 ou 40). |
+| **Jaune** | 1 point par case cochée, plus 10 points par colonne entièrement cochée : on compte les cases cochées (0 à 12), puis on ajoute 10 par colonne complète (0, 10, 20, 30 ou 40). |
 | **Vert** | Le nombre écrit sous la dernière case verte cochée (0 si aucune). |
 | **Orange** | La somme des nombres écrits en orange. |
 | **Violet** | La somme des nombres écrits en violet. |
@@ -174,7 +175,7 @@ L'adulte remplit l'encadré **Décompte** en bas de chaque feuille :
 
 Le joueur qui a le plus grand total gagne. En cas d'égalité, les joueurs à égalité gagnent ensemble.
 
-> **Exemple de décompte.** Jaune : 2 colonnes complètes = 20. Vert : dernière case cochée = la 5e, sous laquelle est écrit 16. Orange : 6 + 5 + 3 + 4 + 6 + 2 = 26. Violet : 2 + 4 + 6 + 3 + 5 = 20. Total : 20 + 16 + 26 + 20 = **82**.
+> **Exemple de décompte.** Jaune : 7 cases cochées = 7, plus 2 colonnes complètes = 20, soit 7 + 20 = 27. Vert : dernière case cochée = la 5e, sous laquelle est écrit 16. Orange : 6 + 5 + 3 + 4 + 6 + 2 = 26. Violet : 2 + 4 + 6 + 3 + 5 = 20. Total : 27 + 16 + 26 + 20 = **89**.
 
 ## Conseils pour l'adulte
 
@@ -182,6 +183,7 @@ Le joueur qui a le plus grand total gagne. En cas d'égalité, les joueurs à é
 - **Pendant la première partie, faites trier à voix haute** les dés plus petits que le dé choisi vers le plateau d'argent (« le 4 est plus petit que 5 : il va sur le plateau »). C'est l'étape qui demande le plus d'attention au début.
 - **Prévenez les enfants qu'un gros dé choisi tôt envoie beaucoup de dés sur le plateau** et raccourcit le tour : avec un 6, tous les dés qui ne sont pas des 6 partent sur le plateau, et il reste peu (ou plus) de dés à lancer.
 - **Rappelez l'exception du +1** : un dé pris avec un +1 ne donne pas de bonus (on barre le symbole sur la feuille, sans colorier de rond). Les points, eux, comptent.
+- **Proposez la relance à voix haute** : « Tu as une relance, tu veux relancer ? » Les enfants oublient qu'ils en ont une.
 - **Rappelez « si tu peux, tu dois »** quand un enfant hésite à cocher : un dé utilisable doit être utilisé (voir 4.4).
 - **Faites le décompte avec l'enfant** en suivant l'encadré de la feuille, zone par zone.
 
@@ -192,6 +194,6 @@ Le joueur qui a le plus grand total gagne. En cas d'égalité, les joueurs à é
 - **4 zones gardées : jaune, vert, orange, violet. Zone bleue retirée.** Le bleu est la seule zone qui demande d'additionner deux dés (bleu + blanc) et un barème « points selon le nombre de cases » à lire dans un tableau ; c'est aussi elle qui donne au dé blanc un double rôle (joker *et* partie de la somme bleue), ce qui brouille l'idée simple « blanc = n'importe quelle couleur ». Les quatre zones restantes correspondent chacune à un geste différent, facile à nommer pour un enfant : **trouver** (jaune), **comparer** (vert), **écrire** (orange), **monter** (violet).
 - **Zones raccourcies** : grille jaune 3×4 au lieu de 4×4 sans case pré-cochée, 8 cases vertes, 7 cases orange et 8 cases violettes, pour qu'un enfant voie ses zones bien se remplir. L'orange (7 cases) et le violet (8 cases) ont été raccourcis après une simulation où l'on joue au hasard parmi les coups possibles : avec 10 cases chacun, l'orange, qui accepte tous les dés, faisait plus de 40 % du score, et le violet n'était rempli qu'à 30 %.
 - **Supprimés** : renards, cases ×2/×3 en orange, bonus qui cochent une case ailleurs et chaînes de bonus, diagonale jaune, bonus de manche. Seuls restent les deux bonus les plus parlants (Relance et +1), avec une règle qui empêche tout enchaînement (une case remplie grâce à un +1 ne donne pas de bonus) et au plus un +1 par tour pour garder le rythme.
-- **Points simples** : 10 points fixes par colonne jaune, une échelle écrite sous la zone verte, des sommes en orange et violet. L'adulte fait les additions à la fin.
+- **Points simples** : 1 point par case cochée en jaune, plus 10 points fixes par colonne jaune complète (avec les seuls points de colonne, 47 à 55 % des feuilles « enfant » n'avaient aucune colonne complète, donc 0 point en jaune, malgré 6 à 7 cases cochées en moyenne ; avec le point par case, plus aucune feuille n'est à 0), une échelle écrite sous la zone verte, des sommes en orange et violet. L'adulte fait les additions à la fin.
 - **Cœur du jeu inchangé** : 3 choix au maximum, dés plus petits sur le plateau d'argent, joueurs passifs qui piochent sur le plateau, même nombre de manches que l'original (6, 5 ou 4).
-- **Équilibre vérifié par `simulation.py`** avec deux façons de jouer, à 2, 3 et 4 joueurs : un joueur « malin » (stratégie gloutonne) et un joueur « enfant » qui n'utilise jamais de Relance et prend au hasard un dé et une case possibles. Avec le joueur malin, chaque zone rapporte entre 19 % et 31 % du score moyen (environ 70 points) et est remplie à 50 % au moins ; avec le joueur enfant, entre 10 % (jaune) et 38 % (orange) du score moyen (environ 50 points), chaque zone remplie à 38 % au moins. Aucune zone ne dépasse 40 % du score ; voir `resultats-simulation.md`.
+- **Équilibre vérifié par `simulation.py`** avec deux façons de jouer, à 2, 3 et 4 joueurs : un joueur « malin » (stratégie gloutonne) et un joueur « enfant » qui n'utilise jamais de Relance et prend au hasard un dé et une case possibles. Avec le joueur malin, chaque zone rapporte entre 17 % et 32 % du score moyen (environ 78 points : de 76 à 81 selon le nombre de joueurs) et est remplie à 50 % au moins ; avec le joueur enfant, entre 20 % (jaune et violet) et 34 % (orange) du score moyen (environ 58 points : de 57 à 60), chaque zone remplie à 38 % au moins, et aucune feuille à 0 point en jaune. Aucune zone ne dépasse 40 % du score ; voir `resultats-simulation.md`.

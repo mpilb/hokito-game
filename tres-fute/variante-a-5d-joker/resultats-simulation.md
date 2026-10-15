@@ -14,18 +14,20 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 | | 2 joueurs | 3 joueurs | 4 joueurs |
 |---|---|---|---|
 | Manches | 6 | 5 | 4 |
-| Score moyen (écart-type) | 69.5 (10.4) | 72.8 (11.1) | 68.3 (11.6) |
-| Score min / max | 41 / 104 | 38 / 113 | 28 / 104 |
+| Score moyen (écart-type) | 77.7 (10.5) | 81.0 (11.2) | 76.1 (11.6) |
+| Score min / max | 48 / 115 | 45 / 120 | 35 / 110 |
 | Parties terminées (tours actifs = manches × joueurs) | 100 % | 100 % | 100 % |
 | Tours actifs (critère : × 1 min ≤ 20) | 12 | 15 | 16 |
 | Remplissage jaune | 68 % | 68 % | 64 % |
 | Remplissage vert | 50 % | 57 % | 57 % |
 | Remplissage orange | 69 % | 79 % | 82 % |
 | Remplissage violet | 62 % | 62 % | 58 % |
-| Points jaune (part du score) | 16.5 (24 %) | 16.0 (22 %) | 13.8 (20 %) |
-| Points vert (part du score) | 13.8 (19 %) | 16.7 (22 %) | 16.6 (23 %) |
-| Points orange (part du score) | 17.9 (26 %) | 19.3 (27 %) | 19.1 (29 %) |
-| Points violet (part du score) | 21.3 (31 %) | 20.8 (29 %) | 19.0 (28 %) |
+| Points jaune (part du score) | 24.7 (32 %) | 24.2 (30 %) | 21.5 (28 %) |
+| Points vert (part du score) | 13.8 (17 %) | 16.7 (20 %) | 16.6 (21 %) |
+| Points orange (part du score) | 17.9 (23 %) | 19.3 (24 %) | 19.1 (26 %) |
+| Points violet (part du score) | 21.3 (28 %) | 20.8 (26 %) | 19.0 (25 %) |
+| Feuilles à 0 point en jaune | 0.0 % | 0.0 % | 0.0 % |
+| Feuilles sans aucune colonne jaune complète (0 point de colonne) | 11.0 % | 13.4 % | 17.2 % |
 | Relances gagnées (par joueur et par partie) | 2.69 | 3.02 | 2.94 |
 | Relances utilisées (par joueur et par partie) | 1.64 | 1.70 | 1.42 |
 | +1 gagnés (par joueur et par partie) | 1.73 | 1.95 | 1.88 |
@@ -41,10 +43,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 2 joueurs : remplissage vert 50 % >= 30 %
 - **OK** — 2 joueurs : remplissage orange 69 % >= 30 %
 - **OK** — 2 joueurs : remplissage violet 62 % >= 30 %
-- **OK** — 2 joueurs : part du score jaune 24 % <= 40 %
-- **OK** — 2 joueurs : part du score vert 19 % <= 40 %
-- **OK** — 2 joueurs : part du score orange 26 % <= 40 %
-- **OK** — 2 joueurs : part du score violet 31 % <= 40 %
+- **OK** — 2 joueurs : part du score jaune 32 % <= 40 %
+- **OK** — 2 joueurs : part du score vert 17 % <= 40 %
+- **OK** — 2 joueurs : part du score orange 23 % <= 40 %
+- **OK** — 2 joueurs : part du score violet 28 % <= 40 %
 - **OK** — 3 joueurs : 1000 parties jouées (>= 1000)
 - **OK** — 3 joueurs : 100 % des parties terminées avec exactement 5 x 3 = 15 tours actifs
 - **OK** — 3 joueurs : 15 tours actifs (critère : x 1 min <= 20)
@@ -52,10 +54,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 3 joueurs : remplissage vert 57 % >= 30 %
 - **OK** — 3 joueurs : remplissage orange 79 % >= 30 %
 - **OK** — 3 joueurs : remplissage violet 62 % >= 30 %
-- **OK** — 3 joueurs : part du score jaune 22 % <= 40 %
-- **OK** — 3 joueurs : part du score vert 22 % <= 40 %
-- **OK** — 3 joueurs : part du score orange 27 % <= 40 %
-- **OK** — 3 joueurs : part du score violet 29 % <= 40 %
+- **OK** — 3 joueurs : part du score jaune 30 % <= 40 %
+- **OK** — 3 joueurs : part du score vert 20 % <= 40 %
+- **OK** — 3 joueurs : part du score orange 24 % <= 40 %
+- **OK** — 3 joueurs : part du score violet 26 % <= 40 %
 - **OK** — 4 joueurs : 1000 parties jouées (>= 1000)
 - **OK** — 4 joueurs : 100 % des parties terminées avec exactement 4 x 4 = 16 tours actifs
 - **OK** — 4 joueurs : 16 tours actifs (critère : x 1 min <= 20)
@@ -63,10 +65,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 4 joueurs : remplissage vert 57 % >= 30 %
 - **OK** — 4 joueurs : remplissage orange 82 % >= 30 %
 - **OK** — 4 joueurs : remplissage violet 58 % >= 30 %
-- **OK** — 4 joueurs : part du score jaune 20 % <= 40 %
-- **OK** — 4 joueurs : part du score vert 23 % <= 40 %
-- **OK** — 4 joueurs : part du score orange 29 % <= 40 %
-- **OK** — 4 joueurs : part du score violet 28 % <= 40 %
+- **OK** — 4 joueurs : part du score jaune 28 % <= 40 %
+- **OK** — 4 joueurs : part du score vert 21 % <= 40 %
+- **OK** — 4 joueurs : part du score orange 26 % <= 40 %
+- **OK** — 4 joueurs : part du score violet 25 % <= 40 %
 
 **Bilan gloutonne : OK partout.**
 
@@ -75,18 +77,20 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 | | 2 joueurs | 3 joueurs | 4 joueurs |
 |---|---|---|---|
 | Manches | 6 | 5 | 4 |
-| Score moyen (écart-type) | 50.4 (10.1) | 53.4 (10.7) | 50.3 (10.8) |
-| Score min / max | 22 / 82 | 22 / 90 | 21 / 98 |
+| Score moyen (écart-type) | 56.8 (10.2) | 60.4 (10.8) | 57.2 (11.0) |
+| Score min / max | 28 / 91 | 30 / 97 | 27 / 110 |
 | Parties terminées (tours actifs = manches × joueurs) | 100 % | 100 % | 100 % |
 | Tours actifs (critère : × 1 min ≤ 20) | 12 | 15 | 16 |
 | Remplissage jaune | 54 % | 58 % | 58 % |
 | Remplissage vert | 55 % | 58 % | 56 % |
 | Remplissage orange | 87 % | 93 % | 93 % |
 | Remplissage violet | 39 % | 41 % | 38 % |
-| Points jaune (part du score) | 5.3 (10 %) | 6.6 (12 %) | 6.3 (12 %) |
-| Points vert (part du score) | 14.2 (28 %) | 15.7 (29 %) | 14.7 (29 %) |
-| Points orange (part du score) | 18.7 (38 %) | 18.5 (36 %) | 17.9 (37 %) |
-| Points violet (part du score) | 12.1 (24 %) | 12.5 (24 %) | 11.4 (23 %) |
+| Points jaune (part du score) | 11.8 (20 %) | 13.7 (22 %) | 13.2 (23 %) |
+| Points vert (part du score) | 14.2 (25 %) | 15.7 (25 %) | 14.7 (25 %) |
+| Points orange (part du score) | 18.7 (34 %) | 18.5 (31 %) | 17.9 (32 %) |
+| Points violet (part du score) | 12.1 (21 %) | 12.5 (21 %) | 11.4 (20 %) |
+| Feuilles à 0 point en jaune | 0.0 % | 0.0 % | 0.0 % |
+| Feuilles sans aucune colonne jaune complète (0 point de colonne) | 55.1 % | 46.8 % | 49.6 % |
 | Relances gagnées (par joueur et par partie) | 2.45 | 2.73 | 2.72 |
 | Relances utilisées (par joueur et par partie) | 0.00 | 0.00 | 0.00 |
 | +1 gagnés (par joueur et par partie) | 1.44 | 1.63 | 1.53 |
@@ -102,10 +106,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 2 joueurs : remplissage vert 55 % >= 30 %
 - **OK** — 2 joueurs : remplissage orange 87 % >= 30 %
 - **OK** — 2 joueurs : remplissage violet 39 % >= 30 %
-- **OK** — 2 joueurs : part du score jaune 10 % <= 40 %
-- **OK** — 2 joueurs : part du score vert 28 % <= 40 %
-- **OK** — 2 joueurs : part du score orange 38 % <= 40 %
-- **OK** — 2 joueurs : part du score violet 24 % <= 40 %
+- **OK** — 2 joueurs : part du score jaune 20 % <= 40 %
+- **OK** — 2 joueurs : part du score vert 25 % <= 40 %
+- **OK** — 2 joueurs : part du score orange 34 % <= 40 %
+- **OK** — 2 joueurs : part du score violet 21 % <= 40 %
 - **OK** — 3 joueurs : 1000 parties jouées (>= 1000)
 - **OK** — 3 joueurs : 100 % des parties terminées avec exactement 5 x 3 = 15 tours actifs
 - **OK** — 3 joueurs : 15 tours actifs (critère : x 1 min <= 20)
@@ -113,10 +117,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 3 joueurs : remplissage vert 58 % >= 30 %
 - **OK** — 3 joueurs : remplissage orange 93 % >= 30 %
 - **OK** — 3 joueurs : remplissage violet 41 % >= 30 %
-- **OK** — 3 joueurs : part du score jaune 12 % <= 40 %
-- **OK** — 3 joueurs : part du score vert 29 % <= 40 %
-- **OK** — 3 joueurs : part du score orange 36 % <= 40 %
-- **OK** — 3 joueurs : part du score violet 24 % <= 40 %
+- **OK** — 3 joueurs : part du score jaune 22 % <= 40 %
+- **OK** — 3 joueurs : part du score vert 25 % <= 40 %
+- **OK** — 3 joueurs : part du score orange 31 % <= 40 %
+- **OK** — 3 joueurs : part du score violet 21 % <= 40 %
 - **OK** — 4 joueurs : 1000 parties jouées (>= 1000)
 - **OK** — 4 joueurs : 100 % des parties terminées avec exactement 4 x 4 = 16 tours actifs
 - **OK** — 4 joueurs : 16 tours actifs (critère : x 1 min <= 20)
@@ -124,10 +128,10 @@ Généré par `simulation.py` (graine 20261015, 1000 parties par nombre de joueu
 - **OK** — 4 joueurs : remplissage vert 56 % >= 30 %
 - **OK** — 4 joueurs : remplissage orange 93 % >= 30 %
 - **OK** — 4 joueurs : remplissage violet 38 % >= 30 %
-- **OK** — 4 joueurs : part du score jaune 12 % <= 40 %
-- **OK** — 4 joueurs : part du score vert 29 % <= 40 %
-- **OK** — 4 joueurs : part du score orange 37 % <= 40 %
-- **OK** — 4 joueurs : part du score violet 23 % <= 40 %
+- **OK** — 4 joueurs : part du score jaune 23 % <= 40 %
+- **OK** — 4 joueurs : part du score vert 25 % <= 40 %
+- **OK** — 4 joueurs : part du score orange 32 % <= 40 %
+- **OK** — 4 joueurs : part du score violet 20 % <= 40 %
 
 **Bilan enfant : OK partout.**
 
